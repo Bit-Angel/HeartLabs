@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "proyecto-final-dcd3b"
+  },
+  "targets": {
+    "proyecto-final-dcd3b": {
+      "hosting": {
+        "proyectoFinal": [
+          "proyecto-final-dcd3b"
+        ]
+      }
+    }
+  }
+}
