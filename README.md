@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ProyectoFinal
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.6.
@@ -25,3 +26,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+=======
+# HeartLabs
+Laboratorio de estudios clínicos, proyecto realizado en Angular. Uso de herramientas como NodeJS, Firebase, APIs, entre otras.  
+>>>>>>> 01562eeb926b4405a2efc03aec862db02df6f06b
