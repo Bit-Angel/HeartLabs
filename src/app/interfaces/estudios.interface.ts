@@ -1,5 +1,6 @@
 export default interface Estudio {
     id?:string;
+    img:string;
     nombreEstudio:string;
     idEstudio:string;
     descripcion:string;

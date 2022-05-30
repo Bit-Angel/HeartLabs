@@ -1,11 +1,16 @@
-<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-    <div class="">
-        <label class="form-label">Correo</label>
-        <input type="email" class="form-control" formControlName="email">
+<div class="container">
+    <div class="card">
+        <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+            <div class="">
+                <label class="form-label">Correo</label>
+                <input type="email" class="form-control" formControlName="email">
+            </div>
+            <div class="">
+                <label class="form-label">Contraseña</label>
+                <input type="password" class="form-control" formControlName="password">
+            </div>
+            <input type="submit" value="Enviar">
+        </form>
+        <a routerLink="/registerUser">No tienes una cuenta? Crea una</a>
     </div>
-    <div class="">
-        <label class="form-label">Constraseña</label>
-        <input type="password" class="form-control" formControlName="password">
-    </div>
-    <input type="submit" value="Enviar">
-</form>
+</div>

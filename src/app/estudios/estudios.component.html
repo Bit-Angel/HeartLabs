@@ -1,0 +1,17 @@
+<div class="container">
+    <h1 class="text-center">NUESTROS ESTUDIOS</h1>
+  
+    <div class="card-columns">
+      <div class="card" *ngFor="let h of misEstudios, let i=index">
+        <img src={{h.img}} class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{h.nombreEstudio}}</h5>
+          <p class="card-text"><small class="text-muted">ID: {{h.idEstudio}}</small></p>
+          <p class="card-text estudiosDescripcion"> {{h.descripcion}}</p>
+          <p class="card-text text-right"> <strong>{{h.precio | currency}}</strong> </p>
+        </div>
+        <a [routerLink]="['/estudios',i]" class="mb-3 btn btn-outline-primary btn-block">Ver Mas</a>
+      </div>
+    </div>
+  </div>
+  

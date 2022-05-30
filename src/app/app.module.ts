@@ -18,6 +18,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { PhoneComponent } from './phone/phone.component';
 import { MainRootComponent } from './main-root/main-root.component';
+import { EstudiosComponent } from './estudios/estudios.component';
+import { UnEstudioComponent } from './un-estudio/un-estudio.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { PreguntasComponent } from './preguntas/preguntas.component';
+import { ConocenosComponent } from './conocenos/conocenos.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +34,12 @@ import { MainRootComponent } from './main-root/main-root.component';
     MainDocComponent,
     HomeComponent,
     PhoneComponent,
-    MainRootComponent
+    MainRootComponent,
+    EstudiosComponent,
+    UnEstudioComponent,
+    NavBarComponent,
+    PreguntasComponent,
+    ConocenosComponent
   ],
   imports: [
     BrowserModule,

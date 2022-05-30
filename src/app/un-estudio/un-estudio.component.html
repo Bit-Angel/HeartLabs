@@ -1,0 +1,20 @@
+<h1 class="animated fadeIn">{{estudio.nombreEstudio}}</h1>
+
+<hr>
+<div class="row animated fadeIn fast">
+  <div class="col md-4 text-center">
+    <img width="300px" src="{{estudio.img}}" alt="" class="img-fluid mb-3">
+
+    <a [routerLink]="['/registro']" class="btn btn-outline-primary btn-block">Agendar una cita</a>
+    <a [routerLink]="['/estudios']" class="btn btn-outline-secondary btn-block">Regresar</a>
+  </div>
+  <div class="col md-8">
+    <small>ID: {{estudio.idEstudio}}</small>
+    <h6>{{estudio.precio | currency}}</h6>
+    <hr>
+    <p>Proceso:</p>
+    <p>
+      {{estudio.descripcion}}
+    </p>
+  </div>
+</div>
