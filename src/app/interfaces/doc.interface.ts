@@ -6,6 +6,6 @@ export default interface Doc {
     password:string;
     phone:string;
     cedule:string;
-    typeOfAnalisys: string [];
+    plaza: string;
     patients:string [];
 }

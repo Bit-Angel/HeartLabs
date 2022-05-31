@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { collectionData, Firestore } from '@angular/fire/firestore';
+import { collectionData, Firestore, updateDoc } from '@angular/fire/firestore';
 import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, query, where } from '@firebase/firestore';
 import { Observable, retry } from 'rxjs';
 import User from '../interfaces/user.interface';
@@ -39,6 +39,7 @@ export class FirebaseService {
     const q = query(placeRef, where("email","==",email));
     return getDocs(q);
   }
+
   getRoot(email:any){
     const placeRef = collection(this.firestore, 'root');
     const q = query(placeRef, where("email","==",email));
@@ -52,6 +53,11 @@ export class FirebaseService {
   getDocPhone(phone:any){
     const placeRef = collection(this.firestore, 'doctors');
     const q = query(placeRef, where("phone","==",phone));
+    return getDocs(q);
+  }
+  getPlazas(plaza:any){
+    const placeRef = collection(this.firestore, 'estudios');
+    const q = query(placeRef, where("plaza","==",plaza));
     return getDocs(q);
   }
   logout() {

@@ -5,7 +5,7 @@
   <div class="col md-4 text-center">
     <img width="300px" src="{{estudio.img}}" alt="" class="img-fluid mb-3">
 
-    <a [routerLink]="['/registro']" class="btn btn-outline-primary btn-block">Agendar una cita</a>
+    <a (click)="formulario=true" class="btn btn-outline-primary btn-block">Agendar una cita</a>
     <a [routerLink]="['/estudios']" class="btn btn-outline-secondary btn-block">Regresar</a>
   </div>
   <div class="col md-8">
@@ -17,4 +17,9 @@
       {{estudio.descripcion}}
     </p>
   </div>
+</div>
+
+<div *ngIf="formulario">
+   <input [(ngModel)]="cita" type="datetime-local">
+   <button (click)="agendarCita()">Agendar</button>
 </div>

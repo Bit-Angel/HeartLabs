@@ -10,7 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UnEstudioComponent implements OnInit {
   @Input() estudio!: Estudio;
-
+  cita:string;
+  formulario:boolean;
   constructor(public estudiosService:EstudiosService, public activatedRoute:ActivatedRoute) {
     this.activatedRoute.params.subscribe ( params => {
       this.estudio=estudiosService.getUnEstudio(params['id']);
@@ -18,6 +19,14 @@ export class UnEstudioComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  }
+
+  agendarCita(){
+    console.log(this.estudio);
+    console.log(this.cita);
+    this.estudio.fecha =this.cita;
+    
+
   }
 
 }

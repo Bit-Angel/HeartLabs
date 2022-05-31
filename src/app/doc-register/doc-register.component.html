@@ -23,5 +23,11 @@
         <label class="form-label">Cedula Profesional</label>
         <input type="text" class="form-control" formControlName="cedule">
     </div>
+    <div class="">
+        <label class="form-label">Plaza</label>
+        <select name="" id="" formControlName="plaza"> 
+            <option *ngFor="let plaza of plazasDisponibles" value="{{plaza.idEstudio}}">{{plaza.idEstudio}}</option>
+        </select>
+    </div>
     <input type="submit" value="Enviar">
 </form>

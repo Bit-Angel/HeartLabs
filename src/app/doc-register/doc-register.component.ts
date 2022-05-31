@@ -11,6 +11,7 @@ import { FirebaseService } from '../services/firebase.service';
 export class DocRegisterComponent implements OnInit {
   formulario: FormGroup;
   doctor:Doc;
+  plazasDisponibles:any[]=[];
 
   constructor(private regiserDoc: FirebaseService, private router: Router) { 
     this.formulario = new FormGroup ({
@@ -20,10 +21,22 @@ export class DocRegisterComponent implements OnInit {
       password: new FormControl(),
       phone: new FormControl(),
       cedule: new FormControl(),
+      plaza: new FormControl()
       }) ;
   }
 
   ngOnInit(): void {
+    this.regiserDoc.getPlazas("0")
+    .then(response => {
+      response.forEach((plaza) => {
+        // this.plazasDisponibles.push(plaza.data());
+        console.log(plaza.data());
+        this.plazasDisponibles.push(plaza.data());
+        console.log(this.plazasDisponibles)
+
+      });
+    })
+    .catch(error => console.log(error));
   }
   onSubmit(){
     //Añadimos usuario a la base de datos
@@ -32,8 +45,6 @@ export class DocRegisterComponent implements OnInit {
 
     this.doctor = this.formulario.value;
     console.log(this.doctor);
-    // this.doctor.typeOfAnalisys = ["1","5"];
-    // this.doctor.patients = ["angel@g.com","pepe@k.com"];
     this.regiserDoc.addDocDB(this.doctor)
       .then(response => {
         console.log(response);
