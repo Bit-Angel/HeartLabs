@@ -1,4 +1,7 @@
-<div class="container">
+<app-nav-bar class="NAV"></app-nav-bar>
+
+<div class="container espacioAB">
+
     <div class="card">
         <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
             <div class="">
@@ -26,6 +29,7 @@
                 <input type="date" class="form-control" formControlName="birthday">
             </div>
             <input type="submit" value="Enviar">
+            
         </form>
     </div>
 </div>

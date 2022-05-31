@@ -1,22 +1,26 @@
-<div [hidden]="user" class="phone">
+<app-nav-bar class="NAV"></app-nav-bar>
+
+<div class="container espacioAB">
+  <div [hidden]="user" class="phone">
     <h1>Ingresar via Telefono</h1>
     <div class="">
-        <label class="form-label">Telefono</label>
-        <input type="text" class="" [(ngModel)]="phone" minlength="12" maxlength="12" placeholder="524491234567">
-        <button (click)="verificaNumero()">Verificar Numero</button>
+      <label class="form-label">Telefono</label>
+      <input type="text" class="" [(ngModel)]="phone" minlength="12" maxlength="12" placeholder="524491234567">
+      <button (click)="verificaNumero()">Verificar Numero</button>
 
     </div>
-<div id="recaptcha-container"></div> 
+    <div id="recaptcha-container"></div>
 
 
-<button *ngIf="auxiliar" (click)="sendLoginCode()">Enviar Codigo</button>
+    <button *ngIf="auxiliar" (click)="sendLoginCode()">Enviar Codigo</button>
 
-<div *ngIf="windowRef.confirmationResult">
-  <hr>
-  <label for="code">Ingresa tu codigo</label><br>
-  <input type="text" name="code" [(ngModel)]="verificationCode">
+    <div *ngIf="windowRef.confirmationResult">
+      <hr>
+      <label for="code">Ingresa tu codigo</label><br>
+      <input type="text" name="code" [(ngModel)]="verificationCode">
 
-  <button (click)="verifyLoginCode()">Verificar</button>
-</div>
+      <button (click)="verifyLoginCode()">Verificar</button>
+    </div>
 
+  </div>
 </div>
