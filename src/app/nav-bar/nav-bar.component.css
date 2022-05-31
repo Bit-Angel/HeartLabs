@@ -1,3 +1,13 @@
 .navbar{
     padding: .5rem 3.2rem;
+    background-color: #008cfff8;
+}
+
+.log-in{
+    background-color: darkblue;
+
+}
+
+.log-out{
+    background-color: red;
 }
