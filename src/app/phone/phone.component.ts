@@ -17,7 +17,7 @@ export class PhoneComponent implements OnInit {
   user: any;
   datos:any;
   auxiliar:boolean;
-  phone:string ="524492036234";
+  phone:string ="";
   usuario:string="";
   constructor(private win:WindowService,private phoneService:FirebaseService,private auth:Auth,private router:Router) {
 
