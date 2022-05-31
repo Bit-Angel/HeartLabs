@@ -23,8 +23,9 @@ export class EstudiosComponent implements OnInit {
         console.log(plaza.data());
         this.estudiosDisponibles.push(plaza.data());
         console.log(this.estudiosDisponibles)
-        this.obtenerEstudios();
       });
+      this.obtenerEstudios();
+
     })
     .catch(error => console.log(error));
 
@@ -32,14 +33,17 @@ export class EstudiosComponent implements OnInit {
      
   }
 
-  async obtenerEstudios(){
+   obtenerEstudios(){
+
     for (let index = 0; index < this.estudiosDisponibles.length; index++) {
-      console.log(this.estudiosDisponibles[index].idEstudio);
-      this.aux = this.miServicio.getEstudios(this.estudiosDisponibles[index].idEstudio);
-      console.log(this.aux);
-      this.misEstudios.push(this.aux);  
-      console.log(this.misEstudios);
+      this.estudiosDisponibles[index]=this.estudiosDisponibles[index].idEstudio;
     }
+    for (let index = 0; index < this.estudiosDisponibles.length; index++) {
+      this.aux = this.miServicio.getEstudios(this.estudiosDisponibles[index]);
+      this.misEstudios.push(this.aux);
+
+    }
+    console.log(this.misEstudios)
 
   }
 

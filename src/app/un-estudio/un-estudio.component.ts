@@ -2,7 +2,10 @@ import { Component, OnInit, Input  } from '@angular/core';
 import Estudio from '../interfaces/estudios.interface';
 import { EstudiosService } from '../services/estudios.service';
 import { ActivatedRoute } from '@angular/router';
-
+import { FirebaseService } from '../services/firebase.service';
+import { Auth } from '@angular/fire/auth';
+import User from '../interfaces/user.interface';
+import Doc from '../interfaces/doc.interface';
 @Component({
   selector: 'app-un-estudio',
   templateUrl: './un-estudio.component.html',
@@ -12,13 +15,60 @@ export class UnEstudioComponent implements OnInit {
   @Input() estudio!: Estudio;
   cita:string;
   formulario:boolean;
-  constructor(public estudiosService:EstudiosService, public activatedRoute:ActivatedRoute) {
+  email:any="";
+  phone:any="";
+  doctor:Doc|any={ //Esta variable guarda todos los datos que estan en la base de datos del doctor que se conecta
+    name:"",  
+    lastName:"",
+    email:"",
+    password:"",
+    phone:"",
+    cedule:""
+  };
+  usuarioActual:User|any={ //Esta variable guarda todos los datos que estan en la base de datos del usuario que se conecta
+    name:"",  
+    lastName:"",
+    email:"",
+    password:"",
+    phone:"",
+    birthday:""
+  };
+  constructor(public estudiosService:EstudiosService, public activatedRoute:ActivatedRoute,public auth:Auth,private firebaseService:FirebaseService) {
     this.activatedRoute.params.subscribe ( params => {
       this.estudio=estudiosService.getUnEstudio(params['id']);
     })
+
    }
 
   ngOnInit(): void {
+    //Obtener datos de usuario Actual
+    this.email=this.auth.currentUser?.email; //Obtener el correo del usuario actual, con el cual podemos obtener el resto de datos
+    this.firebaseService.getUser(this.email)
+    .then(response => {
+      response.forEach((doc) => {
+        this.usuarioActual = doc.data();
+        console.log(this.usuarioActual)
+      });
+    })
+    .catch(error => console.log(error));
+    this.phone = this.auth.currentUser?.phoneNumber;
+    this.firebaseService.getUserPhone(this.phone)
+    .then(response => {
+      response.forEach((doc) => {
+        this.usuarioActual = doc.data();
+        console.log(this.usuarioActual)
+      });
+    })
+    .catch(error => console.log(error));
+    //Obtener datos del doctor que reliza el actual estudio
+    console.log(this.estudio.idEstudio);
+    this.firebaseService.getDocByEstudio(this.estudio.idEstudio)
+      .then(response =>{
+        response.forEach((doc) => {
+          this.doctor = doc.data();
+          console.log(this.doctor)
+        });
+      })
   }
 
   agendarCita(){

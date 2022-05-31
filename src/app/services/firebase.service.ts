@@ -55,6 +55,11 @@ export class FirebaseService {
     const q = query(placeRef, where("phone","==",phone));
     return getDocs(q);
   }
+  getDocByEstudio(idEstudio:any){
+    const placeRef = collection(this.firestore, 'doctors');
+    const q = query(placeRef, where("plaza","==",idEstudio));
+    return getDocs(q);
+  }
   getPlazas(plaza:any){
     const placeRef = collection(this.firestore, 'estudios');
     const q = query(placeRef, where("plaza","==",plaza));
