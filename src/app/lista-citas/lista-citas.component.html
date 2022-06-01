@@ -1,10 +1,16 @@
-<p>lista-citas works!</p>
-<div *ngFor="let cita of citas">
-    <div>Cita </div>
-    <div>{{cita.emailUser}}</div>
-    <div>{{cita.emailDoc}}</div>
-    <div>{{cita.idEstudio}}</div>
-    <div>{{cita.price}}</div>
-    <div>{{cita.fecha}}</div>
+<app-nav-bar class="NAV"></app-nav-bar>
 
+<div class="container espacioAB">
+  <p>lista-citas works!</p>
+  <div *ngFor="let cita of citas">
+    <div class="card card-body">
+      <div>Cita </div>
+      <div>{{cita.emailUser}}</div>
+      <div>{{cita.emailDoc}}</div>
+      <div>{{cita.idEstudio}}</div>
+      <div>{{cita.price}}</div>
+      <div>{{cita.fecha}}</div>
+    </div>
+
+  </div>
 </div>
