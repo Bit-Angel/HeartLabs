@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { collectionData, Firestore, updateDoc } from '@angular/fire/firestore';
+import { collectionData, Firestore, setDoc, updateDoc } from '@angular/fire/firestore';
 import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, query, where } from '@firebase/firestore';
 import { Observable, retry } from 'rxjs';
 import User from '../interfaces/user.interface';
@@ -74,10 +74,24 @@ export class FirebaseService {
     const q = query(placeRef, where("plaza","==",plaza));
     return getDocs(q);
   }
+  getPlazasByID(idEstudio:any){
+    const placeRef = collection(this.firestore, 'estudios');
+    const q = query(placeRef, where("idEstudio","==",idEstudio));
+    return getDocs(q);
+  }
+  updatePlaza(nuevaPlaza:Plaza){
+    console.log(nuevaPlaza);
+    const placeDocRef = doc(this.firestore, `estudios/${nuevaPlaza.id}`); 
+    return setDoc(placeDocRef,nuevaPlaza);
+  }
   logout() {
     return signOut(this.auth);
   }
 }
 
-
+export interface Plaza {
+  id?:string
+  idEstudio:string,
+  plaza:string
+}
 

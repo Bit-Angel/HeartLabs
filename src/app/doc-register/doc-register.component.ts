@@ -12,6 +12,7 @@ export class DocRegisterComponent implements OnInit {
   formulario: FormGroup;
   doctor:Doc;
   plazasDisponibles:any[]=[];
+  nuevaPlaza:Plaza|any;
 
   constructor(private regiserDoc: FirebaseService, private router: Router) { 
     this.formulario = new FormGroup ({
@@ -50,14 +51,45 @@ export class DocRegisterComponent implements OnInit {
         console.log(response);
       })
       .catch(error => console.log(error));
-    //Registramos el usuario en Firebase auth para que pueda hacer login
-      this.regiserDoc.addRegister(this.doctor.email,this.doctor.password)
-      .then(response => {
-        console.log(response);
-        this.router.navigate(['/login']);
+    //Modificar plaza
+    //obtenemos plaza a modificar
+    this.regiserDoc.getPlazasByID(this.doctor.plaza)
+      .then(response=>{
+        response.forEach((plaza) => {
+          // this.plazasDisponibles.push(plaza.data());
+          console.log(plaza.id);
+          this.nuevaPlaza=plaza.data();
+          this.nuevaPlaza.plaza = '1'
+          this.nuevaPlaza.id = plaza.id;
+          this.actualizarPlaza()
+        });
       })
       .catch(error => console.log(error));
 
-  }
+     
 
+    // //Registramos el usuario en Firebase auth para que pueda hacer login
+    //   this.regiserDoc.addRegister(this.doctor.email,this.doctor.password)
+    //   .then(response => {
+    //     console.log(response);
+    //     this.router.navigate(['/login']);
+    //   })
+    //   .catch(error => console.log(error));
+
+  }
+  actualizarPlaza(){
+    console.log(this.nuevaPlaza)
+    this.regiserDoc.updatePlaza(this.nuevaPlaza)
+    .then(sus =>{
+      console.log('todo bien')
+    })
+     .catch(error => console.log(error));
+
+  }
+}
+
+export interface Plaza {
+  id?:string
+  idEstudio:string,
+  plaza:string
 }
