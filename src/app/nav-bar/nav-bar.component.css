@@ -11,3 +11,17 @@
 .log-out{
     background-color: red;
 }
+
+.sesion{
+    padding: .3rem 1rem;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.ulmenu{
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
