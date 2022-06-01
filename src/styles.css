@@ -1,3 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat";
+}
+
+:root{
+    --c1: #22577A;
+    --c2: #38a3a5;
+    --c3: #57cc99;
+    --c4: #80ed99;
+    --c5: #f2f2f2;
+    --c6: #e50000;
+    --c7: #fffffffa;
+}
+
 .NAV{
     width: 100%;
     position: fixed;
