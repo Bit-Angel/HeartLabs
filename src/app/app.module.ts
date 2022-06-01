@@ -23,6 +23,7 @@ import { UnEstudioComponent } from './un-estudio/un-estudio.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PreguntasComponent } from './preguntas/preguntas.component';
 import { ConocenosComponent } from './conocenos/conocenos.component';
+import { ListaCitasComponent } from './lista-citas/lista-citas.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ConocenosComponent } from './conocenos/conocenos.component';
     UnEstudioComponent,
     NavBarComponent,
     PreguntasComponent,
-    ConocenosComponent
+    ConocenosComponent,
+    ListaCitasComponent
   ],
   imports: [
     BrowserModule,

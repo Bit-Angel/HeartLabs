@@ -14,6 +14,7 @@ import { UnEstudioComponent } from './un-estudio/un-estudio.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PreguntasComponent } from './preguntas/preguntas.component';
 import { ConocenosComponent } from './conocenos/conocenos.component';
+import { ListaCitasComponent } from './lista-citas/lista-citas.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -39,7 +40,9 @@ const routes: Routes = [
   { path: 'estudios', component: EstudiosComponent },
   { path: 'estudios/:id', component: UnEstudioComponent},
   { path: 'preguntas', component: PreguntasComponent},
-  { path: 'conocenos', component: ConocenosComponent}
+  { path: 'conocenos', component: ConocenosComponent},
+  { path: 'citas', component: ListaCitasComponent}
+
 
 ];
 

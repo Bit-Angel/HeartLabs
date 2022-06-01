@@ -38,6 +38,11 @@ export class FirebaseService {
     const q = query(placeRef, where("email","==",email));
     return getDocs(q);
   }
+  getCitas(email:any){
+    const placeRef = collection(this.firestore, 'citas');
+    const q = query(placeRef, where("emailUser","==",email));
+    return getDocs(q);
+  }
   getDoc(email:any){
     const placeRef = collection(this.firestore, 'doctors');
     const q = query(placeRef, where("email","==",email));
