@@ -4,6 +4,7 @@ import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, query, where } fro
 import { Observable, retry } from 'rxjs';
 import User from '../interfaces/user.interface';
 import Doc from '../interfaces/doc.interface';
+import Cita from '../interfaces/cita.interface';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, signInWithPopup,GoogleAuthProvider,FacebookAuthProvider,GithubAuthProvider,RecaptchaVerifier} from '@angular/fire/auth'; //Servicio que permite integrar todos los metodos de Authentication
 
 @Injectable({
@@ -21,7 +22,10 @@ export class FirebaseService {
     const placeRef = collection(this.firestore, 'doctors'); //Creamos una colleccion. Funciona para hacer referencia a nuestra tabla
     return addDoc(placeRef,doctor);  //Retornamos el 'Doc', el cual contiene la insercion de datos. Hace la insercion a firestore
   }
-
+  addCitaDB(cita:Cita){
+    const placeRef = collection(this.firestore, 'citas'); 
+    return addDoc(placeRef,cita);  
+  }
   addRegister(email:any,password:any){
     return createUserWithEmailAndPassword(this.auth,email,password);
   }

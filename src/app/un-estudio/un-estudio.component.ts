@@ -6,6 +6,7 @@ import { FirebaseService } from '../services/firebase.service';
 import { Auth } from '@angular/fire/auth';
 import User from '../interfaces/user.interface';
 import Doc from '../interfaces/doc.interface';
+import Cita from '../interfaces/cita.interface';
 @Component({
   selector: 'app-un-estudio',
   templateUrl: './un-estudio.component.html',
@@ -13,10 +14,17 @@ import Doc from '../interfaces/doc.interface';
 })
 export class UnEstudioComponent implements OnInit {
   @Input() estudio!: Estudio;
-  cita:string;
+  fechaCita:string;
   formulario:boolean;
   email:any="";
   phone:any="";
+  cita:Cita|any={
+    emailUser:"",
+    emailDoc:"",
+    idEstudio:"",
+    fecha:"",
+    price:0
+  };
   doctor:Doc|any={ //Esta variable guarda todos los datos que estan en la base de datos del doctor que se conecta
     name:"",  
     lastName:"",
@@ -69,14 +77,25 @@ export class UnEstudioComponent implements OnInit {
           console.log(this.doctor)
         });
       })
+      .catch(error => console.log(error));
+
   }
 
   agendarCita(){
     console.log(this.estudio);
+    console.log(this.fechaCita);
+    this.cita.fecha = this.fechaCita;
+    this.cita.emailUser = this.usuarioActual.email;
+    this.cita.emailDoc = this.doctor.email;
+    this.cita.idEstudio = this.estudio.idEstudio;
+    this.cita.price = this.estudio.precio;
     console.log(this.cita);
-    this.estudio.fecha =this.cita;
-    
-
+    this.firebaseService.addCitaDB(this.cita)
+    .then(response =>{
+      alert("Su cita ha sido agendada correctamente")
+    })
+    .catch(error => console.log(error));
+      
   }
 
 }
