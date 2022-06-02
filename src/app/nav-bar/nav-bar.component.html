@@ -1,13 +1,17 @@
-<nav class="navbar navbar-expand-lg d-flex justify-content-between">
+<nav class="navbar navbar-expand-lg navbar-dark">
 
-  <a class="navbar-brand" href="#">
-    <img src="../../assets/logos/hl-nav.png" height="40" class="d-inline-block align-top" alt="">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <img src="../../assets/logos/menu_icon.svg" alt="menu">
+  </button>
+
+  <a class="navbar-brand" [routerLink]="['/home']">
+    <img src="../../assets/logos/hl-nav.png" height="43"  alt="logo">
   </a>
 
 
-  <div id="navbarNav">
-    <ul class="navbar-nav ulmenu">
-      <li class="nav-item active">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ulmenu ml-auto">
+      <li class="nav-item">
         <a class="nav-link" routerLink="/home">Inicio</a>
       </li>
 
@@ -42,7 +46,6 @@
           <input class="sesion log-out" type="submit" (click)="onClick()" value="Cerrar Sesion">
         </a>
       </li>
-
     </ul>
   </div>
 </nav>

@@ -5,3 +5,28 @@
     max-height: 230px;
     overflow-y: scroll;
 }
+
+
+@media (min-width: 1200px) {
+    .card-columns {
+      column-count: 4;
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .card-columns {
+      column-count: 3;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .card-columns {
+      column-count: 2;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .card-columns {
+      column-count: 1;
+    }
+  }

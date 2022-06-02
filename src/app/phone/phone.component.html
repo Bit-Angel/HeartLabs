@@ -1,26 +1,43 @@
 <app-nav-bar class="NAV"></app-nav-bar>
 
 <div class="container espacioAB">
-  <div [hidden]="user" class="phone">
-    <h1>Ingresar via Telefono</h1>
-    <div class="">
-      <label class="form-label">Telefono</label>
-      <input type="text" class="" [(ngModel)]="phone" minlength="12" maxlength="12" placeholder="524491234567">
-      <button (click)="verificaNumero()">Verificar Numero</button>
+  <div class="card login">
 
-    </div>
-    <div id="recaptcha-container"></div>
+    <aside class="logForm">
+      <div [hidden]="user" class="phone">
+        <img class="imgLab" src="../../assets/login/lab_flask.svg" alt="lab_flask">
+        <div class="divPhone" [ngClass]="{'mover': !windowRef.confirmationResult}">
+          <h4 class="tituloform mb-3 mt-4">Ingresar via Telefono</h4>
+          <div class="inputForm mt-4">
+            <input type="text" class="inputFormControl" [(ngModel)]="phone" minlength="12" maxlength="12"
+              placeholder="celular">
+            <img src="../../assets/login/phone_outline.svg" alt="user" class="inputForm__img">
+          </div>
+          <a routerLink="/login" class="IngresaCell mt-3">Ingresa con tu correo</a>
+          <button (click)="verificaNumero()" class="botonSubmitt mb-2">Verificar Numero</button>
 
+          <!-- <div class="lod" *ngIf="loader">
+            <div></div><div></div><div></div><div></div>
+          </div> -->
+          <div id="recaptcha-container"></div>
+          <button *ngIf="auxiliar" (click)="sendLoginCode()">Enviar Codigo</button>
+        </div>
 
-    <button *ngIf="auxiliar" (click)="sendLoginCode()">Enviar Codigo</button>
+        <div *ngIf="windowRef.confirmationResult">
+          <hr>
+          <div class="inputForm">
+            <input type="text" name="code" [(ngModel)]="verificationCode" class="inputFormControl"
+              placeholder="Ingresa tu codigo">
+            <img src="../../assets/login/verification.svg" alt="user" class="inputForm__img">
+          </div>
+          <button (click)="verifyLoginCode()" class="botonSubmitt">Verificar</button>
+        </div>
+      </div>
+    </aside>
 
-    <div *ngIf="windowRef.confirmationResult">
-      <hr>
-      <label for="code">Ingresa tu codigo</label><br>
-      <input type="text" name="code" [(ngModel)]="verificationCode">
-
-      <button (click)="verifyLoginCode()">Verificar</button>
-    </div>
+    <aside class="imgForm">
+      <img src="../../assets/logos/hl-vw.svg" alt="">
+    </aside>
 
   </div>
 </div>

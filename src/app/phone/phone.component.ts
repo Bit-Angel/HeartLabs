@@ -19,17 +19,19 @@ export class PhoneComponent implements OnInit {
   auxiliar:boolean;
   phone:string ="";
   usuario:string="";
-  constructor(private win:WindowService,private phoneService:FirebaseService,private auth:Auth,private router:Router) {
+  loader: boolean;
 
+  constructor(private win:WindowService,private phoneService:FirebaseService,private auth:Auth,private router:Router) {
+    this.loader =true;
    }
 
   ngOnInit(): void {
     this.windowRef = this.win.getwindowRef();
     console.log(this.windowRef);
     this.windowRef.recaptchaVerifier =  new RecaptchaVerifier('recaptcha-container',{'size': 'normal'},this.auth);
-    console.log(this.windowRef.recaptchaVerifier);
-
     this.windowRef.recaptchaVerifier.render();
+    
+    
     
   }
   //Con esta funcion primero verficamos que el numero exista en la base de daatos

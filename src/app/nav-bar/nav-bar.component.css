@@ -3,26 +3,34 @@
     background-color: var(--c7);
     color: black;
     box-shadow: 0px 2px 10px rgba(0 0 0 /3%);
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
 }
 
-#navbarNav>ul>li>a{
+#navbarSupportedContent>ul>li>a{
     color: black;
     transition: all .15s ease;
 }
 
-#navbarNav>ul>li>a:hover{
+#navbarSupportedContent>ul>li>a:hover{
     color: var(--c1);
     transform: scale(1.03);
 }
 
+#navbarSupportedContent>ul>li>a>input:hover{
+    background-color: var(--c2);
+}
+
 .log-in{
     background-color: var(--c1);
-
 }
 
 .log-out{
-    background-color: var(--c6);
-    
+    background-color: var(--c6);  
 }
 
 .sesion{
@@ -35,6 +43,18 @@
 
 .ulmenu{
     display: flex;
+    justify-content: space-between;
     align-items: center;
+}
+
+.navbar-toggler{
+    height: 40px;
+    width: 40px;
+    border: 1px solid var(--c1);
     padding: 0;
+    transition: all .12s ease;
+}
+
+.navbar-toggler:hover{
+    box-shadow: 0px 0px 5px rgba(0 0 0 /10%);
 }
