@@ -13,16 +13,38 @@ import { collectionData, Firestore } from '@angular/fire/firestore';
 export class LoginComponent implements OnInit {
   x:any;
   formulario: FormGroup;
+  controlUnoIN:boolean;
+  controlDosIN:boolean;
 
   constructor(private loginService: FirebaseService, private router: Router,private db:Firestore)  { 
     this.formulario = new FormGroup ({
         email: new FormControl(),
         password: new FormControl(),
       }) ;
+      this.controlUnoIN=false;
   }
 
   ngOnInit(): void {
   }
+
+
+
+  cambiarUno(NVar:boolean){
+    if(NVar){//primer inp
+      if(!this.controlUnoIN || this.formulario.value.email == ""){
+          this.controlUnoIN = true;
+        }else{
+          this.controlUnoIN = false;
+      }
+    }else{
+      if(!this.controlDosIN || this.formulario.value.password == ""){
+        this.controlDosIN = true;
+      }else{
+        this.controlDosIN = false;
+    }
+    }
+  }
+
   async onSubmit(){
     //Si es un usuario se va a su respectivo main
     this.loginService.getUser(this.formulario.value.email)
