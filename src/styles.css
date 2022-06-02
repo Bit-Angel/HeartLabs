@@ -7,6 +7,10 @@
     font-family: "Montserrat";
 }
 
+body{
+    position: relative;
+}
+
 :root{
     --c1: #22577A;
     --c2: #38a3a5;

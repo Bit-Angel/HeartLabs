@@ -24,6 +24,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PreguntasComponent } from './preguntas/preguntas.component';
 import { ConocenosComponent } from './conocenos/conocenos.component';
 import { ListaCitasComponent } from './lista-citas/lista-citas.component';
+import { AccesibilidadComponent } from './accesibilidad/accesibilidad.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ListaCitasComponent } from './lista-citas/lista-citas.component';
     NavBarComponent,
     PreguntasComponent,
     ConocenosComponent,
-    ListaCitasComponent
+    ListaCitasComponent,
+    AccesibilidadComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FirebaseService } from '../services/firebase.service';
 import { Auth } from '@angular/fire/auth';
 import User from '../interfaces/user.interface';
+
 @Component({
   selector: 'app-main-user',
   templateUrl: './main-user.component.html',
@@ -24,19 +25,15 @@ export class MainUserComponent implements OnInit {
 //Recuperamos los datos del usuario que ingresó, ya sea si ingreso por email o por SMS
 //Esos datos se quedan almacenados en usuarioActual
   ngOnInit(): void {
-    console.log(this.auth.currentUser);
-    console.log(this.auth.currentUser?.email);
     this.email=this.auth.currentUser?.email; //Obtener el correo del usuario actual, con el cual podemos obtener el resto de datos
     this.firebaseService.getUser(this.email)
     .then(response => {
       response.forEach((doc) => {
         this.usuarioActual = doc.data();
-        console.log(this.usuarioActual)
       });
     })
     .catch(error => console.log(error));
 
-    console.log(this.auth.currentUser?.phoneNumber);
     this.phone = this.auth.currentUser?.phoneNumber;
     this.firebaseService.getUserPhone(this.phone)
     .then(response => {
@@ -47,6 +44,8 @@ export class MainUserComponent implements OnInit {
     })
     .catch(error => console.log(error));
   }
+
+  
   onClick(){
     this.firebaseService.logout()
       .then(() =>{

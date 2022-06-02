@@ -1,0 +1,28 @@
+.contenedor{
+    width: 45px;
+    height: 40px;
+    border-radius: 5px 0 0 5px;
+    background-color: var(--c2);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 0 0 .5rem;
+
+    position: fixed;
+    top: 130px;
+    right: 0;
+
+    transition: all .12s ease;
+}
+
+.contenedor:hover{
+    width: 55px;
+    cursor: pointer;
+    box-shadow: -2px 0px 4px rgba( 0 0 0 /20%);
+}
+
+
+.contenedor img{
+    width: 25px;
+    height: 25px;
+}
