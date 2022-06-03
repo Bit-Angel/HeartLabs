@@ -68,24 +68,30 @@ export class DocRegisterComponent implements OnInit {
 
      
 
-    // //Registramos el usuario en Firebase auth para que pueda hacer login
-    //   this.regiserDoc.addRegister(this.doctor.email,this.doctor.password)
-    //   .then(response => {
-    //     console.log(response);
-    //     this.router.navigate(['/login']);
-    //   })
-    //   .catch(error => console.log(error));
-
   }
+
+
+
   actualizarPlaza(){
     console.log(this.nuevaPlaza)
     this.regiserDoc.updatePlaza(this.nuevaPlaza)
     .then(sus =>{
-      console.log('todo bien')
+      this.AgregarDocAuth();
     })
      .catch(error => console.log(error));
 
   }
+
+  AgregarDocAuth(){
+    //Registramos el usuario en Firebase auth para que pueda hacer login
+    this.regiserDoc.addRegister(this.doctor.email,this.doctor.password)
+    .then(response => {
+      console.log(response);
+      this.router.navigate(['/login']);
+    })
+    .catch(error => console.log(error));
+  }
+
 }
 
 export interface Plaza {

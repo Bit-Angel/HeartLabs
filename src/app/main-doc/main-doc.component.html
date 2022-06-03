@@ -1,9 +1,8 @@
-<app-nav-bar class="NAV"></app-nav-bar>
+<app-nav-bar [NombreUsuario]="doctorActual.name" class="NAV" ></app-nav-bar>
 
 <div class="container espacioAB">
 
   <p>Bienvenido Doctor {{doctorActual.name}}</p>
-  <input type="submit" (click)="onClick()" value="Logout">
 
 
 </div>

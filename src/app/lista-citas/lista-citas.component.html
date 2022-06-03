@@ -1,15 +1,15 @@
 <app-nav-bar class="NAV"></app-nav-bar>
 
 <div class="container espacioAB">
-  <p>lista-citas works!</p>
+  <h1>CITAS</h1>
   <div *ngFor="let cita of citas">
     <div class="card card-body">
-      <div>Cita </div>
-      <div>{{cita.emailUser}}</div>
-      <div>{{cita.emailDoc}}</div>
-      <div>{{cita.idEstudio}}</div>
-      <div>{{cita.price}}</div>
-      <div>{{cita.fecha}}</div>
+      <h2>Cita</h2>
+      <div><strong>Email:</strong> {{cita.emailUser}}</div>
+      <div><strong>Email Doctor:</strong> {{cita.emailDoc}}</div>
+      <div><strong>Id Estudio:</strong> {{cita.idEstudio}}</div>
+      <div><strong>Precio del estudio:</strong> {{cita.price}}</div>
+      <div><strong>Fecha y hora:</strong> {{cita.fecha | date:'short'}}</div>
     </div>
 
   </div>
