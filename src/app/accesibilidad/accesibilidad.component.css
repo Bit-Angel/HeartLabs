@@ -11,6 +11,7 @@
     position: fixed;
     top: 100px;
     right: 0;
+    z-index: 100;
 
     transition: all .2s ease;
 }
@@ -26,4 +27,11 @@
 .contenedor img{
     width: 25px;
     height: 25px;
+}
+
+@media screen and (max-width: 567px) {
+    .contenedor{
+        transform: scale(.9);
+    }
+    
 }

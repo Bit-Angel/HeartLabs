@@ -10,13 +10,15 @@
         <h4 class="tituloform mb-4 mt-4">Iniciar Sesion</h4>
 
         <div class="inputForm">
-          <input type="email" class="inputFormControl" formControlName="email" value="" placeholder="email" [ngClass]="{'borderBlue': controlUnoIN}" (focus)="cambiarUno(true)" (blur)="cambiarUno(true)">
+          <input type="email" class="inputFormControl" formControlName="email" value="" placeholder="email">
           <img src="../../assets/login/user.svg" alt="user" class="inputForm__img">
+          <span class="form__bar"></span>
         </div>
 
         <div class="inputForm mt-4">
-          <input type="password" class="inputFormControl" formControlName="password" placeholder="contraseña" [ngClass]="{'borderBlue': controlDosIN}" (focus)="cambiarUno(false)" (blur)="cambiarUno(false)">
+          <input type="password" class="inputFormControl" formControlName="password" placeholder="contraseña">
           <img src="../../assets/login/key.svg" alt="key" class="inputForm__img">
+          <span class="form__bar"></span>
         </div>
 
         <a routerLink="/loginPhone" class="IngresaCell mt-3">Ingresa con tu celular</a>
@@ -28,7 +30,7 @@
       <p class="noCuenta">¿No tienes una cuenta? <a routerLink="/registerUser">Crea una</a></p>
 
     </aside>
-    
+
     <aside class="imgForm">
       <img src="../../assets/logos/hl-vw.svg" alt="">
     </aside>

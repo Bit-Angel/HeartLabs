@@ -26,17 +26,12 @@ export class MainDocComponent implements OnInit {
 //Recuperamos los datos del doctor que ingresó, ya sea si ingreso por email o por SMS
 //Esos datos se quedan almacenados en usuarioActual
   ngOnInit(): void {
-      console.log(this.auth.currentUser);
-      console.log(this.auth.currentUser?.email);
-    
-
+      
       this.email=this.auth.currentUser?.email; //Obtener el correo del usuario actual, con el cual podemos obtener el resto de datos
       this.firebaseService.getDoc(this.email)
       .then(response => {
         response.forEach((doc) => {
           this.doctorActual = doc.data();
-          console.log(this.doctorActual)
-          // console.log(doc.data());
         });
       })
       .catch(error => console.log(error));
@@ -47,11 +42,11 @@ export class MainDocComponent implements OnInit {
       .then(response => {
         response.forEach((doc) => {
           this.doctorActual = doc.data();
-          console.log(this.doctorActual)
         });
       })
       .catch(error => console.log(error));
-    }
+  }
+
   onClick(){
     this.firebaseService.logout()
       .then(() =>{

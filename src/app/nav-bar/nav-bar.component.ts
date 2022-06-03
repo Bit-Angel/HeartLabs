@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class NavBarComponent implements OnInit {
   bandera: boolean = true;
-  @Input() NombreUsuario: string;
+  @Input() NombreUsuario: any;
 
   constructor(private firebaseService:FirebaseService, private router:Router, public auth:Auth) {}
 
