@@ -13,6 +13,7 @@ import Doc from '../interfaces/doc.interface';
 export class MainDocComponent implements OnInit {
   email:any="";
   phone:any="";
+  tipoUser:string = '2';
 
   doctorActual:Doc|any={ //Esta variable guarda todos los datos que estan en la base de datos del doctor que se conecta
     name:"",  

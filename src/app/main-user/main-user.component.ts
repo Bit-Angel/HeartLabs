@@ -12,6 +12,7 @@ import User from '../interfaces/user.interface';
 export class MainUserComponent implements OnInit {
   email:any="";
   phone:any="";
+  tipoUser:string = '1';
   usuarioActual:User|any={ //Esta variable guarda todos los datos que estan en la base de datos del usuario que se conecta
     name:"",  
     lastName:"",
