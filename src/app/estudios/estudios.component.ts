@@ -13,7 +13,11 @@ export class EstudiosComponent implements OnInit {
   misEstudios:Estudio[] = [];
   estudiosDisponibles:any[]=[];
   aux:Estudio;
-  constructor(public miServicio:EstudiosService,private firebaseService:FirebaseService, private router:Router, public auth:Auth) { }
+  constructor(
+    public miServicio:EstudiosService,
+    private firebaseService:FirebaseService, 
+    private router:Router, 
+    public auth:Auth) { }
 
   ngOnInit(): void {
     this.firebaseService.getPlazas("1")

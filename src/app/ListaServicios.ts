@@ -4,7 +4,7 @@ export const ESTUDIOS: Estudio[] = [
   {
     //estudio 1
     // id:0;
-    img:"../assets/estudios/lablab.png",
+    img:"../assets/estudios/est1.png",
     nombreEstudio: 'Ultrasonido Abdominal General Hombre',
     idEstudio: '1000',
     descripcion:
@@ -16,7 +16,7 @@ export const ESTUDIOS: Estudio[] = [
   {
     //estudio 2
     // id:0;
-    img:"../assets/estudios/lablab.png",
+    img:"../assets/estudios/est2.jpeg",
     nombreEstudio: 'Ultrasonido 4d',
     idEstudio: '1010',
     descripcion:
@@ -28,7 +28,7 @@ export const ESTUDIOS: Estudio[] = [
   {
     //estudio 3
     // id:0;
-    img:"../assets/estudios/lablab.png",
+    img:"../assets/estudios/est3.png",
     nombreEstudio: 'Ultrasonido De Prostata',
     idEstudio: '1020',
     descripcion:
@@ -40,7 +40,7 @@ export const ESTUDIOS: Estudio[] = [
   {
     //estudio 4
     // id:0;
-    img:"../assets/estudios/lablab.png",
+    img:"../assets/estudios/est4.png",
     nombreEstudio: 'Ultrasonido Testicular',
     idEstudio: '1030',
     descripcion:
@@ -52,7 +52,7 @@ export const ESTUDIOS: Estudio[] = [
   {
     //estudio 5
     // id:0;
-    img:"../assets/estudios/lablab.png",
+    img:"../assets/estudios/est5.jpg",
     nombreEstudio: 'Acido Urico',
     idEstudio: '1040',
     descripcion: 'AYUNO MÍNIMO DE 4 HORAS.',
@@ -63,7 +63,7 @@ export const ESTUDIOS: Estudio[] = [
   {
     //estudio 6
     // id:0;
-    img:"../assets/estudios/lablab.png",
+    img:"../assets/estudios/est6.jpg",
     nombreEstudio: 'Acido Urico Urinario',
     idEstudio: '1050',
     descripcion:
@@ -75,7 +75,7 @@ export const ESTUDIOS: Estudio[] = [
   {
     //estudio 7
     // id:0;
-    img:"../assets/estudios/lablab.png",
+    img:"../assets/estudios/est7.jpg",
     nombreEstudio: 'Acidos Grasos Libres',
     idEstudio: '1060',
     descripcion: 'AYUNO 12 HRS.',
@@ -86,7 +86,7 @@ export const ESTUDIOS: Estudio[] = [
   {
     //estudio 8
     // id:0;
-    img:"../assets/estudios/lablab.png",
+    img:"../assets/estudios/est8.jpg",
     nombreEstudio: 'Acidos Biliares',
     idEstudio: '1070',
     descripcion: 'AYUNO DE 6 HORAS.',
@@ -97,7 +97,7 @@ export const ESTUDIOS: Estudio[] = [
   {
     //estudio 9
     // id:0;
-    img:"../assets/estudios/blab.png",
+    img:"../assets/estudios/est9.png",
     nombreEstudio: 'Electroforesis De Lipoproteinas',
     idEstudio: '1080',
     descripcion: 'AYUNO DE 12 HRS.',
@@ -108,7 +108,7 @@ export const ESTUDIOS: Estudio[] = [
   {
     //estudio 10
     // id:0;
-    img:"../assets/estudios/lablab.png",
+    img:"../assets/estudios/est10.png",
     nombreEstudio: 'Anticuerpos Cuantitativos Anti Sars-Cov-2 Covid 19',
     idEstudio: '1090',
     descripcion: 'AYUNO NO REQUERIDO.',
@@ -119,7 +119,7 @@ export const ESTUDIOS: Estudio[] = [
   {
     //estudio 11
     // id:0;
-    img:"../assets/estudios/lablab.png",
+    img:"../assets/estudios/est11.png",
     nombreEstudio: 'Examen General De Orina',
     idEstudio: '1100',
     descripcion:
@@ -131,7 +131,7 @@ export const ESTUDIOS: Estudio[] = [
   {
     //estudio 12
     // id:0;
-    img:"../assets/estudios/lablab.png",
+    img:"../assets/estudios/est12.png",
     nombreEstudio: 'Fructosamina',
     idEstudio: '1110',
     descripcion: 'AYUNO MINIMO 8 HORAS',
@@ -142,7 +142,7 @@ export const ESTUDIOS: Estudio[] = [
   {
     //estudio 13
     // id:0;
-    img:"../assets/estudios/lablab.png",
+    img:"../assets/estudios/est13.jpg",
     nombreEstudio: 'Hepatitis C Carga Viral Y Genotipo',
     idEstudio: '1120',
     descripcion: 'AYUNO DE 8 HRS.',
@@ -153,7 +153,7 @@ export const ESTUDIOS: Estudio[] = [
   {
     //estudio 14
     // id:0;
-    img:"../assets/estudios/lablab.png",
+    img:"../assets/estudios/est14.jpg",
     nombreEstudio: 'Homocisteinemia(C677t,A1298c-Mthfr)',
     idEstudio: '1130',
     descripcion: 'AYUNO MINIMO 8 HORAS',
@@ -164,7 +164,7 @@ export const ESTUDIOS: Estudio[] = [
   {
     //estudio 15
     // id:0;
-    img:"../assets/estudios/lablab.png",
+    img:"../assets/estudios/est15.png",
     nombreEstudio: 'Papanicolaou Base Liquida',
     idEstudio: '1140',
     descripcion:
@@ -176,7 +176,7 @@ export const ESTUDIOS: Estudio[] = [
   {
     //estudio 16
     // id:0;
-    img:"../assets/estudios/lablab.png",
+    img:"../assets/estudios/est16.jpg",
     nombreEstudio: 'Electrocardiograma',
     idEstudio: '1150',
     descripcion:
@@ -188,7 +188,7 @@ export const ESTUDIOS: Estudio[] = [
   {
     //estudio 17
     // id:0;
-    img:"../assets/estudios/lablab.png",
+    img:"../assets/estudios/est17.PNG",
     nombreEstudio: 'Mastografia',
     idEstudio: '1160',
     descripcion:
@@ -200,7 +200,7 @@ export const ESTUDIOS: Estudio[] = [
   {
     //estudio 18
     // id:0;
-    img:"../assets/estudios/lablab.png",
+    img:"../assets/estudios/est18.jfif",
     nombreEstudio: 'Anticuerpos Anti Chlamydia Trachomatis',
     idEstudio: '1170',
     descripcion: 'AYUNO MINIMO DE 4 HRS',
