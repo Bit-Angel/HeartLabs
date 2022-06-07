@@ -1,16 +1,44 @@
 <app-nav-bar class="NAV"></app-nav-bar>
 
-<div class="container espacioAB">
-  <h1>CITAS</h1>
-  <div *ngFor="let cita of citas">
-    <div class="card card-body">
-      <h2>Cita</h2>
-      <div><strong>Email:</strong> {{cita.emailUser}}</div>
-      <div><strong>Email Doctor:</strong> {{cita.emailDoc}}</div>
-      <div><strong>Id Estudio:</strong> {{cita.idEstudio}}</div>
-      <div><strong>Precio del estudio:</strong> {{cita.price}}</div>
-      <div><strong>Fecha y hora:</strong> {{cita.fecha | date:'short'}}</div>
-    </div>
 
+  <div class="container espacioAB">
+    <h1 class="text-center">CITAS</h1>
+    <div *ngIf="citas.length; else skeleton"></div>
+    <div *ngFor="let cita of citas" class="dentro">
+      <div class="card card-body">
+        <h2 class="text-center">Cita Programada</h2>
+        <p><strong>Estudio a realizar: </strong> {{cita.nombreestudio}}</p>
+        <p><strong>Id Estudio:</strong> {{cita.idEstudio}}</p>
+        <p><strong>Precio del estudio:</strong> {{cita.price | currency}}</p>
+        <p><strong>Fecha y hora:</strong> {{cita.fecha | date:'short'}}</p>
+      </div>
+      <div class="card botones">
+        <button >Generar QR de acceso</button>
+        <button >Imprimir acceso</button>
+      </div>
+      <hr>
+    </div>
   </div>
-</div>
+  
+
+
+<ng-template #skeleton >
+  <div class="skeleton espacioAB">
+    <div class="skeFlex">
+      
+      <div>
+        <ngx-skeleton-loader appearance="line" animation="progress-dark" [theme]="{
+                width: '205%',
+                height: '200px' }">
+        </ngx-skeleton-loader>
+        <ngx-skeleton-loader appearance="line" animation="progress-dark" [theme]="{
+            width: '230px',
+            height: '30px' }">
+        </ngx-skeleton-loader>
+      </div>
+     
+    </div>
+  </div>
+
+
+</ng-template>

@@ -27,6 +27,7 @@
 .contenedor img{
     width: 25px;
     height: 25px;
+    --fz: 50px;
 }
 
 @media screen and (max-width: 567px) {

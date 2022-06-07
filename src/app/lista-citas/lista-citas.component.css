@@ -1,0 +1,69 @@
+.dentro{
+    display: flex;
+}
+
+
+.botones{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.botones button{
+    color: white;
+    width: 250px;
+    padding: .75rem 1rem;
+    background-color: var(--c1);
+    font-size: 1rem;
+    border: none;
+    border-radius: 50px;
+    margin-bottom: 15px;
+    transition: all .12s ease;
+}
+
+.botones button:nth-child(2){
+    background-color: var(--c3);
+}
+
+.botones button:hover{
+    transform: scale(1.05);
+    background-color: var(--c2);
+}
+
+.botones button:nth-child(2):hover{
+    background-color: var(--c4);
+}
+
+.skeFlex{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    max-width: 50%;
+    margin: 0;
+}
+
+
+@media (max-width: 768px) {
+    .dentro{
+        width: 90%;
+        margin: 0 auto;
+        flex-direction: column;
+    }
+    .card h2{
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+
+    .botones button{
+        transform: scale(.85);
+    }
+    .botones button:hover{
+        transform: scale(.95);
+    }
+    
+}

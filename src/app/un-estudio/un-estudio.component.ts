@@ -19,6 +19,7 @@ export class UnEstudioComponent implements OnInit {
   email:any="";
   phone:any="";
   cita:Cita|any={
+    nombreestudio:"",
     emailUser:"",
     emailDoc:"",
     idEstudio:"",
@@ -82,8 +83,7 @@ export class UnEstudioComponent implements OnInit {
   }
 
   agendarCita(){
-    console.log(this.estudio);
-    console.log(this.fechaCita);
+    this.cita.nombreestudio = this.estudio.nombreEstudio;
     this.cita.fecha = this.fechaCita;
     this.cita.emailUser = this.usuarioActual.email;
     this.cita.emailDoc = this.doctor.email;

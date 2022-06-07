@@ -1,16 +1,16 @@
+
+<app-nav-bar class="NAV"></app-nav-bar>
+
 <div *ngIf="this.auth.currentUser == null; else conUsuario">
-
-  <app-nav-bar class="NAV"></app-nav-bar>
-
   <!-- Insertamos el loading Skeleton -->
-  <ng-container *ngIf="misEstudios.length; else elseTemplate ">  <!--  -->
+  <ng-container *ngIf="misEstudios.length; else elseTemplate ">
 
     <div class="container espacioAB">
       <h1 class="text-center">NUESTROS ESTUDIOS</h1>
 
       <div class="card-columns">
         <div class="card" *ngFor="let h of misEstudios, let i=index">
-          <img src={{h.img}} class="card-img-top" alt="...">
+          <img src={{h.img}} class="card-img-top" alt="imagen de estudio">
           <div class="card-body">
             <h5 class="card-title">{{h.nombreEstudio}}</h5>
             <p class="card-text"><small class="text-muted">ID: {{h.idEstudio}}</small></p>
@@ -22,15 +22,11 @@
       </div>
     </div>
   </ng-container>
-
 </div>
 
 <ng-template #conUsuario>
-
-  <app-nav-bar class="NAV"></app-nav-bar>
-
   <div class="container espacioAB">
-    <ng-container *ngIf="misEstudios.length; else elseTemplate ">  <!--  -->
+    <ng-container *ngIf="misEstudios.length; else elseTemplate ">
       <h1 class="text-center">NUESTROS ESTUDIOS</h1>
 
       <div class="card-columns">
@@ -46,16 +42,13 @@
         </div>
       </div>
     </ng-container>
-
   </div>
-
 </ng-template>
 
 
 <!-- Loading Skeleton template -->
 
 <ng-template #elseTemplate>
-
   <div class="skeTitle">
     <ngx-skeleton-loader appearance="line" animation="progress-dark" [theme]="{
       width: '50%',

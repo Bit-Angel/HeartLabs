@@ -12,20 +12,26 @@ export class NavBarComponent implements OnInit {
   bandera: boolean = true;
   nmbre: any;
   tipenmbre: any;
-  @Input() NombreUsuario: any;
-  @Input() TipoUsuario:string;
 
-  constructor(private firebaseService:FirebaseService, private router:Router, public auth:Auth) {}
+  constructor(private firebaseService:FirebaseService, private router:Router, public auth:Auth) {
+    this.getInfoUser();
+  }
 
   ngOnInit(): void {
     this.llamadaBandera();
-
-    //guardar el nombre y tipo en el local
-    localStorage.setItem('NombreUsuario', this.NombreUsuario || '0');
-    localStorage.setItem('TipoUsuario', this.TipoUsuario  || '0');
-    this.nmbre =  localStorage.getItem('NombreUsuario');
+    
   }
   // andres@correo.com
+
+  getInfoUser(){
+    this.tipenmbre = localStorage.getItem('TipoUsuario');
+    this.nmbre = localStorage.getItem('NombreUsuario');
+  }
+
+  deleteInfoUser(){
+    localStorage.setItem('TipoUsuario', '');
+    localStorage.setItem('NombreUsuario', '');
+  }
 
   llamadaBandera(){
     //muestra u oculta la opcion de iniciar/cerrar sesion y opciones extra
@@ -37,6 +43,7 @@ export class NavBarComponent implements OnInit {
   }
 
   onClick() {
+    this.deleteInfoUser();
     this.firebaseService.logout().then(() => {
       this.llamadaBandera();
       this.router.navigate(['/home']);
@@ -44,15 +51,14 @@ export class NavBarComponent implements OnInit {
   }
 
   RevisarTipo(){
-    alert(localStorage.getItem('TipoUsuario'));
     
-    if(localStorage.getItem('TipoUsuario') == '1'){ //tipo usuario
+    if(localStorage.getItem('TipoUsuario') == 'Usuario'){ //tipo usuario
       this.router.navigate(['/mainUser']);
     }
-    if(localStorage.getItem('TipoUsuario') == '2'){ //tipo doctor
+    if(localStorage.getItem('TipoUsuario') == 'Doctor'){ //tipo doctor
       this.router.navigate(['/mainDoc']);
     }
-    if(localStorage.getItem('TipoUsuario') == '3'){ //tipo root
+    if(localStorage.getItem('TipoUsuario') == 'Root'){ //tipo root
       this.router.navigate(['/mainRoot']);
     }
 

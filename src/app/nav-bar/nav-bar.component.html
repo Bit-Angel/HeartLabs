@@ -24,7 +24,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" routerLink="/conocenos">Conocenos</a>
+        <a class="nav-link" routerLink="/conocenos">Contactanos</a>
       </li>
 
       <li class="nav-item" *ngIf="!bandera">
@@ -40,7 +40,7 @@
 
       <li class="nav-item" *ngIf="bandera">
         <a class="nav-link" routerLink="/login">
-          <input class="sesion log-in" type="submit" value="Iniciar Sesion">
+          <input class="sesion log-in" type="submit" value="Iniciar Sesion" (click)="getInfoUser()">
         </a>
       </li>
 

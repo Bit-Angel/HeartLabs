@@ -25,6 +25,7 @@ export class MainRootComponent implements OnInit {
   constructor(private firebaseService:FirebaseService, private router:Router, public auth:Auth) { }
 
   ngOnInit(): void {
+    localStorage.setItem('NombreUsuario', this.usuarioActual.name || 'Root');
     
   }
 

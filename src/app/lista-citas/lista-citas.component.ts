@@ -31,7 +31,6 @@ export class ListaCitasComponent implements OnInit {
     .then(response => {
       response.forEach((doc) => {
         this.usuarioActual = doc.data();
-        console.log(this.usuarioActual)
         this.obtenerCitas();
       });
     })
@@ -48,9 +47,6 @@ export class ListaCitasComponent implements OnInit {
       });
     })
     .catch(error => console.log(error));
-
-    //Otenemos todas las citas asociadas a este email
-    console.log(this.usuarioActual.email);
 
 
   }

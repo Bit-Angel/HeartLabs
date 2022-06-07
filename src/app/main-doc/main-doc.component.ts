@@ -13,7 +13,6 @@ import Doc from '../interfaces/doc.interface';
 export class MainDocComponent implements OnInit {
   email:any="";
   phone:any="";
-  tipoUser:string = '2';
 
   doctorActual:Doc|any={ //Esta variable guarda todos los datos que estan en la base de datos del doctor que se conecta
     name:"",  
@@ -27,25 +26,29 @@ export class MainDocComponent implements OnInit {
 //Recuperamos los datos del doctor que ingresó, ya sea si ingreso por email o por SMS
 //Esos datos se quedan almacenados en usuarioActual
   ngOnInit(): void {
+    
       
       this.email=this.auth.currentUser?.email; //Obtener el correo del usuario actual, con el cual podemos obtener el resto de datos
       this.firebaseService.getDoc(this.email)
       .then(response => {
         response.forEach((doc) => {
+          localStorage.setItem('NombreUsuario', this.doctorActual.name || 'Doctor');
           this.doctorActual = doc.data();
         });
       })
       .catch(error => console.log(error));
 
-      console.log(this.auth.currentUser?.phoneNumber);
       this.phone = this.auth.currentUser?.phoneNumber;
       this.firebaseService.getDocPhone(this.phone)
       .then(response => {
         response.forEach((doc) => {
+          localStorage.setItem('NombreUsuario', this.doctorActual.name || 'Doctor');
           this.doctorActual = doc.data();
         });
       })
       .catch(error => console.log(error));
+
+      
   }
 
   onClick(){

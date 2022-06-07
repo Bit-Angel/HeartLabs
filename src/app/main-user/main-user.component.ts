@@ -22,7 +22,10 @@ export class MainUserComponent implements OnInit {
     birthday:""
   };
 
-  constructor(private firebaseService:FirebaseService, private router:Router, public auth:Auth) { }
+  constructor(private firebaseService:FirebaseService, private router:Router, public auth:Auth) { 
+    // localStorage.setItem('NombreUsuario', this.usuarioActual.name || 'Usuario');
+    
+  }
 //Recuperamos los datos del usuario que ingresó, ya sea si ingreso por email o por SMS
 //Esos datos se quedan almacenados en usuarioActual
   ngOnInit(): void {
@@ -31,6 +34,7 @@ export class MainUserComponent implements OnInit {
     .then(response => {
       response.forEach((doc) => {
         this.usuarioActual = doc.data();
+        localStorage.setItem('NombreUsuario', this.usuarioActual.name || 'Usuario');
       });
     })
     .catch(error => console.log(error));
@@ -40,10 +44,12 @@ export class MainUserComponent implements OnInit {
     .then(response => {
       response.forEach((doc) => {
         this.usuarioActual = doc.data();
-        console.log(this.usuarioActual)
       });
     })
     .catch(error => console.log(error));
+
+    console.log("USUARIOO: " + this.usuarioActual.name);
+
   }
 
   
