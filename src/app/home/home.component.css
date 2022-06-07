@@ -8,3 +8,299 @@
     --bxs1: none;
     transition: all .23s ease;
 }
+
+.home-top {
+    position: relative;
+}
+
+.home {
+    font-size: 16px;
+    padding: 2em 3em;
+    overflow-x: hidden;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.home-top-info {
+    font-size: 1rem;
+    padding: 1em 4em 2em 0;
+}
+
+.home-top-btns {
+    display: flex;
+}
+
+.home-btn {
+    display: block;
+    border-radius: 5px;
+    padding: 5px 15px;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.home-btn:hover {
+    text-decoration: none;
+}
+
+.blue-btn {
+    background-color: #22577A;
+    border: 2px solid #22577A;
+    color: #FFFFFF;
+}
+
+.white-btn {
+    border: 2px solid #38A3A5;
+    color: #38A3A5;
+}
+
+.home-img {
+    max-width: 100%;
+}
+
+.img-rad {
+    border-radius: 20px 20px 20px 0px;
+    filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.1));
+}
+
+.home-top-row {
+    align-items: flex-end;
+}
+
+.home-top__img-backg {
+    position: absolute;
+    top: -21%;
+    width: 50%;
+    right: -4%;
+    height: 130%;
+    mix-blend-mode: normal;
+    border-radius: 0px 0px 0px 100px;
+    opacity: 36%;
+}
+
+.companies {
+    margin: 10em 0 5em 0;
+    display: flex;
+    justify-content: center;
+}
+
+.companies__img {
+    height: 50px;
+}
+
+.companies__item {
+    padding: 0 3em;
+}
+
+
+.ub-tarjeta {
+    background-color: #38A3A5;
+    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+}
+
+.ub-title {
+    text-align: center;
+    padding: 1.5em 0;
+}
+
+.ubicaciones {
+    margin: 5em 4em;
+}
+
+.ub-tarjeta_text {
+    color: white;
+    padding: 2em;
+}
+
+.ub-tarjeta__img {
+    width: 100%;
+    height: 250px;
+}
+
+.registro {
+    padding: 2em 2em 0 2em;
+}
+
+.registro-container {
+    border-radius: 30px 30px 30px 0px;
+}
+
+.registro-izq {
+    position: relative;
+    color: white;
+    height: 100%;
+}
+
+.registro-izq__info {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #57CC99;
+    padding: 1.5em;
+    width: 50%;
+}
+
+.registro__link {
+    color: white;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 1.5em;
+}
+
+.registro__link:hover,
+.registrate-btn:hover {
+    text-decoration: none;
+}
+
+.fa-arrow-right-long {
+    margin-left: .5em;
+}
+
+.registro__subtitle {
+    font-weight: 800;
+    font-size: 1.6rem;
+}
+
+.registro-column {
+    display: table-cell;
+}
+
+.registro__img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 30px 0px 0px 0px;
+}
+
+.registro-gris {
+    background-color: #F2F2F2;
+    padding: 1.5em;
+    height: 100%;
+}
+
+.registro-m {
+    margin-bottom: 6em;
+}
+
+.registro-azul {
+    background-color: #22577A;
+    color: white;
+    border-radius: 0px 0px 30px 0px;
+    padding: 1.5em;
+}
+
+.registrate-btn {
+    border-radius: 9px;
+    background-color: #22577A;
+    color: white;
+    display: block;
+    margin: .5em 0;
+    border: 2px solid white;
+    padding: 10px 15px;
+}
+
+.registro-gris a {
+    color: black !important;
+}
+
+.registro-azul-claro {
+    color: white;
+    background-color: #38A3A5;
+    padding: 1.5em;
+    height: 100%;
+    border-radius: 0px 30px 0px 0px;
+}
+
+.registro__text-whats {
+    text-align: right;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.info{
+    transform: translateY(-100px);
+}
+
+@media only screen and (max-width: 600px) {
+    .info{
+        transform: translateY(0px);
+    }
+    .home {
+        font-size: 12px;
+        padding: 2em .5em;
+    }
+    .home-top-info {
+        padding: 1em 0em 2em 0;
+    }
+    .title {
+        font-size: 2.2rem;
+    }
+    .home-top {
+        text-align: center;
+    }
+    .home-top-btns {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .home-btn {
+        width: 60%;
+        margin: 8px 0;
+    }
+    .home-top-row {
+        flex-direction: column-reverse;
+    }
+    .img-rad {
+        margin-bottom: 7em;
+    }
+    .companies {
+        flex-wrap: wrap;
+        padding: 0 3em;
+    }
+    .companies__item {
+        width: 50%;
+        padding: 0;
+        text-align: center;
+        margin: 17px 0;
+    }
+    .companies__img {
+        height: 60px;
+    }
+    .home-top__img-backg {
+        top: -21%;
+        width: 105%;
+        right: -2%;
+        height: 65%;
+    }
+    .ub-tarjeta__img {
+        height: 160px;
+        object-fit: cover;
+    }
+    .ub-tarjeta {
+        margin-bottom: 4em;
+    }
+    .ubicaciones {
+        margin: 5em;
+    }
+    .registro {
+        padding: 0;
+    }
+    .registro-izq__info {
+        width: 85%;
+    }
+    .registro-m {
+        margin-bottom: 0;
+    }
+    .registro-sm-m {
+        margin-bottom: 4em;
+    }
+    .registro__subtitle-center {
+        text-align: center;
+    }
+    .registro-azul-claro {
+        border-radius: 0;
+    }   
+}

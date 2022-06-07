@@ -1,28 +1,27 @@
-
 <div *ngIf="this.auth.currentUser == null; else conUsuario">
 
-<app-nav-bar class="NAV"></app-nav-bar>
+  <app-nav-bar class="NAV"></app-nav-bar>
 
-<!-- Insertamos el loading Skeleton -->
-<ng-container *ngIf="misEstudios.length; else elseTemplate">
+  <!-- Insertamos el loading Skeleton -->
+  <ng-container *ngIf="misEstudios.length; else elseTemplate ">  <!--  -->
 
-<div class="container espacioAB">
-    <h1 class="text-center">NUESTROS ESTUDIOS</h1>
-  
-    <div class="card-columns">
-      <div class="card" *ngFor="let h of misEstudios, let i=index">
-        <img src={{h.img}} class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{h.nombreEstudio}}</h5>
-          <p class="card-text"><small class="text-muted">ID: {{h.idEstudio}}</small></p>
-          <p class="card-text estudiosDescripcion"> {{h.descripcion}}</p>
-          <p class="card-text text-right"> <strong>{{h.precio | currency}}</strong> </p>
+    <div class="container espacioAB">
+      <h1 class="text-center">NUESTROS ESTUDIOS</h1>
+
+      <div class="card-columns">
+        <div class="card" *ngFor="let h of misEstudios, let i=index">
+          <img src={{h.img}} class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{h.nombreEstudio}}</h5>
+            <p class="card-text"><small class="text-muted">ID: {{h.idEstudio}}</small></p>
+            <p class="card-text estudiosDescripcion"> {{h.descripcion}}</p>
+            <p class="card-text text-right"> <strong>{{h.precio | currency}}</strong> </p>
+          </div>
+          <a [routerLink]="['/login']" class="mb-3 btn btn-outline-primary btn-block">Ver Mas</a>
         </div>
-        <a [routerLink]="['/login']" class="mb-3 btn btn-outline-primary btn-block">Ver Mas</a>
       </div>
     </div>
-  </div>
-</ng-container>
+  </ng-container>
 
 </div>
 
@@ -31,8 +30,9 @@
   <app-nav-bar class="NAV"></app-nav-bar>
 
   <div class="container espacioAB">
+    <ng-container *ngIf="misEstudios.length; else elseTemplate ">  <!--  -->
       <h1 class="text-center">NUESTROS ESTUDIOS</h1>
-    
+
       <div class="card-columns">
         <div class="card" *ngFor="let h of misEstudios, let i=index">
           <img src={{h.img}} class="card-img-top" alt="...">
@@ -45,9 +45,11 @@
           <a [routerLink]="['/estudios',i]" class="mb-3 btn btn-outline-primary btn-block">Ver Mas</a>
         </div>
       </div>
-    </div>
+    </ng-container>
 
-  </ng-template> 
+  </div>
+
+</ng-template>
 
 
 <!-- Loading Skeleton template -->
@@ -56,46 +58,62 @@
 
   <div class="skeTitle">
     <ngx-skeleton-loader appearance="line" animation="progress-dark" [theme]="{
-      width: '40%',
+      width: '50%',
       height: '30px' }"></ngx-skeleton-loader>
   </div>
   <!-- Hacemos un for con la funcion generateFake para repetir dos veces el template -->
   <div class="skeleton" *ngFor="let item of generateFake(2)">
     <div class="skeFlex">
       <div>
-          <ngx-skeleton-loader appearance="line" animation="progress-dark"
-              [theme]="{
-                width: '140%',
-                height: '19vw' }"></ngx-skeleton-loader>
-          <ngx-skeleton-loader appearance="line" animation="progress-dark" [theme]="{
-            width: '200px',
-            height: '30px' }" ></ngx-skeleton-loader>
-          <ngx-skeleton-loader appearance="line" animation="progress-dark"></ngx-skeleton-loader>
-          <ngx-skeleton-loader appearance="line" animation="progress-dark"></ngx-skeleton-loader>
-      </div>
-      <div>
-          <ngx-skeleton-loader appearance="line" animation="progress-dark"
-              [theme]="{
-                width: '140%',
-                height: '19vw' }"></ngx-skeleton-loader>
-          <ngx-skeleton-loader appearance="line" animation="progress-dark" [theme]="{
-            width: '200px',
-            height: '30px' }" ></ngx-skeleton-loader>
-          <ngx-skeleton-loader appearance="line" animation="progress-dark"></ngx-skeleton-loader>
-          <ngx-skeleton-loader appearance="line" animation="progress-dark"></ngx-skeleton-loader>
-      </div>
-      <div>
-        <ngx-skeleton-loader appearance="line" animation="progress-dark"
-            [theme]="{
-              width: '140%',
-              height: '19vw' }"></ngx-skeleton-loader>
         <ngx-skeleton-loader appearance="line" animation="progress-dark" [theme]="{
-          width: '200px',
-          height: '30px' }" ></ngx-skeleton-loader>
+                width: '150%',
+                height: '200px' }">
+        </ngx-skeleton-loader>
+        <ngx-skeleton-loader appearance="line" animation="progress-dark" [theme]="{
+            width: '160px',
+            height: '30px' }">
+        </ngx-skeleton-loader>
         <ngx-skeleton-loader appearance="line" animation="progress-dark"></ngx-skeleton-loader>
         <ngx-skeleton-loader appearance="line" animation="progress-dark"></ngx-skeleton-loader>
       </div>
+      <div>
+        <ngx-skeleton-loader appearance="line" animation="progress-dark" [theme]="{
+                width: '150%',
+                height: '200px' }">
+        </ngx-skeleton-loader>
+        <ngx-skeleton-loader appearance="line" animation="progress-dark" [theme]="{
+            width: '160px',
+            height: '30px' }">
+        </ngx-skeleton-loader>
+        <ngx-skeleton-loader appearance="line" animation="progress-dark"></ngx-skeleton-loader>
+        <ngx-skeleton-loader appearance="line" animation="progress-dark"></ngx-skeleton-loader>
       </div>
+      <div>
+        <ngx-skeleton-loader appearance="line" animation="progress-dark" [theme]="{
+                width: '150%',
+                height: '200px' }">
+        </ngx-skeleton-loader>
+        <ngx-skeleton-loader appearance="line" animation="progress-dark" [theme]="{
+            width: '160px',
+            height: '30px' }">
+        </ngx-skeleton-loader>
+        <ngx-skeleton-loader appearance="line" animation="progress-dark"></ngx-skeleton-loader>
+        <ngx-skeleton-loader appearance="line" animation="progress-dark"></ngx-skeleton-loader>
+      </div>
+      <div>
+        <ngx-skeleton-loader appearance="line" animation="progress-dark" [theme]="{
+                width: '150%',
+                height: '200px' }">
+        </ngx-skeleton-loader>
+        <ngx-skeleton-loader appearance="line" animation="progress-dark" [theme]="{
+            width: '160px',
+            height: '30px' }">
+        </ngx-skeleton-loader>
+        <ngx-skeleton-loader appearance="line" animation="progress-dark"></ngx-skeleton-loader>
+        <ngx-skeleton-loader appearance="line" animation="progress-dark"></ngx-skeleton-loader>
+      </div>
+     
+    </div>
   </div>
 
 </ng-template>
