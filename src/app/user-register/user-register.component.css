@@ -1,7 +1,7 @@
 .card {
   width: 830px;
   height: 500px;
-  margin: 0 auto;
+  margin: 7rem auto;
 
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
@@ -26,6 +26,12 @@
 
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.radios{
+  display: flex;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -88,7 +94,7 @@ form {
 .botonSubmitt {
   display: block;
   color: white;
-  margin: 1rem auto;
+  margin: 0rem auto 1rem;
   background-color: var(--c1);
   width: 110px;
   height: 35px;

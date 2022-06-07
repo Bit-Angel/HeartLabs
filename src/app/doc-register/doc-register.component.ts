@@ -65,9 +65,6 @@ export class DocRegisterComponent implements OnInit {
         });
       })
       .catch(error => console.log(error));
-
-     
-
   }
 
 

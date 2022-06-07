@@ -28,6 +28,7 @@ html{
 
 body{
     position: relative;
+    overflow-x: hidden;
 }
 
 .NAV{

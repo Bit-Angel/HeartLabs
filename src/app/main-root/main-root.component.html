@@ -1,18 +1,13 @@
-<!-- <app-nav-bar class="NAV" ></app-nav-bar> -->
 
+<app-barra-lateral-root></app-barra-lateral-root>
 
-  <!-- <p>main-root works!</p>
-  <input type="submit" (click)="onClick()" value="Logout"> -->
+<div class="container">
+    <h2 class="titulo">Bienvenido</h2>
+    <h2 class="titulo">Root</h2>
 
-  <!-- puede eliminar doctores -->
-  <!-- puede modificar los datos de los doctores -->
-
-  <nav class="navbar navbar-light" style="background-color: var(--c1); max-height: 70px; min-height: 60px;">
-    <div class="container-fluid">
-      <a class="navbar-brand logo" [routerLink]="['/home']" >
-        <img src="../../assets/logos/hl-hw.svg" height="50px">
-      </a>
-      <div class="reloj"></div>
+    <div class="container text-center mt-5">
+      <div class="fecha">{{fecha | date:'mediumDate'}}</div>
+      <div class="reloj">{{reloj | date:'mediumTime' }}</div>
+      <div class="frase">" {{frase}} "</div>
     </div>
-  </nav>
- <app-barra-lateral-root></app-barra-lateral-root>
+</div>

@@ -1,4 +1,4 @@
-<div class="frase">
+<div class="frase" [ngClass]="{'noShow':!controlShow}">
     <h2 class="frase-text">
         “Te atendemos con el corazón”
     </h2>
@@ -10,7 +10,7 @@
       <div class="row m-0">
           <div class="col-12 col-sm-4">
               <div class="footer-right">
-                  <img src="../../assets/logos/hl-vw.svg" alt="" class="footer-logo">
+                    <img src="../../assets/logos/hl-vw.svg" alt="" class="footer-logo" routerLink="/home">
                   <hr class="footer-line">
               </div>
   
@@ -18,12 +18,11 @@
           <div class="col-12 col-sm-1"></div>
           <div class="col-12 col-sm-3">
               <ul class="footer-list">
-                  <li class="footer-list_item"><a href="" class="footer-list__link">Inicio</a></li>
-                  <li class="footer-list_item"><a href="" class="footer-list__link">Servicios</a></li>
-                  <li class="footer-list_item"><a href="" class="footer-list__link">Preguntas Frecuentes</a></li>
-                  <li class="footer-list_item"><a href="" class="footer-list__link">Conocenos</a></li>
-                  <li class="footer-list_item"><a href="" class="footer-list__link">Iniciar Sesion</a></li>
-                  <li class="footer-list_item"><a href="" class="footer-list__link">Desarrolladores</a></li>
+                  <li class="footer-list_item"><a routerLink="/home" class="footer-list__link">Inicio</a></li>
+                  <li class="footer-list_item"><a routerLink="/estudios" class="footer-list__link">Servicios</a></li>
+                  <li class="footer-list_item"><a routerLink="/preguntas" class="footer-list__link">Preguntas Frecuentes</a></li>
+                  <li class="footer-list_item"><a routerLink="/conocenos" class="footer-list__link">Contactanos</a></li>
+                  <li class="footer-list_item"><a routerLink="/desarrolladores" class="footer-list__link">Desarrolladores</a></li>
               </ul>
           </div>
           <div class="col-12 col-sm-4">

@@ -28,6 +28,9 @@ import { AccesibilidadComponent } from './accesibilidad/accesibilidad.component'
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { FooterComponent } from './footer/footer.component';
 import { BarraLateralRootComponent } from './barra-lateral-root/barra-lateral-root.component';
+import { DesarrolladoresComponent } from './desarrolladores/desarrolladores.component';
+import { RootDocsComponent } from './root-docs/root-docs.component';
+import { RootUsersComponent } from './root-users/root-users.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,10 @@ import { BarraLateralRootComponent } from './barra-lateral-root/barra-lateral-ro
     ListaCitasComponent,
     AccesibilidadComponent,
     FooterComponent,
-    BarraLateralRootComponent
+    BarraLateralRootComponent,
+    DesarrolladoresComponent,
+    RootDocsComponent,
+    RootUsersComponent
   ],
   imports: [
     BrowserModule,

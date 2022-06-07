@@ -28,7 +28,6 @@ export class EstudiosComponent implements OnInit {
         .then(response => {
           response.forEach((plaza) => {
             // this.plazasDisponibles.push(plaza.data());
-            console.log(plaza.data());
             this.estudiosDisponibles.push(plaza.data());
             console.log(this.estudiosDisponibles)
           });

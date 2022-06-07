@@ -1,18 +1,25 @@
+<nav class="navbar navbar-light" style="background-color: var(--c1); max-height: 70px; min-height: 60px;">
+  <div class="container-fluid">
+    <a class="navbar-brand logo" [routerLink]="['/mainRoot']">
+      <img src="../../assets/logos/hl-hw.svg" height="50px">
+    </a>
+  </div>
+</nav>
 <div class="contenedor">
     <div class="barra_lateral">
       <div class="arriba">
-        <a class="barra_item" [routerLink]="['/registrar']">
+        <a class="barra_item" [routerLink]="['/rootDocs']">
             <img src="../../assets/logos/doctor_icon.svg" class="icon__img">
           <p>Doctores</p>
         </a>
     
-        <a class="barra_item" [routerLink]="['/listaRegistros']">
+        <a class="barra_item" [routerLink]="['/rootUsers']">
           <img src="../../assets/login/user.svg" class="icon__img">
           <p>Usuarios</p>
         </a>
       </div>
-      <a class="barra_item cerrarSesion">
-        <i class="fa-solid fa-right-from-bracket"></i>
+      <a class="barra_item cerrarSesion" (click)="onClick()">
+        <picture class="picture"></picture>
         <p>Cerrar sesion</p>
       </a>
     </div>

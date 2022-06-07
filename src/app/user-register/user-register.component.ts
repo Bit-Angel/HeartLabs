@@ -20,6 +20,7 @@ export class UserRegisterComponent implements OnInit {
       password: new FormControl(),
       phone: new FormControl(),
       birthday: new FormControl(),
+      sex: new FormControl()
       }) ;
   }
 

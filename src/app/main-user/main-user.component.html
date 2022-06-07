@@ -1,9 +1,18 @@
-<app-nav-bar class="NAV" ></app-nav-bar>
+<app-nav-bar class="NAV"></app-nav-bar>
 <div class="container espacioAB">
 
-  <p >Bienvenido Usuario {{usuarioActual.name}}</p>
-  
+  <div class="bienvenida">
+    <h2 class="titulo" *ngIf="usuarioActual.sex == 'Hombre'">Bienvenido</h2>
+    <h2 class="titulo" *ngIf="usuarioActual.sex == 'Mujer'">Bienvenida</h2>
+    <h2 class="titulo" *ngIf="usuarioActual.sex == 'NA'">Bienvenid@</h2>
+    <h2 class="titulo__name" >{{usuarioActual.name | titlecase}}</h2>
+  </div>
 
+  <div class="container text-center mt-5">
+    <div class="fecha">{{fecha | date:'mediumDate'}}</div>
+    <div class="reloj">{{reloj | date:'mediumTime' }}</div>
+    <div class="frase">" {{frase}} "</div>
+</div>
 
 
 

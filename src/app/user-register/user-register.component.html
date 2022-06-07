@@ -36,6 +36,11 @@
       <div class="inputForm">
         <input type="date" class="inputFormControl" formControlName="birthday" placeholder="fecha de nacimiento">
       </div>
+      <div class="inputForm radios">
+        <div class="radio"><input type="radio" name="sexo" value="Mujer" formControlName="sex"> Mujer</div>
+        <div class="radio"><input type="radio" name="sexo" value="Hombre" formControlName="sex"> Hombre</div>
+        <div class="radio"><input type="radio" name="sexo" value="NA" formControlName="sex"> Otro</div>
+      </div>
       <input type="submit" value="Registrar" class="botonSubmitt">
 
       <p class="noCuenta">¿Ya tienes una cuenta? <a routerLink="/login">Inicia Sesion</a></p>

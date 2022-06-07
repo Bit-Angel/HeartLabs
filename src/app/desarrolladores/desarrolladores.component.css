@@ -1,0 +1,21 @@
+.col-md-4{
+    overflow: hidden;
+    max-height: 250px;
+    max-width: 350px;
+}
+
+.col-md-4 img{
+    width: 100%;
+}
+
+.card{
+    box-shadow: var(--bxs1);
+    cursor: pointer;
+    margin: 3rem auto;
+    transition: all .2s ease;
+
+}
+
+.card:hover{
+    transform: scale(1.05);
+}

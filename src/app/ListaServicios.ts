@@ -3,7 +3,7 @@ import Estudio from './interfaces/estudios.interface';
 export const ESTUDIOS: Estudio[] = [
   {
     //estudio 1
-    // id:0;
+    id:0,
     img:"../assets/estudios/est1.png",
     nombreEstudio: 'Ultrasonido Abdominal General Hombre',
     idEstudio: '1000',
@@ -15,7 +15,7 @@ export const ESTUDIOS: Estudio[] = [
   },
   {
     //estudio 2
-    // id:0;
+    id:1,
     img:"../assets/estudios/est2.jpeg",
     nombreEstudio: 'Ultrasonido 4d',
     idEstudio: '1010',
@@ -27,7 +27,7 @@ export const ESTUDIOS: Estudio[] = [
   },
   {
     //estudio 3
-    // id:0;
+    id:2,
     img:"../assets/estudios/est3.png",
     nombreEstudio: 'Ultrasonido De Prostata',
     idEstudio: '1020',
@@ -39,7 +39,7 @@ export const ESTUDIOS: Estudio[] = [
   },
   {
     //estudio 4
-    // id:0;
+    id:3,
     img:"../assets/estudios/est4.png",
     nombreEstudio: 'Ultrasonido Testicular',
     idEstudio: '1030',
@@ -51,7 +51,7 @@ export const ESTUDIOS: Estudio[] = [
   },
   {
     //estudio 5
-    // id:0;
+    id:4,
     img:"../assets/estudios/est5.jpg",
     nombreEstudio: 'Acido Urico',
     idEstudio: '1040',
@@ -62,7 +62,7 @@ export const ESTUDIOS: Estudio[] = [
   },
   {
     //estudio 6
-    // id:0;
+    id:5,
     img:"../assets/estudios/est6.jpg",
     nombreEstudio: 'Acido Urico Urinario',
     idEstudio: '1050',
@@ -74,7 +74,7 @@ export const ESTUDIOS: Estudio[] = [
   },
   {
     //estudio 7
-    // id:0;
+    id:6,
     img:"../assets/estudios/est7.jpg",
     nombreEstudio: 'Acidos Grasos Libres',
     idEstudio: '1060',
@@ -85,7 +85,7 @@ export const ESTUDIOS: Estudio[] = [
   },
   {
     //estudio 8
-    // id:0;
+    id:7,
     img:"../assets/estudios/est8.jpg",
     nombreEstudio: 'Acidos Biliares',
     idEstudio: '1070',
@@ -96,7 +96,7 @@ export const ESTUDIOS: Estudio[] = [
   },
   {
     //estudio 9
-    // id:0;
+    id:8,
     img:"../assets/estudios/est9.png",
     nombreEstudio: 'Electroforesis De Lipoproteinas',
     idEstudio: '1080',
@@ -107,7 +107,7 @@ export const ESTUDIOS: Estudio[] = [
   },
   {
     //estudio 10
-    // id:0;
+    id:9,
     img:"../assets/estudios/est10.png",
     nombreEstudio: 'Anticuerpos Cuantitativos Anti Sars-Cov-2 Covid 19',
     idEstudio: '1090',
@@ -118,7 +118,7 @@ export const ESTUDIOS: Estudio[] = [
   },
   {
     //estudio 11
-    // id:0;
+    id:10,
     img:"../assets/estudios/est11.png",
     nombreEstudio: 'Examen General De Orina',
     idEstudio: '1100',
@@ -130,7 +130,7 @@ export const ESTUDIOS: Estudio[] = [
   },
   {
     //estudio 12
-    // id:0;
+    id:11,
     img:"../assets/estudios/est12.png",
     nombreEstudio: 'Fructosamina',
     idEstudio: '1110',
@@ -141,7 +141,7 @@ export const ESTUDIOS: Estudio[] = [
   },
   {
     //estudio 13
-    // id:0;
+    id:12,
     img:"../assets/estudios/est13.jpg",
     nombreEstudio: 'Hepatitis C Carga Viral Y Genotipo',
     idEstudio: '1120',
@@ -152,7 +152,7 @@ export const ESTUDIOS: Estudio[] = [
   },
   {
     //estudio 14
-    // id:0;
+    id:13,
     img:"../assets/estudios/est14.jpg",
     nombreEstudio: 'Homocisteinemia(C677t,A1298c-Mthfr)',
     idEstudio: '1130',
@@ -163,7 +163,7 @@ export const ESTUDIOS: Estudio[] = [
   },
   {
     //estudio 15
-    // id:0;
+    id:14,
     img:"../assets/estudios/est15.png",
     nombreEstudio: 'Papanicolaou Base Liquida',
     idEstudio: '1140',
@@ -175,7 +175,7 @@ export const ESTUDIOS: Estudio[] = [
   },
   {
     //estudio 16
-    // id:0;
+    id:15,
     img:"../assets/estudios/est16.jpg",
     nombreEstudio: 'Electrocardiograma',
     idEstudio: '1150',
@@ -187,7 +187,7 @@ export const ESTUDIOS: Estudio[] = [
   },
   {
     //estudio 17
-    // id:0;
+    id:16,
     img:"../assets/estudios/est17.PNG",
     nombreEstudio: 'Mastografia',
     idEstudio: '1160',
@@ -199,7 +199,7 @@ export const ESTUDIOS: Estudio[] = [
   },
   {
     //estudio 18
-    // id:0;
+    id:17,
     img:"../assets/estudios/est18.jfif",
     nombreEstudio: 'Anticuerpos Anti Chlamydia Trachomatis',
     idEstudio: '1170',

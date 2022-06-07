@@ -38,7 +38,7 @@
             <p class="card-text estudiosDescripcion"> {{h.descripcion}}</p>
             <p class="card-text text-right"> <strong>{{h.precio | currency}}</strong> </p>
           </div>
-          <a [routerLink]="['/estudios',i]" class="mb-3 btn btn-outline-primary btn-block">Ver Mas</a>
+          <a [routerLink]="['/estudios',h.id]" class="mb-3 btn btn-outline-primary btn-block">Ver Mas</a>
         </div>
       </div>
     </ng-container>

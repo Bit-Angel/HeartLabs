@@ -1,3 +1,10 @@
+.logo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .contenedor{
     width: 100%;
     height: calc(100vh - 90px);
@@ -58,25 +65,33 @@ a{
 
 .barra_item p{
     text-align: center;
-    max-width: 75px;
+    width: 75px;
     font-size: .8rem;
     color: #676767;
     margin-top: 5px;
 }
 
-.icon__img{
+.icon__img, .picture{
     width: 20px;
     height: 20px;
+    padding: 0;
 }
 
 .cerrarSesion{
     padding: .5rem 0 0;
+    width: 80px;
+    height: 120px;
     place-self: flex-end;
-    transform: scale(.8);
+    transform: scale(.85);
 }
 
-.cerrarSesion:hover .fa-solid{
-    color: red;
+.cerrarSesion .picture{
+    display: block;
+    margin-bottom: .2rem;
+    background-image: url(../../assets/login/logout_wh.svg);
+}
+.cerrarSesion:hover .picture{
+    background-image: url(../../assets/login/logout_rd.svg);
 }
 
 

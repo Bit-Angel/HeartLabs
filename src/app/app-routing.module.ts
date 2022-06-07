@@ -15,6 +15,9 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { PreguntasComponent } from './preguntas/preguntas.component';
 import { ConocenosComponent } from './conocenos/conocenos.component';
 import { ListaCitasComponent } from './lista-citas/lista-citas.component';
+import { DesarrolladoresComponent } from './desarrolladores/desarrolladores.component';
+import { RootDocsComponent } from './root-docs/root-docs.component';
+import { RootUsersComponent } from './root-users/root-users.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -41,7 +44,10 @@ const routes: Routes = [
   { path: 'estudios/:id', component: UnEstudioComponent},
   { path: 'preguntas', component: PreguntasComponent},
   { path: 'conocenos', component: ConocenosComponent},
-  { path: 'citas', component: ListaCitasComponent}
+  { path: 'citas', component: ListaCitasComponent},
+  { path: 'desarrolladores', component: DesarrolladoresComponent},
+  { path: 'rootDocs', component: RootDocsComponent},
+  { path: 'rootUsers', component: RootUsersComponent}
 
 
 ];
