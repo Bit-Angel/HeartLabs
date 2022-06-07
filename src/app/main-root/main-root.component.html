@@ -1,11 +1,18 @@
-<app-nav-bar class="NAV" ></app-nav-bar>
-
-<div class="container espacioAB">
-
-  <p>main-root works!</p>
-  <input type="submit" (click)="onClick()" value="Logout">
+<!-- <app-nav-bar class="NAV" ></app-nav-bar> -->
 
 
+  <!-- <p>main-root works!</p>
+  <input type="submit" (click)="onClick()" value="Logout"> -->
 
+  <!-- puede eliminar doctores -->
+  <!-- puede modificar los datos de los doctores -->
 
-</div>
+  <nav class="navbar navbar-light" style="background-color: var(--c1); max-height: 70px; min-height: 60px;">
+    <div class="container-fluid">
+      <a class="navbar-brand logo" [routerLink]="['/home']" >
+        <img src="../../assets/logos/hl-hw.svg" height="50px">
+      </a>
+      <div class="reloj"></div>
+    </div>
+  </nav>
+ <app-barra-lateral-root></app-barra-lateral-root>

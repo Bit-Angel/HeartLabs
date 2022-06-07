@@ -27,6 +27,7 @@ import { ListaCitasComponent } from './lista-citas/lista-citas.component';
 import { AccesibilidadComponent } from './accesibilidad/accesibilidad.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { FooterComponent } from './footer/footer.component';
+import { BarraLateralRootComponent } from './barra-lateral-root/barra-lateral-root.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { FooterComponent } from './footer/footer.component';
     ConocenosComponent,
     ListaCitasComponent,
     AccesibilidadComponent,
-    FooterComponent
+    FooterComponent,
+    BarraLateralRootComponent
   ],
   imports: [
     BrowserModule,

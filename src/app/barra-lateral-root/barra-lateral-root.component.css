@@ -1,0 +1,112 @@
+.contenedor{
+    width: 100%;
+    height: calc(100vh - 90px);
+    margin: 0;
+
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    grid-template-rows: 1fr 30px;
+    
+    position: absolute;
+    top: 85;
+    right: 0;
+    background-color: white;
+
+}
+
+.barra_lateral{
+    width: 80px;
+    border-right: 1px solid #e6e6e6;
+    height: calc(100vh - 60px);
+
+    grid-column: 1/2;
+    grid-row: 1/-1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.barra_item{
+    width: 80px;
+    height: 80px;
+    border-bottom: 1px solid #e6e6e6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all .2s ease;
+}
+
+a{
+    text-decoration: none;
+    transition: all .2s ease;
+}
+
+.arriba{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.barra_item:hover{
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+
+.barra_item p{
+    text-align: center;
+    max-width: 75px;
+    font-size: .8rem;
+    color: #676767;
+    margin-top: 5px;
+}
+
+.icon__img{
+    width: 20px;
+    height: 20px;
+}
+
+.cerrarSesion{
+    padding: .5rem 0 0;
+    place-self: flex-end;
+    transform: scale(.8);
+}
+
+.cerrarSesion:hover .fa-solid{
+    color: red;
+}
+
+
+
+
+.contenido{
+    height: calc(100vh - 90px);
+    grid-column: 2/-1;
+    grid-row: 1/2;
+}
+
+.footer{
+    margin: 0;
+    width: 100%;
+    height: 30px;
+    grid-column: 2/-1;
+    grid-row: 2/-1;
+    text-align: right;
+    font-size: .9rem;
+    font-weight: 300;
+    transform: translate(-20px);
+}
+
+.navbar-brand{
+    color: white;
+    padding: 0 0 0 30px;
+    font-size: 30px;
+}
+
+.logo:hover{
+    transform: scale(1.1);
+    color: white;
+}
