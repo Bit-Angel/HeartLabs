@@ -10,6 +10,7 @@ import { Auth } from '@angular/fire/auth';
   styleUrls: ['./estudios.component.css']
 })
 export class EstudiosComponent implements OnInit {
+
   misEstudios:Estudio[] = [];
   estudiosDisponibles:any[]=[];
   aux:Estudio;
@@ -20,20 +21,23 @@ export class EstudiosComponent implements OnInit {
     public auth:Auth) { }
 
   ngOnInit(): void {
-    this.firebaseService.getPlazas("1")
-    .then(response => {
-      response.forEach((plaza) => {
-        // this.plazasDisponibles.push(plaza.data());
-        console.log(plaza.data());
-        this.estudiosDisponibles.push(plaza.data());
-        console.log(this.estudiosDisponibles)
-      });
-      this.obtenerEstudios();
 
-    })
-    .catch(error => console.log(error));
+    setTimeout(() => {
+      
+        this.firebaseService.getPlazas("1")
+        .then(response => {
+          response.forEach((plaza) => {
+            // this.plazasDisponibles.push(plaza.data());
+            console.log(plaza.data());
+            this.estudiosDisponibles.push(plaza.data());
+            console.log(this.estudiosDisponibles)
+          });
+          this.obtenerEstudios();
 
-   
+        })
+        .catch(error => console.log(error));
+
+      }, 200);
      
   }
 
@@ -51,4 +55,13 @@ export class EstudiosComponent implements OnInit {
 
   }
 
+  /* Hay un método generateFake() para devolver una "matriz falsa" de los recuentos especificados. */
+  generateFake(count: number): Array<number> {
+    const indexes : any[] = [];
+    for (let i = 0; i < count; i++) {
+      indexes.push(i);
+    }
+    return indexes;
+  }
+  
 }

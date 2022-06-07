@@ -22,6 +22,7 @@
   @media (max-width: 992px) {
     .card-columns {
       column-count: 2;
+      text-align: center;
     }
   }
   
@@ -46,7 +47,6 @@
     line-height: 59px;
     /* identical to box height */
     color: #000000;
-
   }
 
   .card-img-top {
@@ -62,4 +62,28 @@
   }
   .card-columns{
     margin-top: 40px;
+  }
+
+  .skeleton{
+    margin-left: 4%;
+  }
+
+  .skeTitle{
+    margin-top: 8%;
+    margin-left: 33%;
+  }
+
+  .skeFlex{
+    display: flex;
+    margin-top: -2%;
+  }
+
+  @media (max-width: 800px) {
+    .skeFlex{
+      flex-direction: column;
+    }
+  }
+
+  .skeFlex > div {
+    margin: 5%;
   }

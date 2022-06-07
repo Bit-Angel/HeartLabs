@@ -25,6 +25,7 @@ import { PreguntasComponent } from './preguntas/preguntas.component';
 import { ConocenosComponent } from './conocenos/conocenos.component';
 import { ListaCitasComponent } from './lista-citas/lista-citas.component';
 import { AccesibilidadComponent } from './accesibilidad/accesibilidad.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { AccesibilidadComponent } from './accesibilidad/accesibilidad.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgxSkeletonLoaderModule,
     ReactiveFormsModule,
     FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
