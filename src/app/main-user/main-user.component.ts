@@ -19,7 +19,8 @@ export class MainUserComponent implements OnInit {
     email:"",
     password:"",
     phone:"",
-    birthday:""
+    birthday:"",
+    sex:""
   };
   reloj:Date = new Date;
   fecha:Date = new Date;

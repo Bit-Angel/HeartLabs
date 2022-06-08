@@ -7,3 +7,59 @@
     height: 80vh;
     overflow-y: scroll;
 }
+
+.tarjeta{
+    width: 80%;
+    margin: .2rem auto;
+    height: max-content;
+
+    display: flex;
+}
+
+.datosA{
+    display: flex;
+}
+
+.datosA p{
+    margin-right: 20px;
+}
+
+.botones{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.botones button{
+    color: white;
+    width: 150px;
+    padding: .5rem 1rem;
+    background-color: var(--c1);
+    font-size: 1rem;
+    border: none;
+    border-radius: 50px;
+    margin-bottom: 15px;
+    transition: all .12s ease;
+    text-transform: capitalize;
+}
+
+.botones button:nth-child(2){
+    background-color: var(--c6);
+}
+
+.botones button:hover{
+    transform: scale(1.05);
+    background-color: var(--c2);
+}
+
+.botones button:nth-child(2):hover{
+    background-color: #e13a3a;
+}
+
+.nombre{
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}

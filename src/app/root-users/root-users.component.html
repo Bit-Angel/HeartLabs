@@ -4,70 +4,80 @@
 <!-- //aqui se va a mostrar la lista de doctores registrados -->
 
 <div class="container">
-    
+
   <div class="card card-principal">
     <div class="card-body">
       <h2 class="text-center">Usuarios Registrados</h2>
-      <div class="card card-body d-flex flex-row">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur cumque laudantium minus. Ipsum perferendis
-        dolore culpa deserunt similique neque debitis et obcaecati in voluptates iusto tempore eos, quaerat nulla
-        molestiae quod mollitia rem id, atque sapiente doloremque incidunt vitae doloribus.
-        <div class="card-body">
-            <button>Hola</button>
+      <div class="card card-body tarjeta d-flex flex-row justify-content-between" *ngFor="let unUsuario of ListaDeUsuarios, let i=index">
+        <div class="datos">
+          <h4 class="nombre">{{unUsuario.name}} {{unUsuario.lastName}}</h4>
+          <p><strong>Fecha de nacimiento: </strong>{{unUsuario.birthday}}</p>
+          <p><strong>Sexo: </strong>{{unUsuario.sex}}</p>
+          <div class="datosA">
+            <p><strong>Telefono: </strong>{{unUsuario.phone}}</p>
+            <p><strong>Correo: </strong>{{unUsuario.email}}</p>
+          </div>
         </div>
-      </div>
-      <div class="card card-body d-flex flex-row">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur cumque laudantium minus. Ipsum perferendis
-        dolore culpa deserunt similique neque debitis et obcaecati in voluptates iusto tempore eos, quaerat nulla
-        molestiae quod mollitia rem id, atque sapiente doloremque incidunt vitae doloribus.
-        <div class="card-body">
-            <button>Hola</button>
-        </div>
-      </div>
-      <div class="card card-body d-flex flex-row">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur cumque laudantium minus. Ipsum perferendis
-        dolore culpa deserunt similique neque debitis et obcaecati in voluptates iusto tempore eos, quaerat nulla
-        molestiae quod mollitia rem id, atque sapiente doloremque incidunt vitae doloribus.
-        <div class="card-body">
-            <button>Hola</button>
-        </div>
-      </div>
-      <div class="card card-body d-flex flex-row">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur cumque laudantium minus. Ipsum perferendis
-        dolore culpa deserunt similique neque debitis et obcaecati in voluptates iusto tempore eos, quaerat nulla
-        molestiae quod mollitia rem id, atque sapiente doloremque incidunt vitae doloribus.
-        <div class="card-body">
-            <button>Hola</button>
-        </div>
-      </div>
-      <div class="card card-body d-flex flex-row">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur cumque laudantium minus. Ipsum perferendis
-        dolore culpa deserunt similique neque debitis et obcaecati in voluptates iusto tempore eos, quaerat nulla
-        molestiae quod mollitia rem id, atque sapiente doloremque incidunt vitae doloribus.
-        <div class="card-body">
-            <button>Hola</button>
-        </div>
-      </div>
-      <div class="card card-body d-flex flex-row">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur cumque laudantium minus. Ipsum perferendis
-        dolore culpa deserunt similique neque debitis et obcaecati in voluptates iusto tempore eos, quaerat nulla
-        molestiae quod mollitia rem id, atque sapiente doloremque incidunt vitae doloribus.
-        <div class="card-body">
-            <button>Hola</button>
-        </div>
-      </div>
-      <div class="card card-body d-flex flex-row">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur cumque laudantium minus. Ipsum perferendis
-        dolore culpa deserunt similique neque debitis et obcaecati in voluptates iusto tempore eos, quaerat nulla
-        molestiae quod mollitia rem id, atque sapiente doloremque incidunt vitae doloribus.
-        <div class="card-body">
-            <button>Hola</button>
-        </div>
-      </div>
-      
 
-
+        <div class="botones">
+          <button (click)="editarUsuario(unUsuario)" type="button" class="btn btn-primary" data-toggle="modal"
+            data-target="#exampleModal">editar</button>
+          <button>eliminar</button>
+        </div>
+      </div>
     </div>
   </div>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar Usuario</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <form [formGroup]="form" (ngSubmit)="onSubmit(this.id)">
+            <div class="inputForm">
+              <input type="text" class="inputFormControl AfterEncima" formControlName="name" placeholder="Nombre">
+              <span class="form__bar"></span>
+            </div>
+            <div class="inputForm">
+              <input type="text" class="inputFormControl AfterEncima" formControlName="lastName" placeholder="Apellido">
+              <span class="form__bar"></span>
+            </div>
+            <div class="inputForm">
+              <input type="email" class="inputFormControl AfterEncima" formControlName="email" placeholder="Correo">
+              <span class="form__bar"></span>
+            </div>
+            <div class="inputForm">
+              <input type="text" class="inputFormControl AfterEncima" formControlName="phone" maxlength="12"
+                placeholder="Telefono">
+              <span class="form__bar"></span>
+            </div>
+            <div class="inputForm">
+              <input type="date" class="inputFormControl" formControlName="birthday" placeholder="fecha de nacimiento">
+            </div>
+            <div class="inputForm radios">
+              <div class="radio"><input type="radio" name="sex" value="Mujer" formControlName="sex"> Mujer</div>
+              <div class="radio"><input type="radio" name="sex" value="Hombre" formControlName="sex"> Hombre</div>
+              <div class="radio"><input type="radio" name="sex" value="NA" formControlName="sex"> Otro</div>
+            </div>
+            <input type="submit" value="Registrar" class="btn btn-primary botonSubmitt">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
 
 </div>

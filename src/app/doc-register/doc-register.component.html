@@ -1,33 +1,48 @@
-<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-    <div class="">
-        <label class="form-label">Nombre</label>
-        <input type="text" class="form-control" formControlName="name">
+<app-barra-lateral-root></app-barra-lateral-root>
+
+
+<!-- //aqui se va a mostrar la lista de doctores registrados -->
+
+<div class="container">
+
+  <div class="card card-principal">
+      <div class="card-body">
+        <h2 class="text-center titulo">Registro de doctores</h2>
+        <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+          <div class="inputForm">
+            <input type="text" class="inputFormControl AfterEncima" formControlName="name" placeholder="Nombre">
+            <span class="form__bar"></span>
+          </div>
+          <div class="inputForm">
+            <input type="text" class="inputFormControl AfterEncima" formControlName="lastName" placeholder="Apellido">
+            <span class="form__bar"></span>
+          </div>
+          <div class="inputForm">
+            <input type="email" class="inputFormControl AfterEncima" formControlName="email" placeholder="Correo">
+            <span class="form__bar"></span>
+          </div>
+          <div class="inputForm">
+            <input type="password" class="inputFormControl AfterEncima" formControlName="password" placeholder="Contraseña">
+            <span class="form__bar"></span>
+          </div>
+          <div class="inputForm">
+            <input type="text" class="inputFormControl AfterEncima" formControlName="phone" maxlength="12" placeholder="Telefono">
+            <span class="form__bar"></span>
+          </div>
+          <div class="inputForm">
+            <input type="text" class="inputFormControl AfterEncima" formControlName="cedule" placeholder="Cedula Profesional">
+            <span class="form__bar"></span>
+          </div>
+          <div class="inputForm plaza">
+            <label class="form-label" style="transform: translateY(8px);">Plaza</label>
+            <select name="" id="" formControlName="plaza" placeholder="" class="inputFormControlPlaza">
+              <option *ngFor="let plaza of plazasDisponibles" value="{{plaza.idEstudio}}">{{plaza.idEstudio}}</option>
+            </select>
+          </div>
+          <input type="submit" value="Enviar" class="botonSubmitt">
+        </form>
+
+        </div>
     </div>
-    <div class="">
-        <label class="form-label">Apellido</label>
-        <input type="text" class="form-control" formControlName="lastName">
-    </div>
-    <div class="">
-        <label class="form-label">Correo</label>
-        <input type="email" class="form-control" formControlName="email">
-    </div>
-    <div class="">
-        <label class="form-label">Constraseña</label>
-        <input type="password" class="form-control" formControlName="password">
-    </div>
-    <div class="">
-        <label class="form-label">Telefono</label>
-        <input type="text" class="form-control" formControlName="phone" maxlength="12" placeholder="524491234567">
-    </div>
-    <div class="">
-        <label class="form-label">Cedula Profesional</label>
-        <input type="text" class="form-control" formControlName="cedule">
-    </div>
-    <div class="">
-        <label class="form-label">Plaza</label>
-        <select name="" id="" formControlName="plaza"> 
-            <option *ngFor="let plaza of plazasDisponibles" value="{{plaza.idEstudio}}">{{plaza.idEstudio}}</option>
-        </select>
-    </div>
-    <input type="submit" value="Enviar">
-</form>
+
+</div>

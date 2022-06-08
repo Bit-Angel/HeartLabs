@@ -6,4 +6,5 @@ export default interface User {
     password:string;
     phone:string;
     birthday:string;
+    sex:string;
 }

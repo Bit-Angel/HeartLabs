@@ -31,6 +31,7 @@ import { BarraLateralRootComponent } from './barra-lateral-root/barra-lateral-ro
 import { DesarrolladoresComponent } from './desarrolladores/desarrolladores.component';
 import { RootDocsComponent } from './root-docs/root-docs.component';
 import { RootUsersComponent } from './root-users/root-users.component';
+import { GraficasComponent } from './graficas/graficas.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { RootUsersComponent } from './root-users/root-users.component';
     BarraLateralRootComponent,
     DesarrolladoresComponent,
     RootDocsComponent,
-    RootUsersComponent
+    RootUsersComponent,
+    GraficasComponent
   ],
   imports: [
     BrowserModule,

@@ -79,14 +79,25 @@ export class FirebaseService {
     const q = query(placeRef, where("idEstudio","==",idEstudio));
     return getDocs(q);
   }
+  getAllUsers(): Observable<User[]>{
+    const placeRef = collection(this.firestore, 'users');
+    return collectionData (placeRef, {idField: 'id'}) as Observable<User[]>;
+  }
+
+  updateUsuario(id:string, datos:any): Promise<any>{
+    const placeRef = doc(this.firestore, `users/${id}`);
+    return setDoc(placeRef,datos);
+
+  }
+
   updatePlaza(nuevaPlaza:Plaza){
-    console.log(nuevaPlaza);
     const placeDocRef = doc(this.firestore, `estudios/${nuevaPlaza.id}`); 
     return setDoc(placeDocRef,nuevaPlaza);
   }
   logout() {
     return signOut(this.auth);
   }
+
 }
 
 export interface Plaza {

@@ -6,21 +6,28 @@
   </div>
 </nav>
 <div class="contenedor">
-    <div class="barra_lateral">
-      <div class="arriba">
-        <a class="barra_item" [routerLink]="['/rootDocs']">
-            <img src="../../assets/logos/doctor_icon.svg" class="icon__img">
-          <p>Doctores</p>
-        </a>
-    
-        <a class="barra_item" [routerLink]="['/rootUsers']">
-          <img src="../../assets/login/user.svg" class="icon__img">
-          <p>Usuarios</p>
-        </a>
-      </div>
-      <a class="barra_item cerrarSesion" (click)="onClick()">
-        <picture class="picture"></picture>
-        <p>Cerrar sesion</p>
+  <div class="barra_lateral">
+    <div class="arriba">
+      <a class="barra_item" [routerLink]="['/registerDoc']">
+        <img src="../../assets/logos/add_circle.svg" class="icon__img">
+        <p>Agregar Doctores</p>
+      </a>
+      <a class="barra_item" [routerLink]="['/rootDocs']">
+        <img src="../../assets/logos/doctor_icon.svg" class="icon__img">
+        <p>Doctores</p>
+      </a>
+      <a class="barra_item" [routerLink]="['/rootUsers']">
+        <img src="../../assets/login/user.svg" class="icon__img">
+        <p>Usuarios</p>
+      </a>
+      <a class="barra_item" [routerLink]="['/graficas']">
+        <img src="../../assets/logos/graphic.svg" class="icon__img">
+        <p>Graficas</p>
       </a>
     </div>
+    <a class="barra_item cerrarSesion" (click)="onClick()">
+      <picture class="picture"></picture>
+      <p>Cerrar sesion</p>
+    </a>
+  </div>
 </div>
