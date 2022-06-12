@@ -3,7 +3,7 @@
 
 <!-- //aqui se va a mostrar la lista de doctores registrados -->
 
-<div class="container">
+<div *ngIf="loading == true; else elseTemplate" class="container">
 
   <div class="card card-principal">
     <div class="card-body">
@@ -76,8 +76,24 @@
     </div>
   </div>
 
-
-
-
-
 </div>
+
+<!-- Loading Skeleton template -->
+
+<ng-template #elseTemplate>
+
+  <div class="loadingTitle">
+    <ngx-skeleton-loader appearance="line" animation="progress-dark" [theme]="{
+      width: '25%',
+      height: '30px' }"></ngx-skeleton-loader>
+  </div>
+
+  <div class="loadingContainer" *ngFor="let item of generateFake(5)">
+        <ngx-skeleton-loader appearance="line" animation="progress-dark" [theme]="{
+                width: '75%',
+                height: '200px' }">
+        </ngx-skeleton-loader>
+  </div>
+
+</ng-template>
+

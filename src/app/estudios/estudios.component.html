@@ -2,6 +2,7 @@
 <app-nav-bar class="NAV"></app-nav-bar>
 
 <div *ngIf="this.auth.currentUser == null; else conUsuario">
+  
   <!-- Insertamos el loading Skeleton -->
   <ng-container *ngIf="misEstudios.length; else elseTemplate ">
 

@@ -12,6 +12,7 @@ export class RootUsersComponent implements OnInit {
   id: any;
   ListaDeUsuarios: User[];
   form: FormGroup;
+  loading = false;
 
   constructor(private firebaseService: FirebaseService) {
     this.form = new FormGroup({
@@ -26,9 +27,12 @@ export class RootUsersComponent implements OnInit {
   }//constructor
 
   ngOnInit(): void {
-    this.firebaseService.getAllUsers().subscribe((usuarios) => {
-      this.ListaDeUsuarios = usuarios;
-    });
+    setTimeout(() => {
+      this.firebaseService.getAllUsers().subscribe((usuarios) => {
+        this.ListaDeUsuarios = usuarios;
+      });
+      this.loading = true;
+    }, 400);
   } //ng
 
   editarUsuario(unUsuario: User) {
@@ -66,5 +70,13 @@ export class RootUsersComponent implements OnInit {
     });
 
   }//onsubmit
+
+  generateFake(count: number): Array<number> {
+    const indexes : any[] = [];
+    for (let i = 0; i < count; i++) {
+      indexes.push(i);
+    }
+    return indexes;
+  }
 
 } //class
