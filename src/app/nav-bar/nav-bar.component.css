@@ -25,21 +25,6 @@
     background-color: var(--c2);
 }
 
-.log-in{
-    background-color: var(--c1);
-}
-
-.log-out{
-    background-color: var(--c6);  
-}
-
-.sesion{
-    padding: .3rem 1rem;
-    outline: none;
-    border: none;
-    border-radius: 5px;
-    color: white;
-}
 
 .ulmenu{
     display: flex;

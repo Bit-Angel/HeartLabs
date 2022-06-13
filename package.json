@@ -22,6 +22,7 @@
     "aos": "^2.3.4",
     "ngx-skeleton-loader": "^5.0.0",
     "rxjs": "~7.5.0",
+    "sweetalert2": "^11.4.17",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
@@ -30,6 +31,7 @@
     "@angular/cli": "~13.2.6",
     "@angular/compiler-cli": "~13.2.0",
     "@types/jasmine": "~3.10.0",
+    "@types/jquery": "^3.5.14",
     "@types/node": "^12.11.1",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",

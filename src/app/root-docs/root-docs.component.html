@@ -3,71 +3,109 @@
 
 <!-- //aqui se va a mostrar la lista de doctores registrados -->
 
-<div class="container">
-    
+<div *ngIf="loading == true; else elseTemplate" class="container">
+
   <div class="card card-principal">
     <div class="card-body">
+      <div class="contenedor_busqueda">
+        <svg role="img" width="24" height="24" viewBox="0 0 24 24" fill="none" class="lupa">
+          <path d="M10 18C11.775 17.9996 13.4988 17.4054 14.897 16.312L19.293 20.708L20.707 19.294L16.311 14.898C17.405 13.4997 17.9996 11.7754 18 10C18 5.589 14.411 2 10 2C5.589 2 2 5.589 2 10C2 14.411 5.589 18 10 18ZM10 4C13.309 4 16 6.691 16 10C16 13.309 13.309 16 10 16C6.691 16 4 13.309 4 10C4 6.691 6.691 4 10 4Z" fill="#8A8A8A"/>
+          <path d="M11.412 8.58609C11.791 8.96609 12 9.46809 12 10.0001H14C14.0009 9.47451 13.8976 8.95398 13.6961 8.46857C13.4946 7.98316 13.1989 7.54251 12.826 7.17209C11.312 5.66009 8.68701 5.66009 7.17401 7.17209L8.58601 8.58809C9.34601 7.83009 10.656 7.83209 11.412 8.58609Z" fill="#8A8A8A"/>
+          </svg>
+          
+        <input type="text" class="Busqueda ml-auto" placeholder="Buscar">
+      </div>
+
       <h2 class="text-center">Doctores Registrados</h2>
-      <div class="card card-body d-flex flex-row">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur cumque laudantium minus. Ipsum perferendis
-        dolore culpa deserunt similique neque debitis et obcaecati in voluptates iusto tempore eos, quaerat nulla
-        molestiae quod mollitia rem id, atque sapiente doloremque incidunt vitae doloribus.
-        <div class="card-body">
-            <button>Hola</button>
+      <div class="card card-body tarjeta d-flex flex-row justify-content-between" *ngFor="let unUsuario of ListaDeUsuarios, let i=index">
+        <div class="datos">
+          <h4 class="nombre">{{unUsuario.name}} {{unUsuario.lastName}}</h4>
+          <p><strong>cedula: </strong>{{unUsuario.cedule}}</p>
+          <div class="datosA">
+            <p><strong>Telefono: </strong>{{unUsuario.phone}}</p>
+            <p><strong>Correo: </strong>{{unUsuario.email}}</p>
+          </div>
+        </div>
+
+        <div class="botones">
+          <button (click)="editarUsuario(unUsuario)" type="button" class="btn btn-primary" data-toggle="modal"
+            data-target="#exampleModal">editar</button>
+          <button (click)="eliminarUsuario(unUsuario)" type="button" class="btn btn-primary">eliminar</button>
         </div>
       </div>
-      <div class="card card-body d-flex flex-row">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur cumque laudantium minus. Ipsum perferendis
-        dolore culpa deserunt similique neque debitis et obcaecati in voluptates iusto tempore eos, quaerat nulla
-        molestiae quod mollitia rem id, atque sapiente doloremque incidunt vitae doloribus.
-        <div class="card-body">
-            <button>Hola</button>
-        </div>
-      </div>
-      <div class="card card-body d-flex flex-row">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur cumque laudantium minus. Ipsum perferendis
-        dolore culpa deserunt similique neque debitis et obcaecati in voluptates iusto tempore eos, quaerat nulla
-        molestiae quod mollitia rem id, atque sapiente doloremque incidunt vitae doloribus.
-        <div class="card-body">
-            <button>Hola</button>
-        </div>
-      </div>
-      <div class="card card-body d-flex flex-row">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur cumque laudantium minus. Ipsum perferendis
-        dolore culpa deserunt similique neque debitis et obcaecati in voluptates iusto tempore eos, quaerat nulla
-        molestiae quod mollitia rem id, atque sapiente doloremque incidunt vitae doloribus.
-        <div class="card-body">
-            <button>Hola</button>
-        </div>
-      </div>
-      <div class="card card-body d-flex flex-row">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur cumque laudantium minus. Ipsum perferendis
-        dolore culpa deserunt similique neque debitis et obcaecati in voluptates iusto tempore eos, quaerat nulla
-        molestiae quod mollitia rem id, atque sapiente doloremque incidunt vitae doloribus.
-        <div class="card-body">
-            <button>Hola</button>
-        </div>
-      </div>
-      <div class="card card-body d-flex flex-row">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur cumque laudantium minus. Ipsum perferendis
-        dolore culpa deserunt similique neque debitis et obcaecati in voluptates iusto tempore eos, quaerat nulla
-        molestiae quod mollitia rem id, atque sapiente doloremque incidunt vitae doloribus.
-        <div class="card-body">
-            <button>Hola</button>
-        </div>
-      </div>
-      <div class="card card-body d-flex flex-row">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur cumque laudantium minus. Ipsum perferendis
-        dolore culpa deserunt similique neque debitis et obcaecati in voluptates iusto tempore eos, quaerat nulla
-        molestiae quod mollitia rem id, atque sapiente doloremque incidunt vitae doloribus.
-        <div class="card-body">
-            <button>Hola</button>
-        </div>
-      </div>
-      
+    </div>
+  </div>
 
 
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar Usuario</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <form [formGroup]="form" (ngSubmit)="onSubmit(this.id)">
+            <div class="inputForm">
+              <input type="text" class="inputFormControl AfterEncima" formControlName="name" placeholder="Nombre">
+              <span class="form__bar"></span>
+            </div>
+            <div class="inputForm">
+              <input type="text" class="inputFormControl AfterEncima" formControlName="lastName" placeholder="Apellido">
+              <span class="form__bar"></span>
+            </div>
+            <div class="inputForm">
+              <input type="email" class="inputFormControl AfterEncima" formControlName="email" placeholder="Correo">
+              <span class="form__bar"></span>
+            </div>
+            <div class="inputForm">
+              <input type="text" class="inputFormControl AfterEncima" formControlName="phone" maxlength="12"
+                placeholder="Telefono">
+              <span class="form__bar"></span>
+            </div>
+            <div class="inputForm">
+              <input type="text" class="inputFormControl" formControlName="cedule" placeholder="cedula">
+            </div>
+            
+            <!-- <div class="nosemuestra">
+              <input type="password" formControlName="password">
+              <input type="text" formControlName="plaza">
+              <input type="text" formControlName="patients">
+            </div> -->
+           
+            <div class="inputForm botonera botones">
+              <button type="submit" class="btn btn-primary">Actualizar</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 
 </div>
+
+<!-- Loading Skeleton template -->
+
+<ng-template #elseTemplate>
+
+  <div class="loadingTitle">
+    <ngx-skeleton-loader appearance="line" animation="progress-dark" [theme]="{
+      width: '25%',
+      height: '30px' }"></ngx-skeleton-loader>
+  </div>
+
+  <div class="loadingContainer" *ngFor="let item of generateFake(5)">
+        <ngx-skeleton-loader appearance="line" animation="progress-dark" [theme]="{
+                width: '75%',
+                height: '200px' }">
+        </ngx-skeleton-loader>
+  </div>
+
+</ng-template>
+

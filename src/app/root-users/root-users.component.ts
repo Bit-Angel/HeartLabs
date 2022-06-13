@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import User from '../interfaces/user.interface';
 import { FirebaseService } from '../services/firebase.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-root-users',
@@ -28,7 +29,7 @@ export class RootUsersComponent implements OnInit {
 
   ngOnInit(): void {
     setTimeout(() => {
-      this.firebaseService.getAllUsers().subscribe((usuarios) => {
+      this.firebaseService.getAllUsers('users').subscribe((usuarios) => {
         this.ListaDeUsuarios = usuarios;
       });
       this.loading = true;
@@ -46,7 +47,41 @@ export class RootUsersComponent implements OnInit {
       birthday: unUsuario.birthday,
       sex: unUsuario.sex,
     });
+
+    
   } //editar
+
+  eliminarUsuario(unUsuario: User) {
+    var idAux = unUsuario.id;
+
+    Swal.fire({
+      title: 'Estas seguro de eliminar este registro?',
+      text: "No podras recuperarlo de nuevo",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: 'var(--c1)',
+      cancelButtonColor: 'var(--c6)',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Si, eliminar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.firebaseService.deleteUsuario(idAux, 'users').then(() =>{
+  
+        }, error =>{
+          console.log(error);
+        });
+
+        Swal.fire(
+          'Eliminado!',
+          'El registro ha sido eliminado',
+          'success'
+        )
+      }
+    })
+
+  } //editar
+
+ 
 
 
   onSubmit(ID:any) {
@@ -60,7 +95,8 @@ export class RootUsersComponent implements OnInit {
       sex: this.form.value.sex
     };
 
-    this.firebaseService.updateUsuario(ID, UsuarioActualizado).then(() =>{
+
+    this.firebaseService.updateUsuario(ID, UsuarioActualizado, 'users').then(() =>{
       // agregar spinner
       this.form.reset();
       this.id = 0;

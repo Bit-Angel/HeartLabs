@@ -79,15 +79,23 @@ export class FirebaseService {
     const q = query(placeRef, where("idEstudio","==",idEstudio));
     return getDocs(q);
   }
-  getAllUsers(): Observable<User[]>{
-    const placeRef = collection(this.firestore, 'users');
+  getAllUsers(tipo: string): Observable<User[]>{
+    const placeRef = collection(this.firestore, tipo);
     return collectionData (placeRef, {idField: 'id'}) as Observable<User[]>;
   }
+  getAllDoctors(tipo: string): Observable<Doc[]>{
+    const placeRef = collection(this.firestore, tipo);
+    return collectionData (placeRef, {idField: 'id'}) as Observable<Doc[]>;
+  }
 
-  updateUsuario(id:string, datos:any): Promise<any>{
-    const placeRef = doc(this.firestore, `users/${id}`);
-    return setDoc(placeRef,datos);
+  updateUsuario(id:string, datos:any, tipo:string): Promise<any>{
+    const placeRef = doc(this.firestore, `${tipo}/${id}`);
+    return updateDoc(placeRef,datos);
 
+  }
+  deleteUsuario(id:any, tipo:string){
+    const placeRef = doc(this.firestore, `${tipo}/${id}`);
+    return deleteDoc(placeRef);
   }
 
   updatePlaza(nuevaPlaza:Plaza){
