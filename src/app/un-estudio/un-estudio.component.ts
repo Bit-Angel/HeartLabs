@@ -7,6 +7,7 @@ import { Auth } from '@angular/fire/auth';
 import User from '../interfaces/user.interface';
 import Doc from '../interfaces/doc.interface';
 import Cita from '../interfaces/cita.interface';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-un-estudio',
   templateUrl: './un-estudio.component.html',
@@ -92,7 +93,7 @@ export class UnEstudioComponent implements OnInit {
     console.log(this.cita);
     this.firebaseService.addCitaDB(this.cita)
     .then(response =>{
-      alert("Su cita ha sido agendada correctamente")
+      Swal.fire('Su cita ha sido agendada correctamente');
     })
     .catch(error => console.log(error));
       
