@@ -8,18 +8,18 @@
 
     <div class="row m-0 home-top-row">
       <div class="col-12 col-sm-7 info">
-        <h1 class="title" data-aos="fade-right">
-          Nos aseguraremos de que siempre obtengas los mejores resultados
+        <h1 class="title" data-aos="fade-right" [style.font-size.px]="secondSize | async">
+          Nos aseguraremos de que siempre obtengas los mejores resultados 
         </h1>
-        <p class="home-top-info" data-aos="fade-right">
+        <p class="home-top-info" data-aos="fade-right" [style.font-size.px]="firstSize | async">
           Somos Una empresa con más de 50 años de experiencia y nuestro principal objetivo es brindarte el mejor
           servicio, para que tu y tu familia siempre se sientas seguros de que obtendran resultados veridicos. Todos
           nuestros doctores están certificados por lo que obtendras resultados, rapidos y eficaces.
         </p>
 
         <div class="home-top-btns">
-          <a routerLink="/estudios" class="home-btn blue-btn mr-sm-3">Nuestros Servicios </a>
-          <a routerLink="/conocenos" class="home-btn white-btn">Contactanos</a>
+          <a routerLink="/estudios" class="home-btn blue-btn mr-sm-3"[style.font-size.px]="thirdSize | async">Nuestros Servicios </a>
+          <a routerLink="/conocenos" class="home-btn white-btn" [style.font-size.px]="thirdSize | async">Contactanos</a>
         </div>
       </div>
       <div class="col-12 col-sm-5">
@@ -62,10 +62,10 @@
         <div class="registro-izq">
           <img src="../../assets/home/binder5.jpeg" alt="" class="registro__img">
           <div class="registro-izq__info">
-            <h3 class="registro__subtitle">Contamos con más de 15 estudios</h3>
-            <p class="registro__text registro-m registro-sm-m">Nos preocupamos por tu economía, por lo que nuestros
+            <h3 class="registro__subtitle" [style.font-size.px]="thirdSize | async">Contamos con más de 15 estudios</h3>
+            <p class="registro__text registro-m registro-sm-m" [style.font-size.px]="fourthSize | async">Nos preocupamos por tu economía, por lo que nuestros
               servicios son hasta un 50% más baratos que en la competencia</p>
-            <a routerLink="/estudios" class="registro__link">Saber más <i class="fa-solid fa-arrow-right-long"></i></a>
+            <a href="" class="registro__link" [style.font-size.px]="fourthSize | async">Saber más <i class="fa-solid fa-arrow-right-long"></i></a>
           </div>
         </div>
       </div>
@@ -73,22 +73,22 @@
         <div class="row m-0">
           <div class="col-6 p-0">
             <div class="registro-gris">
-              <h3 class="registro__subtitle">Mas de 50 años nos respaldan</h3>
-              <p class="registro__text registro-m d-sm-block d-none">El tiempo nos da la experiencia necesaria para
+              <h3 class="registro__subtitle" [style.font-size.px]="thirdSize | async">Mas de 50 años nos respaldan</h3>
+              <p class="registro__text registro-m d-sm-block d-none" [style.font-size.px]="fourthSize | async">El tiempo nos da la experiencia necesaria para
                 ofrecerte el mejor servicio siempre, cientos de personas nos recomiendan ya que contamos con más de 50
                 certificaciones en la rama medica.
               </p>
-              <a routerLink="/preguntas" class="registro__link d-sm-flex d-none">Saber más <i
+              <a href="" class="registro__link d-sm-flex d-none" [style.font-size.px]="fourthSize | async">Saber más <i
                   class="fa-solid fa-arrow-right-long"></i></a>
             </div>
           </div>
           <div class="col-6 px-0">
             <div class="registro-azul-claro">
-              <h3 class="registro__subtitle">Contamos con más de 15 estudios</h3>
-              <p class="registro__text d-sm-block d-none">Revisa nuestra sección de preguntas frecuentes o escribenos
+              <h3 class="registro__subtitle" [style.font-size.px]="thirdSize | async">Contamos con más de 15 estudios</h3>
+              <p class="registro__text d-sm-block d-none" [style.font-size.px]="fourthSize | async">Revisa nuestra sección de preguntas frecuentes o escribenos
                 por whatsapp.</p>
-              <p class="registro__text-whats registro-m"><i class="fa-brands fa-whatsapp mr-1"></i> 4491234567</p>
-              <a routerLink="/conocenos" class="registro__link d-sm-flex d-none">Saber más <i
+              <p class="registro__text-whats registro-m" [style.font-size.px]="thirdSize | async"><i class="fa-brands fa-whatsapp mr-1"></i> 4491234567</p>
+              <a href="" class="registro__link d-sm-flex d-none" [style.font-size.px]="fourthSize | async">Saber más <i
                   class="fa-solid fa-arrow-right-long"></i></a>
             </div>
           </div>
@@ -96,11 +96,11 @@
         <div class="row m-0">
           <div class="col-12 px-0">
             <div class="registro-azul">
-              <h3 class="registro__subtitle registro__subtitle-center">Registrate!</h3>
-              <p class="registro__text ">Al registrarte en nuestra web, obtendrás muchos beneficios, como: <br> -
+              <h3 class="registro__subtitle registro__subtitle-center" [style.font-size.px]="thirdSize | async">Registrate!</h3>
+              <p class="registro__text " [style.font-size.px]="fourthSize | async">Al registrarte en nuestra web, obtendrás muchos beneficios, como: <br> -
                 Historial de estudios <br> - Atencion mas rapida y eficiente. <br> - Resultados instantaneos.</p>
               <div class="row m-0 justify-content-end">
-                <a routerLink="/registerUser" class="registrate-btn">Quiero registrarme!</a>
+                <a href="" class="registrate-btn" >Quiero registrarme!</a>
               </div>
             </div>
           </div>
@@ -110,7 +110,7 @@
   </div>
 
   <div class="ubicaciones">
-    <h1 class="title ub-title">NUESTRAS UBICACIONES</h1>
+    <h1 class="title ub-title" [style.font-size.px]="secondSize | async">NUESTRAS UBICACIONES</h1>
     <div class="row justify-content-between">
       <div class="col-12 col-sm-3" data-aos="fade-up">
         <div class="ub-tarjeta">
@@ -118,7 +118,7 @@
             <img src="../../assets/home/mapa.png" alt="" class="ub-tarjeta__img">
           </a>
           <div class="ub-tarjeta__bottom">
-            <p class="ub-tarjeta_text">
+            <p [style.font-size.px]="fourthSize | async" class="ub-tarjeta_text">
               Calle #numero <br> colonia <br> telefonos
             </p>
           </div>
@@ -130,7 +130,7 @@
             <img src="../../assets/home/mapa.png" alt="" class="ub-tarjeta__img">
           </a>
           <div class="ub-tarjeta__bottom">
-            <p class="ub-tarjeta_text">
+            <p [style.font-size.px]="fourthSize | async" class="ub-tarjeta_text">
               Calle #numero <br> colonia <br> telefonos
             </p>
           </div>
@@ -142,7 +142,7 @@
             <img src="../../assets/home/mapa.png" alt="" class="ub-tarjeta__img">
           </a>
           <div class="ub-tarjeta__bottom">
-            <p class="ub-tarjeta_text">
+            <p [style.font-size.px]="fourthSize | async" class="ub-tarjeta_text">
               Calle #numero <br> colonia <br> telefonos
             </p>
           </div>

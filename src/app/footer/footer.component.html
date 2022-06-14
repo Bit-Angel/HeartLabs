@@ -1,5 +1,5 @@
 <div class="frase" [ngClass]="{'noShow':!controlShow}">
-    <h2 class="frase-text">
+    <h2 class="frase-text" [style.font-size.px]="secondSize | async">
         “Te atendemos con el corazón”
     </h2>
   </div>
@@ -18,11 +18,11 @@
           <div class="col-12 col-sm-1"></div>
           <div class="col-12 col-sm-3">
               <ul class="footer-list">
-                  <li class="footer-list_item"><a routerLink="/home" class="footer-list__link">Inicio</a></li>
-                  <li class="footer-list_item"><a routerLink="/estudios" class="footer-list__link">Servicios</a></li>
-                  <li class="footer-list_item"><a routerLink="/preguntas" class="footer-list__link">Preguntas Frecuentes</a></li>
-                  <li class="footer-list_item"><a routerLink="/conocenos" class="footer-list__link">Contactanos</a></li>
-                  <li class="footer-list_item"><a routerLink="/desarrolladores" class="footer-list__link">Desarrolladores</a></li>
+                  <li class="footer-list_item"><a routerLink="/home" class="footer-list__link" [style.font-size.px]="firstSize | async">Inicio</a></li>
+                  <li class="footer-list_item"><a routerLink="/estudios" class="footer-list__link" [style.font-size.px]="firstSize | async">Servicios</a></li>
+                  <li class="footer-list_item"><a routerLink="/preguntas" class="footer-list__link" [style.font-size.px]="firstSize | async">Preguntas Frecuentes</a></li>
+                  <li class="footer-list_item"><a routerLink="/conocenos" class="footer-list__link" [style.font-size.px]="firstSize | async">Contactanos</a></li>
+                  <li class="footer-list_item"><a routerLink="/desarrolladores" class="footer-list__link" [style.font-size.px]="firstSize | async">Desarrolladores</a></li>
               </ul>
           </div>
           <div class="col-12 col-sm-4">
@@ -33,8 +33,8 @@
                       <a href="" class="footer-social_link"><img src="../../assets/redesSociales/whatsapp.svg" alt="" class="footer-social_img"></a>
                   </div>
                   <div class="footer-left_rights">
-                      <p class="footer-subtitle">Heart Lab’s</p>
-                      <p class="footer-rights">Derechos reservados 2022 © copyright</p>
+                      <p class="footer-subtitle" [style.font-size.px]="thirdSize | async">Heart Lab’s</p>
+                      <p class="footer-rights" [style.font-size.px]="fourthSize | async">Derechos reservados 2022 © copyright</p>
                   </div>
   
               </div>
