@@ -8,6 +8,7 @@ import User from '../interfaces/user.interface';
 import Doc from '../interfaces/doc.interface';
 import Cita from '../interfaces/cita.interface';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-un-estudio',
   templateUrl: './un-estudio.component.html',
@@ -43,7 +44,7 @@ export class UnEstudioComponent implements OnInit {
     phone:"",
     birthday:""
   };
-  constructor(public estudiosService:EstudiosService, public activatedRoute:ActivatedRoute,public auth:Auth,private firebaseService:FirebaseService) {
+  constructor(public estudiosService:EstudiosService, public activatedRoute:ActivatedRoute,public auth:Auth,private firebaseService:FirebaseService, private router: Router) {
     this.activatedRoute.params.subscribe ( params => {
       this.estudio=estudiosService.getUnEstudio(params['id']);
     })
@@ -94,6 +95,7 @@ export class UnEstudioComponent implements OnInit {
     this.firebaseService.addCitaDB(this.cita)
     .then(response =>{
       Swal.fire('Su cita ha sido agendada correctamente');
+      this.router.navigate(['/citas']); 
     })
     .catch(error => console.log(error));
       
