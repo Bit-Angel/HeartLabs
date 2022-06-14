@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import User from '../interfaces/user.interface';
 import { FirebaseService } from '../services/firebase.service';
 
@@ -12,15 +13,16 @@ import { FirebaseService } from '../services/firebase.service';
 export class UserRegisterComponent implements OnInit {
   formulario: FormGroup;
   user: User;
+  pattern = /[0-9\+\-\ ]/;
   constructor(private regiserService: FirebaseService, private router: Router )  { 
     this.formulario = new FormGroup ({
-      name: new FormControl(),
-      lastName: new FormControl(),
-      email: new FormControl(),
-      password: new FormControl(),
-      phone: new FormControl(),
-      birthday: new FormControl(),
-      sex: new FormControl()
+      name: new FormControl('', Validators.required),
+      lastName: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required,Validators.minLength(8)]),
+      phone: new FormControl('', [ Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(12), Validators.maxLength(12)]),
+      birthday: new FormControl('', Validators.required),
+      sex: new FormControl('', Validators.required)
       }) ;
   }
 
@@ -28,24 +30,43 @@ export class UserRegisterComponent implements OnInit {
   }
 
   onSubmit(){
-    //Añadimos usuario a la base de datos
-    console.log(this.formulario.value);
-    this.formulario.value.phone = `+${this.formulario.value.phone}`
-    this.user = this.formulario.value;
-    console.log(this.user);
+    //verificamos formulario
+    if (this.formulario.valid){
+      //Añadimos usuario a la base de datos
+      console.log(this.formulario.value);
+      this.formulario.value.phone = `+${this.formulario.value.phone}`
+      this.user = this.formulario.value;
+      console.log(this.user);
 
-    this.regiserService.addUserDB(this.user)
-      .then(response => {
-        console.log(response);
+      this.regiserService.addUserDB(this.user)
+        .then(response => {
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error);
+          //error de conexion
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Error de conexion con la Base de Datos!'
+          })
+        });
+      //Registramos el usuario en Firebase auth para que pueda hacer login
+        this.regiserService.addRegister(this.user.email,this.user.password)
+        .then(response => {
+          console.log(response);
+          this.router.navigate(['/login']); 
+        })
+        .catch(error => console.log(error));
+    }
+    else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Algunos Datos son incorrectos!'
       })
-      .catch(error => console.log(error));
-    //Registramos el usuario en Firebase auth para que pueda hacer login
-      this.regiserService.addRegister(this.user.email,this.user.password)
-      .then(response => {
-        console.log(response);
-        this.router.navigate(['/login']);
-      })
-      .catch(error => console.log(error));
+    }
+  
 
   }
 }
