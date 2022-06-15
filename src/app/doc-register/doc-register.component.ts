@@ -60,7 +60,9 @@ export class DocRegisterComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500
           })
-          window.location.reload();
+          setTimeout(() => {
+            this.router.navigate(['/rootDocs']); 
+          }, 1500); 
         })
         .catch(error => {
           console.log(error);

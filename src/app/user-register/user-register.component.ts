@@ -41,23 +41,32 @@ export class UserRegisterComponent implements OnInit {
       this.regiserService.addUserDB(this.user)
         .then(response => {
           console.log(response);
+          Swal.fire({
+            position: 'top',
+            icon: 'success',
+            title: 'usuario añadido correctamente',
+            showConfirmButton: false,
+            timer: 1500
+          })
         })
         .catch(error => {
-          console.log(error);
+          console.log(error)
           //error de conexion
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Error de conexion con la Base de Datos!'
+            text: 'Error de conexion con la Base de datos!'
           })
         });
-      //Registramos el usuario en Firebase auth para que pueda hacer login
-        this.regiserService.addRegister(this.user.email,this.user.password)
-        .then(response => {
-          console.log(response);
-          this.router.navigate(['/login']); 
-        })
-        .catch(error => console.log(error));
+        setTimeout(() => {
+           //Registramos el usuario en Firebase auth para que pueda hacer login
+            this.regiserService.addRegister(this.user.email,this.user.password)
+            .then(response => {
+              console.log(response);
+              this.router.navigate(['/mainUser']);
+            })
+            .catch(error => console.log(error));
+      }, 1500); 
     }
     else{
       Swal.fire({
