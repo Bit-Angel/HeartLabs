@@ -112,6 +112,7 @@
   <div class="ubicaciones">
     <h1 class="title ub-title" [style.font-size.px]="secondSize | async">NUESTRAS UBICACIONES</h1>
     <div class="row justify-content-between">
+      <!--
       <div class="col-12 col-sm-3" data-aos="fade-up">
         <div class="ub-tarjeta">
           <a href="" class="ub-tarjeta__top">
@@ -124,6 +125,37 @@
           </div>
         </div>
       </div>
+    -->
+      <div class="col-12 col-sm-3" data-aos="fade-up" 
+      *ngFor="let card of cards">
+        <div class="ub-tarjeta">
+          <a href="javascript:void(0)" class="ub-tarjeta__top">
+            <agm-map class="ub-tarjeta__img" [latitude]="card.latitude" [zoom]="6" [disableDefaultUI]="true"
+            [longitude]="card.longitude">
+            <agm-marker 
+            [latitude]="card.latitude"
+            [longitude]="card.longitude">
+      
+    <agm-info-window>
+      <strong>{{card.title}}</strong>
+    </agm-info-window>
+    
+  </agm-marker>
+  <agm-circle [latitude]="card.latitude"
+  [longitude]="card.longitude"
+      [radius]="105000"
+      [fillColor]="'green'">
+  </agm-circle>
+          </agm-map>
+          </a>
+          <div class="ub-tarjeta__bottom">
+            <p [style.font-size.px]="fourthSize | async" class="ub-tarjeta_text">
+              {{card.calle}} {{card.numero}} <br> {{card.colonia}} <br> {{card.telefono}}
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--
       <div class="col-12 col-sm-3" data-aos="fade-up">
         <div class="ub-tarjeta">
           <a href="" class="ub-tarjeta__top">
@@ -136,18 +168,7 @@
           </div>
         </div>
       </div>
-      <div class="col-12 col-sm-3" data-aos="fade-up">
-        <div class="ub-tarjeta">
-          <a href="" class="ub-tarjeta__top">
-            <img src="../../assets/home/mapa.png" alt="" class="ub-tarjeta__img">
-          </a>
-          <div class="ub-tarjeta__bottom">
-            <p [style.font-size.px]="fourthSize | async" class="ub-tarjeta_text">
-              Calle #numero <br> colonia <br> telefonos
-            </p>
-          </div>
-        </div>
-      </div>
+    -->
     </div>
   </div>
 </div>

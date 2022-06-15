@@ -32,6 +32,7 @@ import { DesarrolladoresComponent } from './desarrolladores/desarrolladores.comp
 import { RootDocsComponent } from './root-docs/root-docs.component';
 import { RootUsersComponent } from './root-users/root-users.component';
 import { GraficasComponent } from './graficas/graficas.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,9 @@ import { GraficasComponent } from './graficas/graficas.component';
     NgxSkeletonLoaderModule,
     ReactiveFormsModule,
     FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCPd2D-O7mbfA8B2x7n60X9rsXx3B2J0Bs'
+    }),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore())
