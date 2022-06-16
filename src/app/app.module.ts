@@ -34,6 +34,7 @@ import { RootUsersComponent } from './root-users/root-users.component';
 import { GraficasComponent } from './graficas/graficas.component';
 import { AgmCoreModule } from '@agm/core';
 import { NgChartsModule } from 'ng2-charts';
+import { QRCodeModule }  from 'angular2-qrcode';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { NgChartsModule } from 'ng2-charts';
   ],
   imports: [
     BrowserModule,
+    QRCodeModule,
     AppRoutingModule,
     NgxSkeletonLoaderModule,
     NgChartsModule,

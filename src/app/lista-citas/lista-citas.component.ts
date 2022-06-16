@@ -6,6 +6,7 @@ import User from '../interfaces/user.interface';
 import { EstudiosService } from '../services/estudios.service';
 import { FirebaseService } from '../services/firebase.service';
 
+
 @Component({
   selector: 'app-lista-citas',
   templateUrl: './lista-citas.component.html',
@@ -23,6 +24,12 @@ export class ListaCitasComponent implements OnInit {
     birthday:""
   };
   citas:any[]=[];
+  //QR
+  title = 'Qr';
+  url = "";
+  value = this.url;
+  level ="H"
+//termino de Qr
   constructor(public miServicio:EstudiosService,private firebaseService:FirebaseService, private router:Router, public auth:Auth) { }
 
   ngOnInit(): void {
@@ -61,5 +68,14 @@ export class ListaCitasComponent implements OnInit {
       });
     })
     .catch(error => console.log(error));
+  }
+
+  agregar_URL(nombre:any, id:any, precio:any, fecha:any ){
+    this.url='http://localhost:4200/'+id+"/"+nombre+"/"+precio+"/"+fecha;
+    this.value=this.url;
+  }
+
+  abriracceso(nombre:any, id:any, precio:any, fecha:any ){
+    window.open('http://localhost:4200/'+id+"/"+nombre+"/"+precio+"/"+fecha, "_blank");
   }
 }
