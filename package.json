@@ -21,6 +21,8 @@
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
     "aos": "^2.3.4",
+    "chart.js": "^3.8.0",
+    "ng2-charts": "^3.0.11",
     "ngx-skeleton-loader": "^5.0.0",
     "rxjs": "~7.5.0",
     "sweetalert2": "^11.4.17",

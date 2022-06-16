@@ -1,18 +1,44 @@
 <app-barra-lateral-root></app-barra-lateral-root>
 
-
-<!-- //aqui se va a mostrar la lista de doctores registrados -->
-
 <div class="container">
     
   <div class="card card-principal">
     <div class="card-body">
       <h2 class="text-center">Graficas</h2>
-      <div class="card card-body d-flex flex-row">
+      <!-- <div class="card card-body d-flex flex-row">
        <h3>Este le toca a fatima</h3>
        <p>Agregar una grafica en comparativa entre cuantos estudios si tienen doctor (plaza en 1), y cuantos no (plaza 0)</p>
       
-      </div>
+      </div> -->
+
+      <div class="container mt-5 pt-5">
+        <div class="col-12">
+            <div class="row">
+    
+                <div class="col-3 pl-5 mt-5">
+                    <h1>Bar Chart Estudios.</h1>
+                    <br>
+                    <h3>Comparativa.</h3>
+                    <br>
+                    <button class="btn btn-outline-primary" (click)="refresh()">Actualizar</button>
+                </div>
+    
+                <div class="col-7">
+                    <div class="chart-wrapper">
+                        <canvas baseChart
+                            [datasets] = "barChartData"
+                            [labels]="barChartLabels"
+                            [options]="barChartOptions"
+                            [legend]="barChartLegend"
+                            [type]="barChartType"
+                            [plugins]="barChartPluggins">
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     </div>
   </div>
 

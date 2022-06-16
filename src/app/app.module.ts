@@ -33,6 +33,7 @@ import { RootDocsComponent } from './root-docs/root-docs.component';
 import { RootUsersComponent } from './root-users/root-users.component';
 import { GraficasComponent } from './graficas/graficas.component';
 import { AgmCoreModule } from '@agm/core';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { AgmCoreModule } from '@agm/core';
     BrowserModule,
     AppRoutingModule,
     NgxSkeletonLoaderModule,
+    NgChartsModule,
     ReactiveFormsModule,
     FormsModule,
     AgmCoreModule.forRoot({
