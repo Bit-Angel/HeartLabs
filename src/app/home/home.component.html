@@ -130,7 +130,7 @@
       *ngFor="let card of cards">
         <div class="ub-tarjeta">
           <a href="javascript:void(0)" class="ub-tarjeta__top">
-            <agm-map class="ub-tarjeta__img" [latitude]="card.latitude" [zoom]="6" [disableDefaultUI]="true"
+            <agm-map class="ub-tarjeta__img" [latitude]="card.latitude" [zoom]="18" [disableDefaultUI]="true"
             [longitude]="card.longitude">
             <agm-marker 
             [latitude]="card.latitude"
@@ -143,14 +143,14 @@
   </agm-marker>
   <agm-circle [latitude]="card.latitude"
   [longitude]="card.longitude"
-      [radius]="105000"
-      [fillColor]="'green'">
+      [radius]="16"
+      [fillColor]="'yellow'">
   </agm-circle>
           </agm-map>
           </a>
           <div class="ub-tarjeta__bottom">
             <p [style.font-size.px]="fourthSize | async" class="ub-tarjeta_text">
-              {{card.calle}} {{card.numero}} <br> {{card.colonia}} <br> {{card.telefono}}
+              {{card.calle}} {{card.numero}} <br> {{card.cp}} <br> {{card.telefono}}
             </p>
           </div>
         </div>

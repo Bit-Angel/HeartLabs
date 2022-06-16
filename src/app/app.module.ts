@@ -35,6 +35,7 @@ import { GraficasComponent } from './graficas/graficas.component';
 import { AgmCoreModule } from '@agm/core';
 import { NgChartsModule } from 'ng2-charts';
 import { QRCodeModule }  from 'angular2-qrcode';
+import { UserPipe } from './root-users/user.pipe';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { QRCodeModule }  from 'angular2-qrcode';
     DesarrolladoresComponent,
     RootDocsComponent,
     RootUsersComponent,
+    UserPipe,
     GraficasComponent
   ],
   imports: [

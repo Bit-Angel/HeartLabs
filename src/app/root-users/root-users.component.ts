@@ -15,6 +15,8 @@ export class RootUsersComponent implements OnInit {
   form: FormGroup;
   loading = false;
 
+  searchText = ''
+
   constructor(private firebaseService: FirebaseService) {
     this.form = new FormGroup({
       name: new FormControl(),

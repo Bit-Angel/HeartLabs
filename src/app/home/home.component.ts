@@ -12,31 +12,31 @@ export class HomeComponent implements OnInit {
 
   cards:ICards[] = [
     {
-      calle:"Calle",
-      colonia:"Colonia",
-      numero:"#numero",
-      telefono:"telefono",
-      latitude:32.1724597,
-      longitude:119.0330871,
-      title:"Japan"
+      calle:" Av. José María Chávez",   
+      cp:"20270",
+      numero:"1202",
+      telefono:"449 913 9022",
+      latitude:21.8659117,
+      longitude:-102.2959638,
+      title:"Clinica 1"
     },
     {
-      calle:"Calle",
-      colonia:"Colonia",
-      numero:"#numero",
-      telefono:"telefono",
-      latitude:36.2115201,
-      longitude:-113.7164387,
-      title:"USA"
+      calle:" Av. de, Los Conos",     
+      cp:"20190",
+      numero:"102",
+      telefono:"449 970 3660",
+      latitude:21.877102,
+      longitude:-102.254862,
+      title:"Clinica 2"
     },
     {
-      calle:"Calle",
-      colonia:"Colonia",
-      numero:"#numero",
-      telefono:"telefono",
-      latitude:-25.0270548,
-      longitude:115.1824598,
-      title:"Australia"
+      calle:" Av. Prolongacion Ignacio Zaragoza",   
+      cp:"20908",
+      numero:"905",
+      telefono:"449 153 5900",
+      latitude:21.938973,
+      longitude:-102.307677,
+      title:"Clinica 3"
     }
   ]
 
@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit {
 
 interface ICards{
   calle:string
-  colonia:string
+  cp:string
   numero:string
   telefono:string
   latitude:number
