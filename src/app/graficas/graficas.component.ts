@@ -28,6 +28,26 @@ export class GraficasComponent implements OnInit {
   barChartType: ChartType = 'bar';
 
 
+  refresh(){
+
+    this.barChartData = [
+      { data: [Math.random() * (100 - 0) + 0,
+        Math.random() * (100 - 0) + 0,
+        Math.random() * (100 - 0) + 0,
+        Math.random() * (100 - 0) + 0,
+        Math.random() * (100 - 0) + 0,
+        Math.random() * (100 - 0) + 0,
+      ], label: 'Estudios con Doctor' },
+      { data: [Math.random() * (100 - 0) + 0, 
+        Math.random() * (100 - 0) + 0, 
+        Math.random() * (100 - 0) + 0, 
+        Math.random() * (100 - 0) + 0, 
+        Math.random() * (100 - 0) + 0,
+        Math.random() * (100 - 0) + 0
+      ], label: 'Estudios sin Doctor' },
+    ];
+  }
+
   email:any="";
   phone:any="";
   usuarioActual:User|any={ //Esta variable guarda todos los datos que estan en la base de datos del usuario que se conecta
