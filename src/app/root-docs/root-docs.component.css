@@ -166,3 +166,9 @@
 .nosemuestra{
     display: none;
 }
+
+.plazaPeque{
+    font-style: italic;
+    font-size: .9rem;
+    color: #9e9e9e;
+}

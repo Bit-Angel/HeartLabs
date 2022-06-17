@@ -9,19 +9,22 @@
     justify-content: center;
     align-items: center;
     padding: 1rem;
+    min-width: 300px;
 }
 
-.botones button{
+.botones button, .resultadosbtn{
     color: white;
-    width: 250px;
-    padding: .75rem 1rem;
+    width: 200px;
+    padding: .5rem .9rem;
     background-color: var(--c1);
-    font-size: 1rem;
+    font-size: .95rem;
     border: none;
     border-radius: 50px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     transition: all .12s ease;
 }
+
+
 
 .botones button:nth-child(2){
     background-color: var(--c3);
@@ -36,12 +39,43 @@
     background-color: var(--c4);
 }
 
+.resultadosbtn{
+    width: max-content;
+    transform: scale(.9);
+}
+.resultadosbtn:hover{
+    background-color: var(--c2);
+}
+
 .skeFlex{
     display: flex;
     flex-direction: column;
     width: 500px;
     max-width: 50%;
     margin: 0;
+}
+
+.datos{
+    display: flex;
+    flex-wrap: wrap;
+}
+.botonera{
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.txtarea{
+    max-width: 90%;
+    min-width: 90%;
+}
+
+.datos p{
+    margin-right: 20px;
+}
+
+.codigoQR{
+    margin: 0 auto;
 }
 
 
@@ -67,3 +101,4 @@
     }
     
 }
+

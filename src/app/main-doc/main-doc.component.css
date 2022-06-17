@@ -1,0 +1,58 @@
+
+.container{
+    transform: scale(.8) translateY(-30px);
+}
+
+.bienvenida{
+    width: 100%;
+}
+
+h2{
+    font-size: 4rem;
+    text-align: center;
+    margin: .5rem;
+}
+
+.titulo{
+    margin-top: 0px;
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.fecha, .reloj{
+    font-size: 3rem;
+    font-weight: 100;
+}
+
+.frase{
+    width: 90%;
+    margin: 2rem auto 5rem;
+    font-size: 4rem;
+    font-weight: 200;
+    font-style: italic;
+    color: var(--c1);
+    animation: aparecer .3s ease forwards;
+}
+
+@keyframes aparecer {
+    from{
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    
+}
+
+
+@media screen and (max-width: 992px) {
+    .frase{
+        width: 60%;
+        margin: 2rem auto;
+        font-size: 3rem;
+    }
+  
+}
+  

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { FirebaseService } from '../services/firebase.service';
+import { FirebaseService, Plaza } from '../services/firebase.service';
 import Swal from 'sweetalert2';
 import Doc from '../interfaces/doc.interface';
+
 
 @Component({
   selector: 'app-root-docs',
@@ -11,6 +12,7 @@ import Doc from '../interfaces/doc.interface';
 })
 export class RootDocsComponent implements OnInit {
   id: any;
+  nuevaPlaza:Plaza|any;
   ListaDeUsuarios: Doc[];
   form: FormGroup;
   loading = false;
@@ -48,9 +50,13 @@ export class RootDocsComponent implements OnInit {
     
   } //editar
 
+
+
   eliminarUsuario(unUsuario: Doc) {
     var idAux = unUsuario.id;
+    this.ObtenerPlaza(unUsuario.plaza);
 
+    
     Swal.fire({
       title: 'Estas seguro de eliminar este registro?',
       text: "No podras recuperarlo de nuevo",
@@ -62,7 +68,14 @@ export class RootDocsComponent implements OnInit {
       confirmButtonText: 'Si, eliminar'
     }).then((result) => {
       if (result.isConfirmed) {
+        this.ObtenerPlaza(unUsuario.plaza);
         this.firebaseService.deleteUsuario(idAux, 'doctors').then(() =>{
+          //si se elimina, tambien actualizamos la plaza para que quede disponible para otro
+          this.nuevaPlaza.plaza = '0';
+          this.firebaseService.updatePlaza(this.nuevaPlaza)
+          .then(sus =>{
+          })
+          .catch(error => console.log(error));
   
         }, error =>{
           console.log(error);
@@ -76,10 +89,19 @@ export class RootDocsComponent implements OnInit {
       }
     })
 
-  } //editar
+  } //borrar
 
  
-
+  ObtenerPlaza(idPlaza:any){
+    this.firebaseService.getPlazasByID(idPlaza)
+    .then(response =>{
+      response.forEach((plaza)=>{
+        this.nuevaPlaza = plaza.data();
+      });
+    }, e =>{
+      console.log(e);
+    });
+  }
 
   onSubmit(ID:any) {
 

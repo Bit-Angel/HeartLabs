@@ -38,9 +38,9 @@ export class FirebaseService {
     const q = query(placeRef, where("email","==",email));
     return getDocs(q);
   }
-  getCitas(email:any){
+  getCitas(email:any, tipo:string){
     const placeRef = collection(this.firestore, 'citas');
-    const q = query(placeRef, where("emailUser","==",email));
+    const q = query(placeRef, where(tipo,"==",email));
     return getDocs(q);
   }
   getDoc(email:any){
@@ -91,8 +91,13 @@ export class FirebaseService {
   updateUsuario(id:string, datos:any, tipo:string): Promise<any>{
     const placeRef = doc(this.firestore, `${tipo}/${id}`);
     return updateDoc(placeRef,datos);
-
   }
+
+  updateResultado(id:string, datos:any): Promise<any>{
+    const placeRef = doc(this.firestore, `citas/${id}`);
+    return updateDoc(placeRef,datos);
+  }
+
   deleteUsuario(id:any, tipo:string){
     const placeRef = doc(this.firestore, `${tipo}/${id}`);
     return deleteDoc(placeRef);

@@ -5,4 +5,5 @@ export default interface Cita {
     idEstudio:string;
     fecha:string;
     price:number;
+    resultado:string;
 }

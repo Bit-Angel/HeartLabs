@@ -90,7 +90,7 @@ export class GraficasComponent implements OnInit {
 
   obtenerCitas(){
     console.log(this.usuarioActual.email);
-    this.firebaseService.getCitas(this.usuarioActual.email)
+    this.firebaseService.getCitas(this.usuarioActual.email, 'emailUser')
     .then(response => {
       response.forEach((cita) => {
         this.citas.push(cita.data())

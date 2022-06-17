@@ -26,7 +26,8 @@ export class UnEstudioComponent implements OnInit {
     emailDoc:"",
     idEstudio:"",
     fecha:"",
-    price:0
+    price:0,
+    resultado:""
   };
   doctor:Doc|any={ //Esta variable guarda todos los datos que estan en la base de datos del doctor que se conecta
     name:"",  
@@ -91,6 +92,7 @@ export class UnEstudioComponent implements OnInit {
     this.cita.emailDoc = this.doctor.email;
     this.cita.idEstudio = this.estudio.idEstudio;
     this.cita.price = this.estudio.precio;
+    this.cita.resultado = 'En espera';
     console.log(this.cita);
     this.firebaseService.addCitaDB(this.cita)
     .then(response =>{

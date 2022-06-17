@@ -19,7 +19,7 @@
       <h2 class="text-center">Doctores Registrados</h2>
       <div class="card card-body tarjeta d-flex flex-row justify-content-between" *ngFor="let unUsuario of ListaDeUsuarios, let i=index">
         <div class="datos">
-          <h4 class="nombre">{{unUsuario.name}} {{unUsuario.lastName}}</h4>
+          <h4 class="nombre">{{unUsuario.name}} {{unUsuario.lastName}} <small class="plazaPeque">({{unUsuario.plaza}})</small></h4>
           <p><strong>cedula: </strong>{{unUsuario.cedule}}</p>
           <div class="datosA">
             <p><strong>Telefono: </strong>{{unUsuario.phone}}</p>

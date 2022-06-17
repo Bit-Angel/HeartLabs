@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import Doc from '../interfaces/doc.interface';
 import { FirebaseService } from '../services/firebase.service';
 import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-doc-register',
   templateUrl: './doc-register.component.html',
