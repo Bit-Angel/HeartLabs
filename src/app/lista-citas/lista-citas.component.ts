@@ -104,7 +104,8 @@ export class ListaCitasComponent implements OnInit {
   }
 
   editarResultados(citaModificar: Cita){
-    this.idCitaEditar = citaModificar.id;
+    this.idCitaEditar = citaModificar.idEstudio;
+    console.log("estoy imprimiendo: " + this.idCitaEditar);
     this.form.patchValue({
       resultado: citaModificar.resultado,
     });
