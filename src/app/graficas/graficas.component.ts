@@ -3,9 +3,9 @@ import { ChartDataset, Color, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import { EstudiosService } from '../services/estudios.service';
 import { FirebaseService } from '../services/firebase.service';
-import User from '../interfaces/user.interface';
 import { Router } from '@angular/router';
 import { Auth } from '@angular/fire/auth';
+import Estudio from '../interfaces/estudios.interface';
 
 @Component({
   selector: 'app-graficas',
@@ -14,12 +14,21 @@ import { Auth } from '@angular/fire/auth';
 })
 export class GraficasComponent implements OnInit {
 
+  estudiosCon: any = "";
+  estudiosSin: any = "";
+  misEstudios:Estudio[] = [];
+  misEstudiosS:Estudio[] = [];
+  estudiosDisponibles:any[]=[];
+  estudiosNoDisponibles:any[]=[];
+  aux:Estudio;
+
+  /* Variables para Chart  */
   barChartData: ChartDataset[] = [
-    { data: [12, 72, 78, 75, 17, 75], label: 'Estudios con Doctor.' },
-    { data: [85, 12, 28, 75, 17, 75], label: 'Estudios sin Doctor' },
+    { data: [this.misEstudios.length], label: 'Estudios con Doctor.' },
+    { data: [this.estudiosSin], label: 'Estudios sin Doctor' },
   ];
 
-  barChartLabels: BaseChartDirective["labels"] = ['January', 'February', 'March', 'April', 'May', 'June'];
+  barChartLabels: BaseChartDirective["labels"] = ['Estudios'];
 
   barChartOptions = { responsive: true};
   barChartColors: Color[] = [];
@@ -27,77 +36,63 @@ export class GraficasComponent implements OnInit {
   barChartPluggins = [];
   barChartType: ChartType = 'bar';
 
-
-  refresh(){
-
-    this.barChartData = [
-      { data: [Math.random() * (100 - 0) + 0,
-        Math.random() * (100 - 0) + 0,
-        Math.random() * (100 - 0) + 0,
-        Math.random() * (100 - 0) + 0,
-        Math.random() * (100 - 0) + 0,
-        Math.random() * (100 - 0) + 0,
-      ], label: 'Estudios con Doctor' },
-      { data: [Math.random() * (100 - 0) + 0, 
-        Math.random() * (100 - 0) + 0, 
-        Math.random() * (100 - 0) + 0, 
-        Math.random() * (100 - 0) + 0, 
-        Math.random() * (100 - 0) + 0,
-        Math.random() * (100 - 0) + 0
-      ], label: 'Estudios sin Doctor' },
-    ];
-  }
-
-  email:any="";
-  phone:any="";
-  usuarioActual:User|any={ //Esta variable guarda todos los datos que estan en la base de datos del usuario que se conecta
-    name:"",  
-    lastName:"",
-    email:"",
-    password:"",
-    phone:"",
-    birthday:""
-  };
-  citas:any[]=[];
-  
-  constructor(public miServicio:EstudiosService,private firebaseService:FirebaseService, private router:Router, public auth:Auth) { }
+  constructor(
+    public miServicio:EstudiosService,
+    private firebaseService:FirebaseService, 
+    private router:Router, 
+    public auth:Auth) { }
 
   ngOnInit(): void {
-    this.email=this.auth.currentUser?.email; //Obtener el correo del usuario actual, con el cual podemos obtener el resto de datos
-    this.firebaseService.getUser(this.email)
-    .then(response => {
-      response.forEach((doc) => {
-        this.usuarioActual = doc.data();
-        this.obtenerCitas();
-      });
-    })
-    .catch(error => console.log(error));
+    this.firebaseService.getPlazas("1").then(response => { response.forEach((plaza) => {
+      this.estudiosDisponibles.push(plaza.data());
+    });
+  }).catch(error => console.log(error));
+    
+    this.firebaseService.getPlazas("0").then(response => { response.forEach((plaza) => {
+    this.estudiosNoDisponibles.push(plaza.data());
+  });
+  }).catch(error => console.log(error));
 
-    console.log(this.auth.currentUser?.phoneNumber);
-    this.phone = this.auth.currentUser?.phoneNumber;
-    this.firebaseService.getUserPhone(this.phone)
-    .then(response => {
-      response.forEach((doc) => {
-        this.usuarioActual = doc.data();
-        console.log(this.usuarioActual)
-        this.obtenerCitas();
-      });
-    })
-    .catch(error => console.log(error));
+  /* this.getData(); */
+}
+    
+/* window.onLoad = function{
+  getData();
+} */
 
+  getData(){
 
-  }
+    /* Disponibles */
+    for (let index = 0; index < this.estudiosDisponibles.length; index++) {
+      this.estudiosDisponibles[index]=this.estudiosDisponibles[index].idEstudio;
+    }
+    for (let index = 0; index < this.estudiosDisponibles.length; index++) {
+      this.aux = this.miServicio.getEstudios(this.estudiosDisponibles[index]);
+      this.misEstudios.push(this.aux);
+      this.estudiosCon++;
+    }
+    console.log(this.misEstudios)
+    console.log("tam: "+this.misEstudios.length)
 
-  obtenerCitas(){
-    console.log(this.usuarioActual.email);
-    this.firebaseService.getCitas(this.usuarioActual.email, 'emailUser')
-    .then(response => {
-      response.forEach((cita) => {
-        this.citas.push(cita.data())
-        console.log(this.citas);
-      });
-    })
-    .catch(error => console.log(error));
-  }
+    /* No disponibles */
+    for (let index = 0; index < this.estudiosNoDisponibles.length; index++) {
+      this.estudiosNoDisponibles[index]=this.estudiosNoDisponibles[index].idEstudio;
+    }
+    for (let index = 0; index < this.estudiosNoDisponibles.length; index++) {
+      this.aux = this.miServicio.getEstudios(this.estudiosNoDisponibles[index]);
+      this.misEstudiosS.push(this.aux);
+      this.estudiosSin++;
+    }
+    console.log(this.misEstudiosS)
+
+    //Grafica
+    this.barChartData = [
+      { data: [this.misEstudios.length
+      ], label: 'Estudios con Doctor' },
+      { data: [this.misEstudiosS.length
+      ], label: 'Estudios sin Doctor' },
+    ];
+
+  } //getData
 
 }
