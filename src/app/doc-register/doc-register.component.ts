@@ -15,6 +15,13 @@ export class DocRegisterComponent implements OnInit {
   plazasDisponibles:any[]=[];
   nuevaPlaza:Plaza|any;
   pattern = /[0-9\+\-\ ]/;
+  fname = false;
+  flastname = false;
+  femail=false;
+  fpass=false;
+  fphone=false;
+  fcedula=false;
+  fplaza=false;
   constructor(private regiserDoc: FirebaseService, private router: Router) { 
     this.formulario = new FormGroup ({
       name: new FormControl('', Validators.required),
@@ -117,6 +124,38 @@ export class DocRegisterComponent implements OnInit {
       this.router.navigate(['/login']);
     })
     .catch(error => console.log(error));
+  }
+
+  focusname(){
+    this.fname = true;
+  }
+  focuslastname(){
+    this.flastname = true;
+  }
+  focusemail(){
+    this.femail=true;
+  }
+  focuspass(){
+    this.fpass=true;
+  }
+  focusphone(){
+    this.fphone=true;
+  }
+  focuscedula(){
+    this.fcedula=true;
+  }
+  focusplaza(){
+    this.fplaza=true;
+  }
+
+  todo(){
+    this.fname = true;
+    this.flastname = true;
+    this.femail=true;
+    this.fpass=true;
+    this.fphone=true;
+    this.fcedula=true;
+    this.fplaza=true;
   }
 
 }

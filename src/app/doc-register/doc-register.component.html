@@ -10,78 +10,78 @@
         <h2 class="text-center titulo">Registro de doctores</h2>
         <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
           <div class="inputForm">
-            <input type="text" class="inputFormControl AfterEncima" formControlName="name" placeholder="Nombre" required>
+            <input type="text" class="inputFormControl AfterEncima" formControlName="name" placeholder="Nombre" required (focus)="focusname()">
             <span class="form__bar"></span>
             <br>
-            <span *ngIf="this.formulario.get('name')?.errors?.['required']"  class="errores" style="color: red; font-size: 10px; position: absolute;">
+            <span *ngIf="this.formulario.get('name')?.errors?.['required'] && fname==true"  class="errores" style="color: red; font-size: 10px; position: absolute;">
               Debe ingresar el nombre
             </span>
           </div>
           <div class="inputForm">
-            <input type="text" class="inputFormControl AfterEncima" formControlName="lastName" placeholder="Apellido" required>
+            <input type="text" class="inputFormControl AfterEncima" formControlName="lastName" placeholder="Apellido" required (focus)="focuslastname()">
             <span class="form__bar"></span>
             <br>
-            <span *ngIf="this.formulario.get('lastName')?.errors?.['required']"  class="errores" style="color: red; font-size: 10px; position: absolute;">
+            <span *ngIf="this.formulario.get('lastName')?.errors?.['required'] && flastname==true"  class="errores" style="color: red; font-size: 10px; position: absolute;">
               Debe ingresar el apellido
             </span>
           </div>
           <div class="inputForm">
-            <input type="email" class="inputFormControl AfterEncima" formControlName="email" placeholder="Correo">
+            <input type="email" class="inputFormControl AfterEncima" formControlName="email" placeholder="Correo" (focus)="focusemail()">
             <span class="form__bar"></span>
             <br>
-            <span *ngIf="this.formulario.get('email')?.errors?.['required']" class="errores" style="color: red; font-size: 10px; position: absolute;">
+            <span *ngIf="this.formulario.get('email')?.errors?.['required'] && femail==true" class="errores" style="color: red; font-size: 10px; position: absolute;">
               Debe ingresar un email
             </span>
-            <span *ngIf="this.formulario.get('email')?.errors?.['email']" class="errores" style="color: red; font-size: 10px; position: absolute;">
+            <span *ngIf="this.formulario.get('email')?.errors?.['email'] && femail==true" class="errores" style="color: red; font-size: 10px; position: absolute;">
               El mail no es válido
             </span>
           </div>
           <div class="inputForm">
-            <input type="password" class="inputFormControl AfterEncima" formControlName="password" placeholder="Contraseña">
+            <input type="password" class="inputFormControl AfterEncima" formControlName="password" placeholder="Contraseña" (focus)="focuspass()">
             <span class="form__bar"></span>
             <br>
-            <span *ngIf="this.formulario.get('password')?.errors?.['required']"  class="errores" style="color: red; font-size: 10px; position: absolute;">
+            <span *ngIf="this.formulario.get('password')?.errors?.['required'] && fpass==true"  class="errores" style="color: red; font-size: 10px; position: absolute;">
               Debe ingresar un password
             </span>
-            <span *ngIf="this.formulario.get('password')?.errors?.['minlength']"  class="errores" style="color: red; font-size: 10px; position: absolute;">
+            <span *ngIf="this.formulario.get('password')?.errors?.['minlength'] && fpass==true"  class="errores" style="color: red; font-size: 10px; position: absolute;">
               La contraseña debe ser mayor a 8 digitos
             </span>
           </div>
           <div class="inputForm">
-            <input type="text" class="inputFormControl AfterEncima" formControlName="phone" placeholder="Telefono 52-346-112-62-01">
+            <input type="text" class="inputFormControl AfterEncima" formControlName="phone" placeholder="Telefono 52-346-112-62-01" (focus)="focusphone()">
             <span class="form__bar"></span>
             <br>
-            <span *ngIf="this.formulario.get('phone')?.errors?.['required']"  class="errores" style="color: red; font-size: 10px; position: absolute;">
+            <span *ngIf="this.formulario.get('phone')?.errors?.['required'] && fphone==true"  class="errores" style="color: red; font-size: 10px; position: absolute;">
               Debe ingresar un telefono
             </span>
-            <span *ngIf="this.formulario.get('phone')?.errors?.['pattern']"  class="errores" style="color: red; font-size: 10px; position: absolute;">
+            <span *ngIf="this.formulario.get('phone')?.errors?.['pattern'] && fphone==true"  class="errores" style="color: red; font-size: 10px; position: absolute;">
               telefono incorrecto
             </span>
-            <span *ngIf="this.formulario.get('phone')?.errors?.['maxlength'] && !this.formulario.get('phone')?.errors?.['pattern']"  class="errores" style="color: red; font-size: 10px; position: absolute;">
+            <span *ngIf="this.formulario.get('phone')?.errors?.['maxlength'] && !this.formulario.get('phone')?.errors?.['pattern'] && fphone==true"  class="errores" style="color: red; font-size: 10px; position: absolute;">
               telefono grande
             </span>
-            <span *ngIf="this.formulario.get('phone')?.errors?.['minlength'] && !this.formulario.get('phone')?.errors?.['pattern']"  class="errores" style="color: red; font-size: 10px; position: absolute;">
+            <span *ngIf="this.formulario.get('phone')?.errors?.['minlength'] && !this.formulario.get('phone')?.errors?.['pattern'] && fphone==true"  class="errores" style="color: red; font-size: 10px; position: absolute;">
               telefono pequeño
             </span>
           </div>
           <div class="inputForm">
-            <input type="text" class="inputFormControl AfterEncima" formControlName="cedule" placeholder="Cedula Profesional">
+            <input type="text" class="inputFormControl AfterEncima" formControlName="cedule" placeholder="Cedula Profesional" (focus)="focuscedula()">
             <span class="form__bar"></span>
             <br>
-            <span *ngIf="this.formulario.get('cedule')?.errors?.['required']"  class="errores" style="color: red; font-size: 10px; position: absolute;">
+            <span *ngIf="this.formulario.get('cedule')?.errors?.['required'] && fcedula==true"  class="errores" style="color: red; font-size: 10px; position: absolute;">
               Debe ingresar una cedula
             </span>
           </div>
           <div class="inputForm plaza">
             <label class="form-label" style="transform: translateY(8px);">Plaza</label>
-            <select name="" id="" formControlName="plaza" placeholder="" class="inputFormControlPlaza">
+            <select name="" id="" formControlName="plaza" placeholder="" class="inputFormControlPlaza" (focus)="focusplaza()">
               <option *ngFor="let plaza of plazasDisponibles" value="{{plaza.idEstudio}}">{{plaza.idEstudio}}</option>
             </select>
-            <span *ngIf="this.formulario.get('plaza')?.errors?.['required']"  class="errores" style="color: red; font-size: 10px; position: absolute; top: 30px;">
+            <span *ngIf="this.formulario.get('plaza')?.errors?.['required'] && fplaza==true"  class="errores" style="color: red; font-size: 10px; position: absolute; top: 30px;">
               Seleccione una plaza
             </span>
           </div>
-          <input type="submit" value="Enviar" class="botonSubmitt">
+          <input type="submit" value="Enviar" class="botonSubmitt" (click)="todo()">
         </form>
 
         </div>

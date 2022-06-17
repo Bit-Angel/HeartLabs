@@ -14,6 +14,13 @@ export class UserRegisterComponent implements OnInit {
   formulario: FormGroup;
   user: User;
   pattern = /[0-9\+\-\ ]/;
+  fname = false;
+  flastname = false;
+  femail=false;
+  fpass=false;
+  fphone=false;
+  ffecha=false;
+  fsex= false;
   constructor(private regiserService: FirebaseService, private router: Router )  { 
     this.formulario = new FormGroup ({
       name: new FormControl('', Validators.required),
@@ -28,7 +35,7 @@ export class UserRegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
   onSubmit(){
     //verificamos formulario
     if (this.formulario.valid){
@@ -74,9 +81,37 @@ export class UserRegisterComponent implements OnInit {
         title: 'Oops...',
         text: 'Algunos Datos son incorrectos!'
       })
-    }
-  
-
+    }  
+  }
+  focusname(){
+    this.fname = true;
+  }
+  focuslastname(){
+    this.flastname = true;
+  }
+  focusemail(){
+    this.femail=true;
+  }
+  focuspass(){
+    this.fpass=true;
+  }
+  focusphone(){
+    this.fphone=true;
+  }
+  focusfecha(){
+    this.ffecha=true;
+  }
+  focussex(){
+    this.fsex= true;
+  }
+  todo(){
+    this.fname = true;
+    this.flastname = true;
+    this.femail=true;
+    this.fpass=true;
+    this.fphone=true;
+    this.ffecha=true;
+    this.fsex= true;
   }
 }
 
