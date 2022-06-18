@@ -2,38 +2,71 @@
 
 <div class="container espacioAB">
     <h1 class="titulo">Nosotros...</h1>
-    <h4 class="sub">Somos un laboratorio Mexicano</h4>
-    <p>Durante más de 70 años de sólida trayectoria, 
-        hemos generado confianza y credibilidad en nuestros pacientes, 
-        tomando fuerza y posicionamiento al ser un laboratorio de amplia cobertura y brindar 
-        servicios de análisis clínicos y de gabinete.
-    </p>
-    <h4 class="sub">Confiabilidad</h4>
-    <p>Nos reconocen por la calidad en el proceso de toma de muestras y en la entrega de resultados, somos respaldados por nuestro centro analítico y de referencia internacional CARPERMOR, el más grande del país.</p>
+    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
 
-      <h4 class="sub">Cercanía</h4>
-      <p>Tenemos muy claros nuestros valores, y contamos con todos los canales de contacto necesarios como: sitio web, app, WhatsApp, centro de atención telefónica y nuestras sucursales, lo que nos permite ofrecer a nuestros pacientes un servicio excepcional con la mayor calidad.</p>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="10000">
+            <img src="../../assets/conocenos/mex1.jpg" class="d-block w-50" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5 class="info">Somos una laboratorio Mexicano</h5>
+              <p class="info">Durante más de 70 años de sólida trayectoria, 
+                hemos generado confianza y credibilidad en nuestros pacientes, 
+                tomando fuerza y posicionamiento al ser un laboratorio de amplia cobertura y brindar 
+                servicios de análisis clínicos y de gabinete.</p>
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="../../assets/conocenos/manook.jpg" class="d-block w-50" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5 class="info">Confiabilidad</h5>
+              <p class="info">Nos reconocen por la calidad en el proceso de toma de muestras y en la entrega de resultados, somos respaldados por nuestro centro analítico y de referencia internacional CARPERMOR, el más grande del país.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="../../assets/conocenos/vac.jpg" class="d-block w-50" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5 class="info">Cercania</h5>
+              <p class="info">Tenemos muy claros nuestros valores, y contamos con todos los canales de contacto necesarios como: sitio web, app, WhatsApp, centro de atención telefónica y nuestras sucursales, lo que nos permite ofrecer a nuestros pacientes un servicio excepcional con la mayor calidad.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="../../assets/conocenos/muestralab.jpg" class="d-block w-50" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5 class="info">Experiencia</h5>
+              <p class="info">Somos el gabinete privado más completo del país, con una plantilla multidisciplinaria de más de 500 médicos especialistas y técnicos totalmente capacitados, quienes realizan estudios para nuestros pacientes con equipos de alta tecnología</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
 
-    <h4 class="sub">Experiencia</h4>
-    <p>Somos el gabinete privado más completo del país, con una plantilla multidisciplinaria de más de 500 médicos especialistas y técnicos totalmente capacitados, quienes realizan estudios para nuestros pacientes con equipos de alta tecnología</p>
-
-    <div>
-        <form class="form fond">
+    <div class="marc">
+        <form class="form fond" action="/send-email" method="post">
             <div class="form_container">
                 <h2 class="form_title">Contáctanos</h2>
-                <div class="form_group">
-                    
-                    <input type="email" id="name" class="form_input">
-                    <label for="name" class="form_label" placeholder="alguno@heartlabs.com">Correo Electrónico</label>
-                    <span class="form_line"></span><br><br>
-                </div>
-                <div class="form_group">
-                    <textarea type="text" id="name" class="form_input"></textarea>
-                    <label for="name" class="form_label">Mensaje</label>
-                    <span class="form_line"></span>
-                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                    <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                    <textarea class="form-control" name="mensaje" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
     
-                <input type="submit" class="form_submit" value="Enviar">
+                <input type="submit" class="btn btn-primary mb-3" value="Enviar">
                 
             </div>
         </form>
