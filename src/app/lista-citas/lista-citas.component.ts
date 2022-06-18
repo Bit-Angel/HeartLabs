@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import Cita from '../interfaces/cita.interface';
@@ -26,7 +26,7 @@ export class ListaCitasComponent implements OnInit {
   url = '';
   value = this.url;
   level = 'H';
-  form: FormGroup;
+  form: UntypedFormGroup;
   idCitaEditar: any;
   //termino de Qr
 
@@ -36,8 +36,8 @@ export class ListaCitasComponent implements OnInit {
     private router: Router,
     public auth: Auth
   ) {
-    this.form = new FormGroup({
-     resultado: new FormControl()
+    this.form = new UntypedFormGroup({
+     resultado: new UntypedFormControl()
     });
   }
 

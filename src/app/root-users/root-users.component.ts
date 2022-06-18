@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import User from '../interfaces/user.interface';
 import { FirebaseService } from '../services/firebase.service';
 import Swal from 'sweetalert2';
@@ -12,20 +12,20 @@ import Swal from 'sweetalert2';
 export class RootUsersComponent implements OnInit {
   id: any;
   ListaDeUsuarios: User[];
-  form: FormGroup;
+  form: UntypedFormGroup;
   loading = false;
 
   searchText = ''
 
   constructor(private firebaseService: FirebaseService) {
-    this.form = new FormGroup({
-      name: new FormControl(),
-      lastName: new FormControl(),
-      email: new FormControl(),
-      password: new FormControl(),
-      phone: new FormControl(),
-      birthday: new FormControl(),
-      sex: new FormControl(),
+    this.form = new UntypedFormGroup({
+      name: new UntypedFormControl(),
+      lastName: new UntypedFormControl(),
+      email: new UntypedFormControl(),
+      password: new UntypedFormControl(),
+      phone: new UntypedFormControl(),
+      birthday: new UntypedFormControl(),
+      sex: new UntypedFormControl(),
     });
   }//constructor
 

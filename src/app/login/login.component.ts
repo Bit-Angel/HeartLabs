@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FirebaseService } from '../services/firebase.service';
 import {
@@ -18,16 +18,16 @@ import { collectionData, Firestore } from '@angular/fire/firestore';
 })
 export class LoginComponent implements OnInit {
   x: any;
-  formulario: FormGroup;
+  formulario: UntypedFormGroup;
 
   constructor(
     private loginService: FirebaseService,
     private router: Router,
     private db: Firestore
   ) {
-    this.formulario = new FormGroup({
-      email: new FormControl(),
-      password: new FormControl(),
+    this.formulario = new UntypedFormGroup({
+      email: new UntypedFormControl(),
+      password: new UntypedFormControl(),
     });
   }
 

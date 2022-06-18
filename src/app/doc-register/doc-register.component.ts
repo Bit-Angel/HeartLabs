@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators  } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators  } from '@angular/forms';
 import { Router } from '@angular/router';
 import Doc from '../interfaces/doc.interface';
 import { FirebaseService } from '../services/firebase.service';
@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./doc-register.component.css']
 })
 export class DocRegisterComponent implements OnInit {
-  formulario: FormGroup;
+  formulario: UntypedFormGroup;
   doctor:Doc;
   plazasDisponibles:any[]=[];
   nuevaPlaza:Plaza|any;
@@ -24,14 +24,14 @@ export class DocRegisterComponent implements OnInit {
   fcedula=false;
   fplaza=false;
   constructor(private regiserDoc: FirebaseService, private router: Router) { 
-    this.formulario = new FormGroup ({
-      name: new FormControl('', Validators.required),
-      lastName: new FormControl('', Validators.required),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required,Validators.minLength(8)]),
-      phone: new FormControl('', [ Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(12), Validators.maxLength(12)]),
-      cedule: new FormControl('', Validators.required),
-      plaza: new FormControl('', Validators.required)
+    this.formulario = new UntypedFormGroup ({
+      name: new UntypedFormControl('', Validators.required),
+      lastName: new UntypedFormControl('', Validators.required),
+      email: new UntypedFormControl('', [Validators.required, Validators.email]),
+      password: new UntypedFormControl('', [Validators.required,Validators.minLength(8)]),
+      phone: new UntypedFormControl('', [ Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(12), Validators.maxLength(12)]),
+      cedule: new UntypedFormControl('', Validators.required),
+      plaza: new UntypedFormControl('', Validators.required)
       }) ;
   }
 

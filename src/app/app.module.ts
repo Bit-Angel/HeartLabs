@@ -37,6 +37,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { QRCodeModule }  from 'angular2-qrcode';
 import { UserPipe } from './root-users/user.pipe';
 import { DoctorPipe } from './root-docs/doctor.pipe';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,13 @@ import { DoctorPipe } from './root-docs/doctor.pipe';
     }),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

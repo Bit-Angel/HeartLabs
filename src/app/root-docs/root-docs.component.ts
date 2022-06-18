@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { FirebaseService, Plaza } from '../services/firebase.service';
 import Swal from 'sweetalert2';
 import Doc from '../interfaces/doc.interface';
@@ -14,16 +14,16 @@ export class RootDocsComponent implements OnInit {
   id: any;
   nuevaPlaza:Plaza|any;
   ListaDeUsuarios: Doc[];
-  form: FormGroup;
+  form: UntypedFormGroup;
   loading = false;
 
   constructor(private firebaseService: FirebaseService) {
-    this.form = new FormGroup({
-      name: new FormControl(),
-      lastName: new FormControl(),
-      email: new FormControl(),
-      phone: new FormControl(),
-      cedule: new FormControl()
+    this.form = new UntypedFormGroup({
+      name: new UntypedFormControl(),
+      lastName: new UntypedFormControl(),
+      email: new UntypedFormControl(),
+      phone: new UntypedFormControl(),
+      cedule: new UntypedFormControl()
     });
   }//constructor
 
