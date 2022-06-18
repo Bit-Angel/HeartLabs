@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
       title:"Clinica 2"
     },
     {
-      calle:" Av. Prolongacion Ignacio Zaragoza",   
+      calle:" Av. Prolongacion Zaragoza",   
       cp:"20908",
       numero:"905",
       telefono:"449 153 5900",
@@ -44,11 +44,15 @@ export class HomeComponent implements OnInit {
   firstSize:Observable<number>
   thirdSize:Observable<number>
   fourthSize:Observable<number>
+  fifthSize:Observable<number>
+  sixthSize:Observable<number>
   constructor(private accessibility:AccessibilityService) {
     this.secondSize = this.accessibility._size
     this.firstSize = this.accessibility._size2
     this.thirdSize = this.accessibility._size3
     this.fourthSize = this.accessibility._size4
+    this.fifthSize = this.accessibility._size5
+    this.sixthSize = this.accessibility._size6
   }
 
   ngOnInit(): void {

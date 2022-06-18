@@ -15,6 +15,7 @@ export class FooterComponent implements OnInit {
   firstSize:Observable<number>
   thirdSize:Observable<number>
   fourthSize:Observable<number>
+  fifthSize:Observable<number>
 
   constructor(private router: Router,private accessibility:AccessibilityService ) {
     if(this.router.url == 'http://localhost:4200/login'){
@@ -24,6 +25,7 @@ export class FooterComponent implements OnInit {
     this.firstSize = this.accessibility._size2
     this.thirdSize = this.accessibility._size3
     this.fourthSize = this.accessibility._size4
+    this.fifthSize = this.accessibility._size5
   }
 
   ngOnInit(): void {

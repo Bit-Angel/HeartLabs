@@ -11,6 +11,8 @@ export class AccesibilidadComponent implements OnInit {
   firstSize=20
   thirdSize=23
   fourthSize=16
+  fifthSize=30
+  sixthSize=16.5
   constructor(
     private accesibility:AccessibilityService,
   ) { }
@@ -26,13 +28,16 @@ export class AccesibilidadComponent implements OnInit {
       const {secondSize,
         firstSize,
         thirdSize,
-        fourthSize} = loadedData[user];
+        fourthSize,
+        fifthSize,sixthSize} = loadedData[user];
 
         this.secondSize = secondSize
         this.firstSize = firstSize
         this.thirdSize = thirdSize
         this.fourthSize = fourthSize
-        this.accesibility.updateSize(this.secondSize,this.firstSize,this.thirdSize,this.fourthSize)
+        this.fifthSize = fifthSize
+        this.sixthSize = sixthSize
+        this.accesibility.updateSize(this.secondSize,this.firstSize,this.thirdSize,this.fourthSize,this.fifthSize,this.sixthSize)
     }
   }
 
@@ -44,11 +49,13 @@ export class AccesibilidadComponent implements OnInit {
 
   size() {
     console.log("here")
-    this.secondSize=this.secondSize+.5;
-    this.firstSize=this.firstSize+.5
-    this.thirdSize=this.thirdSize+.5
-    this.fourthSize=this.fourthSize+.5
-    this.accesibility.updateSize(this.secondSize,this.firstSize,this.thirdSize,this.fourthSize)
+    this.secondSize=this.secondSize+.1;
+    this.firstSize=this.firstSize+.1
+    this.thirdSize=this.thirdSize+.1
+    this.fourthSize=this.fourthSize+.1
+    this.fifthSize=this.fifthSize+.1
+    this.sixthSize=this.sixthSize+.1
+    this.accesibility.updateSize(this.secondSize,this.firstSize,this.thirdSize,this.fourthSize,this.fifthSize,this.sixthSize)
     this.updateData()
   }
 
@@ -64,6 +71,8 @@ export class AccesibilidadComponent implements OnInit {
       firstSize:this.firstSize,
       thirdSize:this.thirdSize,
       fourthSize:this.fourthSize,
+      fifthSize:this.fifthSize,
+      sixthSize:this.sixthSize
     }
     this.saveData(loadedData)
   }

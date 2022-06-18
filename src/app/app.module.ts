@@ -36,6 +36,7 @@ import { AgmCoreModule } from '@agm/core';
 import { NgChartsModule } from 'ng2-charts';
 import { QRCodeModule }  from 'angular2-qrcode';
 import { UserPipe } from './root-users/user.pipe';
+import { DoctorPipe } from './root-docs/doctor.pipe';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { UserPipe } from './root-users/user.pipe';
     RootDocsComponent,
     RootUsersComponent,
     UserPipe,
+    DoctorPipe,
     GraficasComponent
   ],
   imports: [
