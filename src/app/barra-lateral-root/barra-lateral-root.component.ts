@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
 import { Router } from '@angular/router';
+import { AccessibilityService } from '../services/accessibility.service';
 
 @Component({
   selector: 'app-barra-lateral-root',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class BarraLateralRootComponent implements OnInit {
 
-  constructor(private firebaseService:FirebaseService, private router:Router) { }
+  constructor(private firebaseService:FirebaseService, private router:Router, private accessibility:AccessibilityService) { }
 
   ngOnInit(): void {
   }

@@ -6,6 +6,13 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class AccessibilityService {
 
+  secondSize = 50;
+  firstSize=20
+  thirdSize=23
+  fourthSize=16
+  fifthSize=30
+  sixthSize=16.5
+
   private size:BehaviorSubject<number> = new BehaviorSubject<number>(50)
   private size2:BehaviorSubject<number> = new BehaviorSubject<number>(20)
   private size3:BehaviorSubject<number> = new BehaviorSubject<number>(23)
@@ -21,6 +28,16 @@ export class AccessibilityService {
   _size6:Observable<number> = this.size6.asObservable();
 
   constructor() { }
+
+  resetValues(){
+    this.secondSize = 50;
+    this.firstSize=20
+    this.thirdSize=23
+    this.fourthSize=16
+    this.fifthSize=30
+    this.sixthSize=16.5
+    this.updateSize(this.secondSize,this.firstSize,this.thirdSize,this.fourthSize,this.fifthSize,this.sixthSize)
+  }
 
   updateSize(size,size2,size3,size4,size5,size6){
     this.size.next(size);

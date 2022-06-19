@@ -19,6 +19,7 @@ export class EstudiosComponent implements OnInit {
   thirdSize:Observable<number>
   fourthSize:Observable<number>
   fifthSize:Observable<number>
+  sixthSize:Observable<number>
 
   misEstudios:Estudio[] = [];
   estudiosDisponibles:any[]=[];
@@ -33,6 +34,7 @@ export class EstudiosComponent implements OnInit {
       this.thirdSize = this.accessibility._size3
       this.fourthSize = this.accessibility._size4
       this.fifthSize = this.accessibility._size5
+      this.sixthSize=this.accessibility._size6
     }
 
   ngOnInit(): void {

@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
 import { FirebaseService } from '../services/firebase.service';
 import { Router } from '@angular/router';
+import { AccessibilityService } from '../services/accessibility.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-nav-bar',
@@ -13,13 +15,15 @@ export class NavBarComponent implements OnInit {
   nmbre: any;
   tipenmbre: any;
 
-  constructor(private firebaseService:FirebaseService, private router:Router, public auth:Auth) {
+  constructor(private firebaseService:FirebaseService, private router:Router, public auth:Auth, private accessibility:AccessibilityService) {
     this.getInfoUser();
   }
 
   ngOnInit(): void {
     this.llamadaBandera();
-    
+    this.auth.onAuthStateChanged(user => {
+      this.llamadaBandera();
+     })
   }
   // andres@correo.com
 
@@ -44,6 +48,7 @@ export class NavBarComponent implements OnInit {
 
   onClick() {
     this.deleteInfoUser();
+    this.accessibility.resetValues()
     this.firebaseService.logout().then(() => {
       this.llamadaBandera();
       this.router.navigate(['/home']);
