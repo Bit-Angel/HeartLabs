@@ -54,19 +54,19 @@
       </div>
 
     <div class="marc">
-        <form class="form fond" action="/send-email" method="post">
+        <form class="form fond">
             <div class="form_container">
                 <h2 class="form_title">Contáctanos</h2>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Correo electronico:</label>
-                    <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                    <input type="email" [(ngModel)]="pers.email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
                   </div>
                   <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Escribe tu mensaje:</label>
-                    <textarea class="form-control" name="mensaje" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" [(ngModel)]="pers.message" id="exampleFormControlTextarea1" rows="3"></textarea>
                   </div>
     
-                <input type="submit" class="btn btn-primary mb-3" value="Enviar">
+                <input (click)="enviarEmail()" type="submit" class="btn btn-primary mb-3" value="Enviar">
                 
             </div>
         </form>

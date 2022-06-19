@@ -38,6 +38,7 @@ import { QRCodeModule }  from 'angular2-qrcode';
 import { UserPipe } from './root-users/user.pipe';
 import { DoctorPipe } from './root-docs/doctor.pipe';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     NgChartsModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCPd2D-O7mbfA8B2x7n60X9rsXx3B2J0Bs'
     }),
