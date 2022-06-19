@@ -17,36 +17,43 @@ a{
 .categorias {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	gap: 20px;
+	gap: 30px;
 	margin-bottom: 60px;
 }
 
 .categoria {
 	cursor: pointer;
 	text-align: center;
-	padding: 20px;
+	background-color: var(--c2);
+	padding: 15px;
 	border-radius: 10px;
 	font-weight: 700;
 	border: 2px solid transparent;
 	transition: .3s ease all;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .categoria:hover {
 	box-shadow: 0 0 13px 0 rgba(185,185,185, .25);
 	color: #000;
+	transform: scale(1.05);
 }
 
 .categoria:hover path {
-	fill: #22577A;
+	fill: white;
 }
 
 .categoria svg {
-	width: 64px;
+	width: max-content;
 	margin-bottom: 10px;
 }
 
 .categoria path {
-	fill: var(--gris-claro);
+	fill: white;
 	transition: .3s ease all;
 }
 
@@ -57,6 +64,9 @@ a{
 
 .categoria.activa path {
 	fill: #22577A;
+}
+.categoria p a{
+	color: white;
 }
 
 /*! =================================================*/

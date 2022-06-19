@@ -20,6 +20,7 @@ export class ListaCitasComponent implements OnInit {
     //Esta variable guarda todos los datos que estan en la base de datos del usuario que se conecta
   };
   boolTipo: boolean = true; //true: user, false: doc;
+  idsCitas:string[] = [];
   citas: any[] = [];
   //QR
   title = 'Qr';
@@ -37,7 +38,7 @@ export class ListaCitasComponent implements OnInit {
     public auth: Auth
   ) {
     this.form = new UntypedFormGroup({
-     resultado: new UntypedFormControl()
+      resultado: new UntypedFormControl(),
     });
   }
 
@@ -94,73 +95,75 @@ export class ListaCitasComponent implements OnInit {
     }
   }
 
-  guardarResults(res:string){
+  guardarResults(res: string) {
     Swal.fire({
       icon: 'info',
       title: 'Resultados de su estudio',
       text: res,
-      footer: '<a href="">Cerrar</a>'
-    })
+    });
   }
 
-  editarResultados(citaModificar: Cita){
-    this.idCitaEditar = citaModificar.idEstudio;
-    console.log("estoy imprimiendo: " + this.idCitaEditar);
+  editarResultados(citaModificar: Cita, i:string) {
+    this.idCitaEditar = this.idsCitas[i];
+    console.log('estoy imprimiendo: ' + this.idCitaEditar);
     this.form.patchValue({
       resultado: citaModificar.resultado,
     });
   }
 
-  onSubmit(ID:any) {
+  onSubmit(ID: any) {
     const resultadoActualizado: any = {
-      resultado: this.form.value.resultado
+      resultado: this.form.value.resultado,
     };
 
+    this.firebaseService.updateResultado(ID, resultadoActualizado).then(
+      () => {
+        // agregar spinner
+        this.form.reset();
+        this.idCitaEditar = 0;
 
-    this.firebaseService.updateResultado(ID, resultadoActualizado).then(() =>{
-      // agregar spinner
-      this.form.reset();
-      this.idCitaEditar = 0;
-
-      Swal.fire({
-        title: 'Cambios realizados',
-        text: "Resultados Actalizados",
-        icon: 'success',
-        confirmButtonColor: 'var(--c1)',
-        confirmButtonText: 'Ok'
-      })
-    }, error =>{
-      console.log(error);
-    });
-
-  }//onsubmit
+        Swal.fire({
+          title: 'Cambios realizados',
+          text: 'Resultados Actualizados',
+          icon: 'success',
+          confirmButtonColor: 'var(--c1)',
+          confirmButtonText: 'Ok',
+        });
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  } //onsubmit
 
   obtenerCitas() {
     console.log(this.usuarioActual.email);
 
     if (localStorage.getItem('TipoUsuario') == 'Doctor') {
       this.firebaseService
-      .getCitas(this.usuarioActual.email, 'emailDoc')
-      .then((response) => {
-        response.forEach((cita) => {
-          this.citas.push(cita.data());
-          console.log(this.citas);
-        });
-      })
-      .catch((error) => console.log(error));
-    }else{
+        .getCitas(this.usuarioActual.email, 'emailDoc')
+        .then((response) => {
+          response.forEach((cita) => {
+            this.idsCitas.push(cita.id);
+            this.citas.push(cita.data());
+            console.log(this.citas);
+            console.log(this.citas[0].id);
+          });
+        })
+        .catch((error) => console.log(error));
+    } else {
       this.firebaseService
-      .getCitas(this.usuarioActual.email, 'emailUser')
-      .then((response) => {
-        response.forEach((cita) => {
-          this.citas.push(cita.data());
-          console.log(this.citas);
-        });
-      })
-      .catch((error) => console.log(error));
+        .getCitas(this.usuarioActual.email, 'emailUser')
+        .then((response) => {
+          response.forEach((cita) => {
+            this.idsCitas.push(cita.id);
+            this.citas.push(cita.data());
+            console.log(this.citas);
+            console.log(this.citas[0].id);
+          });
+        })
+        .catch((error) => console.log(error));
     }
-
-    
   }
 
   agregar_URL(nombre: any, id: any, precio: any, fecha: any) {

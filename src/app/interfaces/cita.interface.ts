@@ -3,6 +3,7 @@ export default interface Cita {
     emailUser:string;
     emailDoc:string;
     idEstudio:string;
+    nombreestudio:string;
     fecha:string;
     price:number;
     resultado:string;

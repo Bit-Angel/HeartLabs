@@ -29,11 +29,12 @@
   </div>
   <div *ngIf="!boolTipo">
     <div *ngIf="citas.length; else skeleton"></div>
-    <div *ngFor="let cita of citas" class="dentro">
+    <div *ngFor="let cita of citas let i=index" class="dentro">
       <div class="card card-body">
         <h2 class="text-center">Cita Programada</h2>
         <div class="datos">
 
+          <p><strong>Paciente: </strong> {{cita.emailUser}}</p>
           <p><strong>Estudio a realizar: </strong> {{cita.nombreestudio}}</p>
           <p><strong>Id Estudio:</strong> {{cita.idEstudio}}</p>
           <p><strong>Precio del estudio:</strong> {{cita.price | currency}}</p>
@@ -41,7 +42,7 @@
         </div>
       </div>
       <div class="card botones">
-        <button type="button" (click)="editarResultados(cita)" data-toggle="modal" data-target="#resultadosModal">Editar Resultados</button>
+        <button type="button" (click)="editarResultados(cita, i)" data-toggle="modal" data-target="#resultadosModal">Editar Resultados</button>
       </div>
       <hr>
     </div>
