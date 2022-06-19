@@ -167,37 +167,11 @@ export class ListaCitasComponent implements OnInit {
   }
 
   agregar_URL(nombre: any, id: any, precio: any, fecha: any) {
-    this.url =
-      'http://localhost:3000/' +
-      id +
-      '/' +
-      nombre +
-      '/' +
-      precio +
-      '/' +
-      fecha +
-      '/' +
-      this.usuarioActual.name +
-      '/' +
-      this.usuarioActual.lastName;
+    this.url ='https://heartlabs.azurewebsites.net'+id+'/'+nombre+'/'+precio+'/'+fecha+'/'+this.usuarioActual.name+'/'+this.usuarioActual.lastName;
     this.value = this.url;
   }
 
   abriracceso(nombre: any, id: any, precio: any, fecha: any) {
-    window.open(
-      'http://localhost:3000/' +
-        id +
-        '/' +
-        nombre +
-        '/' +
-        precio +
-        '/' +
-        fecha +
-        '/' +
-        this.usuarioActual.name +
-        '/' +
-        this.usuarioActual.lastName,
-      '_blank'
-    );
+    window.open('https://heartlabs.azurewebsites.net'+id+'/'+nombre+'/'+precio+'/'+fecha+'/'+this.usuarioActual.name+'/'+this.usuarioActual.lastName,'_blank');
   }
 }
